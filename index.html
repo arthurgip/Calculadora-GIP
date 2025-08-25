@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadoras GIP Ecommerce</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            min-height: 100vh;
+        }
+        
+        .card {
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 154, 158, 0.4);
+        }
+        
+        .btn-marketplace {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-marketplace:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 233, 123, 0.4);
+        }
+        
+        .btn-lojas {
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-lojas:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(246, 211, 101, 0.4);
+        }
+        
+        .logo {
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+        }
+        
+        /* Estilos específicos para as calculadoras */
+        .shopee-theme {
+            background: linear-gradient(135deg, #ff6f00 0%, #ffad42 100%);
+        }
+        
+        .mercadolivre-theme {
+            background: linear-gradient(135deg, #f4d000 0%, #ffe066 100%);
+        }
+        
+        .shein-theme {
+            background: linear-gradient(135deg, #000000 0%, #434343 100%);
+        }
+        
+        .magalu-theme {
+            background: linear-gradient(135deg, #003399 0%, #0055cc 100%);
+        }
+        
+        .amazon-theme {
+            background: linear-gradient(135deg, #ff9900 0%, #ffb84d 100%);
+        }
+        
+        .viacloset-theme {
+            background: linear-gradient(135deg, #000000 0%, #333333 100%);
+        }
+        
+        .exposicao-theme {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        }
+        
+        .gip-theme {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        }
+        
+        .tiktok-theme {
+            background: linear-gradient(135deg, #000000 0%, #ff0050 100%);
+        }
+        
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .result-card {
+            transition: all 0.3s ease;
+        }
+        
+        .result-card:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://i.postimg.cc/cHpqQ3Rs/calculadora.png" alt="Logo Calculadora" class="h-10 w-10 mr-3 logo">
+                <span class="text-xl font-semibold text-gray-800">GIP Calculadoras</span>
+            </div>
+            <div id="nav-links" class="hidden md:block">
+                <a href="#" id="home-link" class="px-4 py-2 text-gray-700 hover:text-purple-600 transition-colors">Início</a>
+                <a href="#" id="marketplace-link" class="px-4 py-2 text-gray-700 hover:text-purple-600 transition-colors">Marketplaces</a>
+                <a href="#" id="lojas-link" class="px-4 py-2 text-gray-700 hover:text-purple-600 transition-colors">Lojas Físicas</a>
+                <a href="#" id="config-link" class="px-4 py-2 text-gray-700 hover:text-purple-600 transition-colors">Configurações</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+            <a href="#" id="mobile-home-link" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Início</a>
+            <a href="#" id="mobile-marketplace-link" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Marketplaces</a>
+            <a href="#" id="mobile-lojas-link" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Lojas Físicas</a>
+            <a href="#" id="mobile-config-link" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Configurações</a>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-8 sm:pb-12">
+        <!-- Página Inicial -->
+        <div id="home-page" class="animate-fade-in">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold text-gray-800 mb-4">Calculadoras GIP Ecommerce</h1>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Escolha o tipo de calculadora que deseja utilizar para precificar seus produtos de forma eficiente.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+                <div class="card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-40 btn-marketplace flex items-center justify-center">
+                        <svg class="w-20 h-20 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h2 class="text-2xl font-semibold text-gray-800 mb-3">Marketplaces</h2>
+                        <p class="text-gray-600 mb-6">Calcule os preços ideais para seus produtos em diferentes marketplaces como Shopee, Mercado Livre, Shein, Magalu e Amazon.</p>
+                        <button id="btn-marketplace" class="w-full py-3 px-6 text-white font-medium rounded-lg btn-marketplace">
+                            Acessar Calculadoras
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-40 btn-lojas flex items-center justify-center">
+                        <svg class="w-20 h-20 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h2 class="text-2xl font-semibold text-gray-800 mb-3">Lojas Físicas</h2>
+                        <p class="text-gray-600 mb-6">Calcule os preços ideais para seus produtos em lojas físicas como Exposição Paulista, Via Closet e GIP Ecommerce.</p>
+                        <button id="btn-lojas" class="w-full py-3 px-6 text-white font-medium rounded-lg btn-lojas">
+                            Acessar Calculadoras
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Página Marketplaces -->
+        <div id="marketplace-page" class="hidden animate-fade-in">
+            <div class="flex items-center mb-8">
+                <button id="back-to-home-from-marketplace" class="mr-4 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg p-2 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                </button>
+                <h1 class="text-3xl font-bold text-gray-800">Escolha o Marketplace</h1>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 sm:gap-6">
+                <!-- Shopee -->
+                <div class="card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-32 shopee-theme flex items-center justify-center">
+                        <h3 class="text-2xl font-bold text-white">Shopee</h3>
+                    </div>
+                    <div class="p-5">
+                        <p class="text-gray-600 mb-4">Calcule os preços para a plataforma Shopee com diferentes margens de lucro.</p>
+                        <button id="btn-shopee" class="w-full py-2 px-4 bg-gradient-to-r from-orange-500 to-orange-400 text-white font-medium rounded-lg hover:from-orange-600 hover:to-orange-500 transition-all">
+                            Calcular
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Mercado Livre -->
+                <div class="card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-32 mercadolivre-theme flex items-center justify-center">
+                        <h3 class="text-2xl font-bold text-gray-900">Mercado Livre</h3>
+                    </div>
+                    <div class="p-5">
+                        <p class="text-gray-600 mb-4">Calcule os preços para o Mercado Livre considerando taxas e comissões.</p>
+                        <button id="btn-mercadolivre" class="w-full py-2 px-4 bg-gradient-to-r from-yellow-400 to-yellow-300 text-gray-900 font-medium rounded-lg hover:from-yellow-500 hover:to-yellow-400 transition-all">
+                            Calcular
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Shein -->
+                <div class="card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-32 shein-theme flex items-center justify-center">
+                        <h3 class="text-2xl font-bold text-white">Shein</h3>
+                    </div>
+                    <div class="p-5">
+                        <p class="text-gray-600 mb-4">Calcule os preços para a plataforma Shein com diferentes margens.</p>
+                        <button id="btn-shein" class="w-full py-2 px-4 bg-gradient-to-r from-gray-900 to-gray-800 text-white font-medium rounded-lg hover:from-black hover:to-gray-900 transition-all">
+                            Calcular
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Magalu -->
+                <div class="card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-32 magalu-theme flex items-center justify-center">
+                        <h3 class="text-2xl font-bold text-white">Magalu</h3>
+                    </div>
+                    <div class="p-5">
+                        <p class="text-gray-600 mb-4">Calcule os preços para o Marketplace da Magalu com diferentes taxas.</p>
+                        <button id="btn-magalu" class="w-full py-2 px-4 bg-gradient-to-r from-blue-700 to-blue-600 text-white font-medium rounded-lg hover:from-blue-800 hover:to-blue-700 transition-all">
+                            Calcular
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Amazon -->
+                <div class="card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-32 amazon-theme flex items-center justify-center">
+                        <h3 class="text-2xl font-bold text-gray-900">Amazon</h3>
+                    </div>
+                    <div class="p-5">
+                        <p class="text-gray-600 mb-4">Calcule os preços para a Amazon considerando taxas e comissões específicas.</p>
+                        <button id="btn-amazon" class="w-full py-2 px-4 bg-gradient-to-r from-yellow-500 to-yellow-400 text-gray-900 font-medium rounded-lg hover:from-yellow-600 hover:to-yellow-500 transition-all">
+                            Calcular
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- TikTok Shop -->
+                <div class="card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-32 tiktok-theme flex items-center justify-center">
+                        <h3 class="text-2xl font-bold text-white">TikTok Shop</h3>
+                    </div>
+                    <div class="p-5">
+                        <p class="text-gray-600 mb-4">Calcule os preços para o TikTok Shop com comissão de 6% e taxas específicas.</p>
+                        <button id="btn-tiktok" class="w-full py-2 px-4 bg-gradient-to-r from-black to-gray-800 text-white font-medium rounded-lg hover:from-gray-900 hover:to-black transition-all">
+                            Calcular
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Página Configurações -->
+        <div id="config-page" class="hidden animate-fade-in">
+            <div class="flex items-center mb-8">
+                <button id="back-to-home-from-config" class="mr-4 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg p-2 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                </button>
+                <h1 class="text-3xl font-bold text-gray-800">Configurações dos Custos</h1>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+                <!-- Configurações Marketplaces -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                        <svg class="w-6 h-6 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                        Marketplaces
+                    </h2>
+                    
+                    <!-- Shopee -->
+                    <div class="mb-6 p-4 bg-orange-50 rounded-lg border border-orange-200">
+                        <h3 class="text-lg font-medium text-orange-800 mb-3">Shopee</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Comissão (%):</label>
+                                <input type="number" id="shopee-comissao-config" value="20" step="0.1" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Taxa Fixa (R$):</label>
+                                <input type="number" id="shopee-taxa-config" value="4" step="0.01" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Embalagem (R$):</label>
+                                <input type="number" id="shopee-embalagem-config" value="1.5" step="0.01" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mercado Livre -->
+                    <div class="mb-6 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+                        <h3 class="text-lg font-medium text-yellow-800 mb-3">Mercado Livre</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Embalagem (R$):</label>
+                                <input type="number" id="ml-embalagem-config" value="1.5" step="0.01" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500">
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <p class="text-sm text-gray-600"><strong>Taxas Fixas por Faixa de Preço:</strong></p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 text-sm">
+                                <div>R$ 12,50 - R$ 28,99: <input type="number" id="ml-taxa1-config" value="6.25" step="0.01" class="w-16 px-2 py-1 border border-gray-300 rounded text-xs"></div>
+                                <div>R$ 29 - R$ 49,99: <input type="number" id="ml-taxa2-config" value="6.50" step="0.01" class="w-16 px-2 py-1 border border-gray-300 rounded text-xs"></div>
+                                <div>R$ 50 - R$ 78,99: <input type="number" id="ml-taxa3-config" value="6.75" step="0.01" class="w-16 px-2 py-1 border border-gray-300 rounded text-xs"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Shein -->
+                    <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+                        <h3 class="text-lg font-medium text-gray-800 mb-3">Shein</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Comissão (%):</label>
+                                <input type="number" id="shein-comissao-config" value="16" step="0.1" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-gray-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Embalagem (R$):</label>
+                                <input type="number" id="shein-embalagem-config" value="1.5" step="0.01" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-gray-500">
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <p class="text-sm text-gray-600"><strong>Taxas por Peso:</strong></p>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-2 text-sm">
+                                <div>≤300g: R$ <input type="number" id="shein-taxa1-config" value="4" step="0.01" class="w-12 px-1 py-1 border border-gray-300 rounded text-xs"></div>
+                                <div>≤500g: R$ <input type="number" id="shein-taxa2-config" value="5" step="0.01" class="w-12 px-1 py-1 border border-gray-300 rounded text-xs"></div>
+                                <div>>500g: R$ <input type="number" id="shein-taxa3-config" value="22" step="0.01" class="w-12 px-1 py-1 border border-gray-300 rounded text-xs"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Magalu -->
+                    <div class="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                        <h3 class="text-lg font-medium text-blue-800 mb-3">Magalu</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Embalagem (R$):</label>
+                                <input type="number" id="magalu-embalagem-config" value="1.5" step="0.01" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <p class="text-sm text-gray-600"><strong>Taxas por Peso:</strong></p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 text-sm">
+                                <div>≤300g: R$ <input type="number" id="magalu-taxa1-config" value="18" step="0.01" class="w-12 px-1 py-1 border border-gray-300 rounded text-xs"></div>
+                                <div>≤500g: R$ <input type="number" id="magalu-taxa2-config" value="20" step="0.01" class="w-12 px-1 py-1 border border-gray-300 rounded text-xs"></div>
+                                <div>≤1kg: R$ <input type="number" id="magalu-taxa3-config" value="25" step="0.01" class="w-12 px-1 py-1 border border-gray-300 rounded text-xs"></div>
+                                <div>>1kg: R$ <input type="number" id="magalu-taxa4-config" value="30" step="0.01" class="w-12 px-1 py-1 border border-gray-300 rounded text-xs"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Amazon -->
+                    <div class="mb-6 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+                        <h3 class="text-lg font-medium text-yellow-800 mb-3">Amazon</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Embalagem (R$):</label>
+                                <input type="number" id="amazon-embalagem-config" value="1.5" step="0.01" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500">
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <p class="text-sm text-gray-600"><strong>Taxas por Peso:</strong></p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 text-sm">
+                                <div>≤300g: R$ <input type="number" id="amazon-taxa1-config" value="20" step="0.01" class="w-12 px-1 py-1 border border-gray-300 rounded text-xs"></div>
+                                <div>≤500g: R$ <input type="number" id="amazon-taxa2-config" value="25" step="0.01" class="w-12 px-1 py-1 border border-gray-300 rounded text-xs"></div>
+                                <div>≤1kg: R$ <input type="number" id="amazon-taxa3-config" value="30" step="0.01" class="w-12 px-1 py-1 border border-gray-300 rounded text-xs"></div>
+                                <div>>1kg: R$ <input type="number" id="amazon-taxa4-config" value="35" step="0.01" class="w-12 px-1 py-1 border border-gray-300 rounded text-xs"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- TikTok Shop -->
+                    <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                        <h3 class="text-lg font-medium text-gray-800 mb-3">TikTok Shop</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Comissão (%):</label>
+                                <input type="number" id="tiktok-comissao-config" value="6" step="0.1" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-gray-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Taxa Fixa <R$79 (R$):</label>
+                                <input type="number" id="tiktok-taxa-config" value="2" step="0.01" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-gray-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Frete (%):</label>
+                                <input type="number" id="tiktok-frete-config" value="6" step="0.1" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-gray-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Embalagem (R$):</label>
+                                <input type="number" id="tiktok-embalagem-config" value="1.5" step="0.01" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-gray-500">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Configurações Lojas Físicas -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                        <svg class="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                        Lojas Físicas
+                    </h2>
+                    
+                    <!-- Via Closet -->
+                    <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+                        <h3 class="text-lg font-medium text-gray-800 mb-3">Via Closet</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Prime (%):</label>
+                                <input type="number" id="viacloset-prime-config" value="90" step="1" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-gray-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">À Vista (%):</label>
+                                <input type="number" id="viacloset-avista-config" value="100" step="1" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-gray-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">A Prazo (%):</label>
+                                <input type="number" id="viacloset-aprazo-config" value="120" step="1" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-gray-500">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Exposição Paulista -->
+                    <div class="mb-6 p-4 bg-purple-50 rounded-lg border border-purple-200">
+                        <h3 class="text-lg font-medium text-purple-800 mb-3">Exposição Paulista</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Atacado (%):</label>
+                                <input type="number" id="exposicao-atacado-config" value="80" step="1" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">À Vista (%):</label>
+                                <input type="number" id="exposicao-avista-config" value="100" step="1" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">A Prazo (%):</label>
+                                <input type="number" id="exposicao-aprazo-config" value="120" step="1" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- GIP Ecommerce -->
+                    <div class="p-4 bg-blue-50 rounded-lg border border-blue-200">
+                        <h3 class="text-lg font-medium text-blue-800 mb-3">GIP Ecommerce</h3>
+                        <div class="grid grid-cols-1 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Margem (%):</label>
+                                <input type="number" id="gip-margem-config" value="80" step="1" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Botões de Ação -->
+            <div class="flex flex-col sm:flex-row justify-center mt-8 space-y-4 sm:space-y-0 sm:space-x-4">
+                <button id="salvar-config" class="px-6 py-3 bg-gradient-to-r from-green-600 to-green-500 text-white font-medium rounded-lg hover:from-green-700 hover:to-green-600 transition-all">
+                    Salvar Configurações
+                </button>
+                <button id="resetar-config" class="px-6 py-3 bg-gradient-to-r from-red-600 to-red-500 text-white font-medium rounded-lg hover:from-red-700 hover:to-red-600 transition-all">
+                    Restaurar Padrão
+                </button>
+            </div>
+        </div>
+        
+        <!-- Página Lojas Físicas -->
+        <div id="lojas-page" class="hidden animate-fade-in">
+            <div class="flex items-center mb-8">
+                <button id="back-to-home-from-lojas" class="mr-4 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg p-2 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                </button>
+                <h1 class="text-3xl font-bold text-gray-800">Escolha a Loja</h1>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                <!-- Exposição Paulista -->
+                <div class="card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-32 exposicao-theme flex items-center justify-center">
+                        <h3 class="text-2xl font-bold text-white">Exposição Paulista</h3>
+                    </div>
+                    <div class="p-5">
+                        <p class="text-gray-600 mb-4">Calcule os preços para a loja física Exposição Paulista.</p>
+                        <button id="btn-exposicao" class="w-full py-2 px-4 bg-gradient-to-r from-purple-600 to-blue-500 text-white font-medium rounded-lg hover:from-purple-700 hover:to-blue-600 transition-all">
+                            Calcular
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Via Closet -->
+                <div class="card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-32 viacloset-theme flex items-center justify-center">
+                        <h3 class="text-2xl font-bold text-white">Via Closet</h3>
+                    </div>
+                    <div class="p-5">
+                        <p class="text-gray-600 mb-4">Calcule os preços para a loja física Via Closet com diferentes modalidades.</p>
+                        <button id="btn-viacloset" class="w-full py-2 px-4 bg-gradient-to-r from-gray-900 to-gray-800 text-white font-medium rounded-lg hover:from-black hover:to-gray-900 transition-all">
+                            Calcular
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- GIP Ecommerce -->
+                <div class="card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-32 gip-theme flex items-center justify-center">
+                        <h3 class="text-2xl font-bold text-white">GIP Ecommerce</h3>
+                    </div>
+                    <div class="p-5">
+                        <p class="text-gray-600 mb-4">Calcule os preços para a loja física GIP Ecommerce.</p>
+                        <button id="btn-gip" class="w-full py-2 px-4 bg-gradient-to-r from-blue-900 to-blue-700 text-white font-medium rounded-lg hover:from-blue-900 hover:to-blue-800 transition-all">
+                            Calcular
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Calculadora Shopee -->
+        <div id="shopee-calculator" class="hidden animate-fade-in">
+            <div class="flex items-center mb-8">
+                <button id="back-to-marketplace" class="mr-4 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg p-2 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                </button>
+                <h1 class="text-3xl font-bold text-gray-800">Calculadora Shopee</h1>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6 max-w-2xl mx-auto">
+                <div class="flex justify-center mb-6">
+                    <img src="https://i.postimg.cc/mD1CFGH5/Design-sem-nome-1.png" alt="Logo Shopee" class="h-16">
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    <div>
+                        <label for="shopee-custo" class="block text-gray-700 font-medium mb-2">Custo do Produto (R$):</label>
+                        <input type="number" id="shopee-custo" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors">
+                    </div>
+                    
+                    <div>
+                        <label for="shopee-imposto" class="block text-gray-700 font-medium mb-2">Imposto (%):</label>
+                        <input type="number" id="shopee-imposto" placeholder="Ex: 10" value="10" step="0.1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors">
+                    </div>
+                    
+                    <div>
+                        <label for="shopee-margem" class="block text-gray-700 font-medium mb-2">Margem de Lucro (%):</label>
+                        <input type="number" id="shopee-margem" placeholder="Ex: 10" step="1" value="10" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors">
+                    </div>
+                </div>
+                
+                <div class="bg-orange-50 border border-orange-200 rounded-lg p-4 mb-6">
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 text-orange-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <div>
+                            <p class="text-orange-700 text-sm"><strong>Regras Shopee:</strong></p>
+                            <p class="text-orange-600 text-sm">• Comissão: 20% • Taxa fixa: R$ 4,00 por pedido • Embalagem: R$ 1,50</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="calcular-shopee" class="w-full py-3 px-6 bg-gradient-to-r from-orange-500 to-orange-400 text-white font-medium rounded-lg hover:from-orange-600 hover:to-orange-500 transition-all mb-6">
+                    Calcular Preço
+                </button>
+                
+                <div id="shopee-results" class="hidden">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultado</h2>
+                    
+                    <div class="result-card bg-gradient-to-br from-orange-100 to-orange-200 p-6 rounded-lg border border-orange-300">
+                        <h3 class="text-lg font-medium text-orange-800 mb-2">Preço com a margem informada:</h3>
+                        <p id="shopee-resultado" class="text-3xl font-bold text-orange-900">R$ 0,00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Calculadora Via Closet -->
+        <div id="viacloset-calculator" class="hidden animate-fade-in">
+            <div class="flex items-center mb-8">
+                <button id="back-to-lojas" class="mr-4 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg p-2 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                </button>
+                <h1 class="text-3xl font-bold text-gray-800">Calculadora Via Closet</h1>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6 max-w-2xl mx-auto">
+                <div class="flex justify-center mb-6">
+                    <img src="https://i.postimg.cc/7h0nHtBH/Logo-1.png" alt="Logo Via Closet" class="h-16">
+                </div>
+                
+                <div class="mb-6">
+                    <label for="viacloset-custo" class="block text-gray-700 font-medium mb-2">Custo do Produto (R$):</label>
+                    <input type="number" id="viacloset-custo" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                </div>
+                
+                <button id="calcular-viacloset" class="w-full py-3 px-6 bg-gradient-to-r from-gray-900 to-gray-800 text-white font-medium rounded-lg hover:from-black hover:to-gray-900 transition-all mb-6">
+                    Calcular Preços
+                </button>
+                
+                <div id="viacloset-results" class="hidden">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultados</h2>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="result-card bg-gradient-to-br from-gray-50 to-gray-100 p-4 rounded-lg border border-gray-200">
+                            <h3 class="text-lg font-medium text-gray-800">Preço Prime</h3>
+                            <p id="viacloset-preco-prime" class="text-2xl font-bold text-gray-900">R$ 0,00</p>
+                        </div>
+                        
+                        <div class="result-card bg-gradient-to-br from-gray-50 to-gray-100 p-4 rounded-lg border border-gray-200">
+                            <h3 class="text-lg font-medium text-gray-800">Preço à Vista</h3>
+                            <p id="viacloset-preco-avista" class="text-2xl font-bold text-gray-900">R$ 0,00</p>
+                        </div>
+                        
+                        <div class="result-card bg-gradient-to-br from-gray-50 to-gray-100 p-4 rounded-lg border border-gray-200">
+                            <h3 class="text-lg font-medium text-gray-800">Preço a Prazo</h3>
+                            <p id="viacloset-preco-aprazo" class="text-2xl font-bold text-gray-900">R$ 0,00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Calculadora Mercado Livre -->
+        <div id="mercadolivre-calculator" class="hidden animate-fade-in">
+            <div class="flex items-center mb-8">
+                <button id="back-to-marketplace-from-ml" class="mr-4 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg p-2 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                </button>
+                <h1 class="text-3xl font-bold text-gray-800">Calculadora Mercado Livre</h1>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6 max-w-2xl mx-auto">
+                <div class="flex justify-center mb-6">
+                    <div class="h-16 w-16 rounded-full bg-yellow-400 flex items-center justify-center">
+                        <span class="text-2xl font-bold text-yellow-800">ML</span>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    <div>
+                        <label for="ml-custo" class="block text-gray-700 font-medium mb-2">Custo do Produto (R$):</label>
+                        <input type="number" id="ml-custo" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
+                    </div>
+                    
+                    <div>
+                        <label for="ml-frete" class="block text-gray-700 font-medium mb-2">Custo do Frete (R$):</label>
+                        <input type="number" id="ml-frete" placeholder="Ex: 15.00" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
+                        <p class="text-xs text-gray-500 mt-1">Para produtos ≥ R$79 (frete grátis para cliente)</p>
+                    </div>
+                    
+                    <div>
+                        <label for="ml-imposto" class="block text-gray-700 font-medium mb-2">Imposto (%):</label>
+                        <input type="number" id="ml-imposto" placeholder="Ex: 10" value="10" step="0.1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
+                    </div>
+                    
+                    <div>
+                        <label for="ml-anuncio" class="block text-gray-700 font-medium mb-2">Tipo de Anúncio:</label>
+                        <select id="ml-anuncio" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
+                            <option value="14">Clássico (14%)</option>
+                            <option value="19">Premium (19%)</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="ml-margem" class="block text-gray-700 font-medium mb-2">Margem de Lucro (%):</label>
+                        <input type="number" id="ml-margem" placeholder="Ex: 10" step="1" value="10" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
+                    </div>
+                </div>
+                
+                <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 text-yellow-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <div>
+                            <p class="text-yellow-700 text-sm"><strong>Regras Mercado Livre:</strong></p>
+                            <p class="text-yellow-600 text-sm">• Abaixo R$79: Clássico 14%/Premium 19% + Taxa fixa (R$6,25/6,50/6,75) + Embalagem R$1,50</p>
+                            <p class="text-yellow-600 text-sm">• Acima R$79: Clássico 14%/Premium 19% + Frete manual + Embalagem R$1,50</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="calcular-ml" class="w-full py-3 px-6 bg-gradient-to-r from-yellow-500 to-yellow-400 text-gray-900 font-medium rounded-lg hover:from-yellow-600 hover:to-yellow-500 transition-all mb-6">
+                    Calcular Preço
+                </button>
+                
+                <div id="ml-results" class="hidden">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultado</h2>
+                    
+                    <div class="result-card bg-gradient-to-br from-yellow-100 to-yellow-200 p-6 rounded-lg border border-yellow-300">
+                        <h3 class="text-lg font-medium text-yellow-800 mb-2">Preço com a margem informada:</h3>
+                        <p id="ml-resultado" class="text-3xl font-bold text-yellow-900">R$ 0,00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Calculadora Shein -->
+        <div id="shein-calculator" class="hidden animate-fade-in">
+            <div class="flex items-center mb-8">
+                <button id="back-to-marketplace-from-shein" class="mr-4 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg p-2 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                </button>
+                <h1 class="text-3xl font-bold text-gray-800">Calculadora Shein</h1>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6 max-w-2xl mx-auto">
+                <div class="flex justify-center mb-6">
+                    <div class="h-16 w-16 rounded-full bg-black flex items-center justify-center">
+                        <span class="text-2xl font-bold text-white">SH</span>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    <div>
+                        <label for="shein-custo" class="block text-gray-700 font-medium mb-2">Custo do Produto (R$):</label>
+                        <input type="number" id="shein-custo" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                    </div>
+                    
+                    <div>
+                        <label for="shein-peso" class="block text-gray-700 font-medium mb-2">Peso (gramas):</label>
+                        <input type="number" id="shein-peso" placeholder="Ex: 300" step="1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                    </div>
+                    
+                    <div>
+                        <label for="shein-imposto" class="block text-gray-700 font-medium mb-2">Imposto (%):</label>
+                        <input type="number" id="shein-imposto" placeholder="Ex: 10" value="10" step="0.1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                    </div>
+                    
+                    <div>
+                        <label for="shein-margem" class="block text-gray-700 font-medium mb-2">Margem de Lucro (%):</label>
+                        <input type="number" id="shein-margem" placeholder="Ex: 10" step="1" value="10" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 text-gray-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <div>
+                            <p class="text-gray-700 text-sm"><strong>Regras Shein:</strong></p>
+                            <p class="text-gray-600 text-sm">• Comissão: 16% • Taxa por peso: ≤300g: R$4 | ≤500g: R$5 | >500g: R$22 • Embalagem: R$ 1,50</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="calcular-shein" class="w-full py-3 px-6 bg-gradient-to-r from-gray-900 to-gray-800 text-white font-medium rounded-lg hover:from-black hover:to-gray-900 transition-all mb-6">
+                    Calcular Preço
+                </button>
+                
+                <div id="shein-results" class="hidden">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultados</h2>
+                    
+                    <div class="result-card bg-gradient-to-br from-gray-100 to-gray-200 p-6 rounded-lg border border-gray-300">
+                        <h3 class="text-lg font-medium text-gray-800 mb-2">Preço com a margem informada:</h3>
+                        <p id="shein-resultado" class="text-3xl font-bold text-gray-900">R$ 0,00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Calculadora Magalu -->
+        <div id="magalu-calculator" class="hidden animate-fade-in">
+            <div class="flex items-center mb-8">
+                <button id="back-to-marketplace-from-magalu" class="mr-4 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg p-2 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                </button>
+                <h1 class="text-3xl font-bold text-gray-800">Calculadora Magalu</h1>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6 max-w-2xl mx-auto">
+                <div class="flex justify-center mb-6">
+                    <div class="h-16 w-16 rounded-full bg-blue-700 flex items-center justify-center">
+                        <span class="text-2xl font-bold text-white">MG</span>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    <div>
+                        <label for="magalu-custo" class="block text-gray-700 font-medium mb-2">Custo do Produto (R$):</label>
+                        <input type="number" id="magalu-custo" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors">
+                    </div>
+                    
+                    <div>
+                        <label for="magalu-peso" class="block text-gray-700 font-medium mb-2">Peso (gramas):</label>
+                        <input type="number" id="magalu-peso" placeholder="Ex: 500" step="1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors">
+                    </div>
+                    
+                    <div>
+                        <label for="magalu-imposto" class="block text-gray-700 font-medium mb-2">Imposto (%):</label>
+                        <input type="number" id="magalu-imposto" placeholder="Ex: 10" value="10" step="0.1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors">
+                    </div>
+                    
+                    <div>
+                        <label for="magalu-comissao" class="block text-gray-700 font-medium mb-2">Comissão (%):</label>
+                        <select id="magalu-comissao" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors">
+                            <option value="12">12% - Padrão</option>
+                            <option value="16">16% - Premium</option>
+                            <option value="18">18% - Premium Plus</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="magalu-margem" class="block text-gray-700 font-medium mb-2">Margem de Lucro (%):</label>
+                        <input type="number" id="magalu-margem" placeholder="Ex: 10" step="1" value="10" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors">
+                    </div>
+                </div>
+                
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <div>
+                            <p class="text-blue-700 text-sm"><strong>Regras Magalu:</strong></p>
+                            <p class="text-blue-600 text-sm">• Comissão variável • Taxa por peso: ≤300g: R$18 | ≤500g: R$20 | ≤1kg: R$25 | >1kg: R$30 • Embalagem: R$ 1,50</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="calcular-magalu" class="w-full py-3 px-6 bg-gradient-to-r from-blue-700 to-blue-600 text-white font-medium rounded-lg hover:from-blue-800 hover:to-blue-700 transition-all mb-6">
+                    Calcular Preço
+                </button>
+                
+                <div id="magalu-results" class="hidden">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultado</h2>
+                    
+                    <div class="result-card bg-gradient-to-br from-blue-100 to-blue-200 p-6 rounded-lg border border-blue-300">
+                        <h3 class="text-lg font-medium text-blue-800 mb-2">Preço com a margem informada:</h3>
+                        <p id="magalu-resultado" class="text-3xl font-bold text-blue-900">R$ 0,00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Calculadora Amazon -->
+        <div id="amazon-calculator" class="hidden animate-fade-in">
+            <div class="flex items-center mb-8">
+                <button id="back-to-marketplace-from-amazon" class="mr-4 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg p-2 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                </button>
+                <h1 class="text-3xl font-bold text-gray-800">Calculadora Amazon</h1>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6 max-w-2xl mx-auto">
+                <div class="flex justify-center mb-6">
+                    <div class="h-16 w-16 rounded-full bg-yellow-500 flex items-center justify-center">
+                        <span class="text-2xl font-bold text-white">AZ</span>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    <div>
+                        <label for="amazon-custo" class="block text-gray-700 font-medium mb-2">Custo do Produto (R$):</label>
+                        <input type="number" id="amazon-custo" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
+                    </div>
+                    
+                    <div>
+                        <label for="amazon-peso" class="block text-gray-700 font-medium mb-2">Peso (gramas):</label>
+                        <input type="number" id="amazon-peso" placeholder="Ex: 500" step="1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
+                    </div>
+                    
+                    <div>
+                        <label for="amazon-imposto" class="block text-gray-700 font-medium mb-2">Imposto (%):</label>
+                        <input type="number" id="amazon-imposto" placeholder="Ex: 10" value="10" step="0.1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
+                    </div>
+                    
+                    <div>
+                        <label for="amazon-categoria" class="block text-gray-700 font-medium mb-2">Categoria:</label>
+                        <select id="amazon-categoria" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
+                            <option value="15">Vestuário (15%)</option>
+                            <option value="12">Eletrônicos (12%)</option>
+                            <option value="10">Livros (10%)</option>
+                            <option value="18">Beleza (18%)</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="amazon-margem" class="block text-gray-700 font-medium mb-2">Margem de Lucro (%):</label>
+                        <input type="number" id="amazon-margem" placeholder="Ex: 10" step="1" value="10" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
+                    </div>
+                </div>
+                
+                <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 text-yellow-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <div>
+                            <p class="text-yellow-700 text-sm"><strong>Regras Amazon:</strong></p>
+                            <p class="text-yellow-600 text-sm">• Comissão por categoria • Taxa por peso: ≤300g: R$20 | ≤500g: R$25 | ≤1kg: R$30 | >1kg: R$35 • Embalagem: R$ 1,50</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="calcular-amazon" class="w-full py-3 px-6 bg-gradient-to-r from-yellow-500 to-yellow-400 text-gray-900 font-medium rounded-lg hover:from-yellow-600 hover:to-yellow-500 transition-all mb-6">
+                    Calcular Preço
+                </button>
+                
+                <div id="amazon-results" class="hidden">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultado</h2>
+                    
+                    <div class="result-card bg-gradient-to-br from-yellow-100 to-yellow-200 p-6 rounded-lg border border-yellow-300">
+                        <h3 class="text-lg font-medium text-yellow-800 mb-2">Preço com a margem informada:</h3>
+                        <p id="amazon-resultado" class="text-3xl font-bold text-yellow-900">R$ 0,00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Calculadora Exposição Paulista -->
+        <div id="exposicao-calculator" class="hidden animate-fade-in">
+            <div class="flex items-center mb-8">
+                <button id="back-to-lojas-from-exposicao" class="mr-4 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg p-2 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                </button>
+                <h1 class="text-3xl font-bold text-gray-800">Calculadora Exposição Paulista</h1>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6 max-w-2xl mx-auto">
+                <div class="flex justify-center mb-6">
+                    <img src="https://i.postimg.cc/hPryWP9N/Design-sem-nome-5.png" alt="Logo Exposição Paulista" class="h-16">
+                </div>
+                
+                <div class="mb-6">
+                    <label for="exposicao-custo" class="block text-gray-700 font-medium mb-2">Custo do Produto (R$):</label>
+                    <input type="number" id="exposicao-custo" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors">
+                </div>
+                
+                <button id="calcular-exposicao" class="w-full py-3 px-6 bg-gradient-to-r from-purple-600 to-blue-500 text-white font-medium rounded-lg hover:from-purple-700 hover:to-blue-600 transition-all mb-6">
+                    Calcular Preços
+                </button>
+                
+                <div id="exposicao-results" class="hidden">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultados</h2>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="result-card bg-gradient-to-br from-purple-50 to-blue-50 p-4 rounded-lg border border-purple-200">
+                            <h3 class="text-lg font-medium text-purple-800">Preço Atacado</h3>
+                            <p id="exposicao-preco-atacado" class="text-2xl font-bold text-purple-700">R$ 0,00</p>
+                        </div>
+                        
+                        <div class="result-card bg-gradient-to-br from-purple-50 to-blue-50 p-4 rounded-lg border border-purple-200">
+                            <h3 class="text-lg font-medium text-purple-800">Preço à Vista</h3>
+                            <p id="exposicao-preco-avista" class="text-2xl font-bold text-purple-700">R$ 0,00</p>
+                        </div>
+                        
+                        <div class="result-card bg-gradient-to-br from-purple-50 to-blue-50 p-4 rounded-lg border border-purple-200">
+                            <h3 class="text-lg font-medium text-purple-800">Preço a Prazo</h3>
+                            <p id="exposicao-preco-aprazo" class="text-2xl font-bold text-purple-700">R$ 0,00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Calculadora GIP Ecommerce -->
+        <div id="gip-calculator" class="hidden animate-fade-in">
+            <div class="flex items-center mb-8">
+                <button id="back-to-lojas-from-gip" class="mr-4 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg p-2 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                </button>
+                <h1 class="text-3xl font-bold text-gray-800">Calculadora GIP Ecommerce</h1>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6 max-w-2xl mx-auto">
+                <div class="flex justify-center mb-6">
+                    <img src="https://i.postimg.cc/905yntcv/LOGO-GIP.jpg" alt="Logo GIP Ecommerce" class="h-16 rounded-lg">
+                </div>
+                
+                <div class="mb-6">
+                    <label for="gip-custo" class="block text-gray-700 font-medium mb-2">Custo do Produto (R$):</label>
+                    <input type="number" id="gip-custo" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-800 focus:border-blue-800 transition-colors">
+                </div>
+                
+                <button id="calcular-gip" class="w-full py-3 px-6 bg-gradient-to-r from-blue-900 to-blue-700 text-white font-medium rounded-lg hover:from-blue-900 hover:to-blue-800 transition-all mb-6">
+                    Calcular Preço
+                </button>
+                
+                <div id="gip-results" class="hidden">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultado</h2>
+                    
+                    <div class="result-card bg-gradient-to-br from-blue-100 to-blue-200 p-6 rounded-lg border border-blue-300">
+                        <h3 class="text-lg font-medium text-blue-800 mb-2">Preço de Venda:</h3>
+                        <p id="gip-preco" class="text-3xl font-bold text-blue-900">R$ 0,00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Calculadora TikTok Shop -->
+        <div id="tiktok-calculator" class="hidden animate-fade-in">
+            <div class="flex items-center mb-8">
+                <button id="back-to-marketplace-from-tiktok" class="mr-4 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg p-2 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                </button>
+                <h1 class="text-3xl font-bold text-gray-800">Calculadora TikTok Shop</h1>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6 max-w-2xl mx-auto">
+                <div class="flex justify-center mb-6">
+                    <div class="h-16 w-16 rounded-full bg-black flex items-center justify-center">
+                        <span class="text-2xl font-bold text-white">TT</span>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    <div>
+                        <label for="tiktok-custo" class="block text-gray-700 font-medium mb-2">Custo do Produto (R$):</label>
+                        <input type="number" id="tiktok-custo" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                    </div>
+                    
+                    <div>
+                        <label for="tiktok-imposto" class="block text-gray-700 font-medium mb-2">Imposto (%):</label>
+                        <input type="number" id="tiktok-imposto" placeholder="Ex: 10" value="10" step="0.1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                    </div>
+                    
+                    <div>
+                        <label for="tiktok-margem" class="block text-gray-700 font-medium mb-2">Margem de Lucro (%):</label>
+                        <input type="number" id="tiktok-margem" placeholder="Ex: 10" step="1" value="10" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 text-gray-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <div>
+                            <p class="text-gray-700 text-sm"><strong>Regras TikTok Shop:</strong></p>
+                            <p class="text-gray-600 text-sm">• Comissão: 6% • Taxa fixa: R$ 2,00 por pedido • Frete: 6% • Embalagem: R$ 1,50</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="calcular-tiktok" class="w-full py-3 px-6 bg-gradient-to-r from-black to-gray-800 text-white font-medium rounded-lg hover:from-gray-900 hover:to-black transition-all mb-6">
+                    Calcular Preço
+                </button>
+                
+                <div id="tiktok-results" class="hidden">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultado</h2>
+                    
+                    <div class="result-card bg-gradient-to-br from-gray-100 to-gray-200 p-6 rounded-lg border border-gray-300">
+                        <h3 class="text-lg font-medium text-gray-800 mb-2">Preço com a margem informada:</h3>
+                        <p id="tiktok-resultado" class="text-3xl font-bold text-gray-900">R$ 0,00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <img src="https://i.postimg.cc/cHpqQ3Rs/calculadora.png" alt="Logo Calculadora" class="h-10 w-10 inline-block mr-2">
+                    <span class="text-xl font-semibold">GIP Calculadoras</span>
+                </div>
+                <div class="text-center md:text-right">
+                    <p>&copy; 2024 GIP Ecommerce. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navegação
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elementos de navegação
+            const homePage = document.getElementById('home-page');
+            const marketplacePage = document.getElementById('marketplace-page');
+            const lojasPage = document.getElementById('lojas-page');
+            const configPage = document.getElementById('config-page');
+            const shopeeCalculator = document.getElementById('shopee-calculator');
+            const viaclosetCalculator = document.getElementById('viacloset-calculator');
+            const mercadolivreCalculator = document.getElementById('mercadolivre-calculator');
+            const sheinCalculator = document.getElementById('shein-calculator');
+            const magaluCalculator = document.getElementById('magalu-calculator');
+            const amazonCalculator = document.getElementById('amazon-calculator');
+            const tiktokCalculator = document.getElementById('tiktok-calculator');
+            const exposicaoCalculator = document.getElementById('exposicao-calculator');
+            const gipCalculator = document.getElementById('gip-calculator');
+            
+            // Botões de navegação principal
+            const btnMarketplace = document.getElementById('btn-marketplace');
+            const btnLojas = document.getElementById('btn-lojas');
+            
+            // Links da navbar
+            const homeLink = document.getElementById('home-link');
+            const marketplaceLink = document.getElementById('marketplace-link');
+            const lojasLink = document.getElementById('lojas-link');
+            const configLink = document.getElementById('config-link');
+            
+            // Links da navbar mobile
+            const mobileHomeLink = document.getElementById('mobile-home-link');
+            const mobileMarketplaceLink = document.getElementById('mobile-marketplace-link');
+            const mobileLojasLink = document.getElementById('mobile-lojas-link');
+            const mobileConfigLink = document.getElementById('mobile-config-link');
+            
+            // Botões de voltar
+            const backToHomeFromMarketplace = document.getElementById('back-to-home-from-marketplace');
+            const backToHomeFromLojas = document.getElementById('back-to-home-from-lojas');
+            const backToHomeFromConfig = document.getElementById('back-to-home-from-config');
+            const backToMarketplace = document.getElementById('back-to-marketplace');
+            const backToLojas = document.getElementById('back-to-lojas');
+            const backToMarketplaceFromML = document.getElementById('back-to-marketplace-from-ml');
+            const backToMarketplaceFromShein = document.getElementById('back-to-marketplace-from-shein');
+            const backToMarketplaceFromMagalu = document.getElementById('back-to-marketplace-from-magalu');
+            const backToMarketplaceFromAmazon = document.getElementById('back-to-marketplace-from-amazon');
+            const backToMarketplaceFromTiktok = document.getElementById('back-to-marketplace-from-tiktok');
+            const backToLojasFromExposicao = document.getElementById('back-to-lojas-from-exposicao');
+            const backToLojasFromGip = document.getElementById('back-to-lojas-from-gip');
+            
+            // Botões de calculadoras específicas
+            const btnShopee = document.getElementById('btn-shopee');
+            const btnViacloset = document.getElementById('btn-viacloset');
+            const btnMercadolivre = document.getElementById('btn-mercadolivre');
+            const btnShein = document.getElementById('btn-shein');
+            const btnMagalu = document.getElementById('btn-magalu');
+            const btnAmazon = document.getElementById('btn-amazon');
+            const btnTiktok = document.getElementById('btn-tiktok');
+            const btnExposicao = document.getElementById('btn-exposicao');
+            const btnGip = document.getElementById('btn-gip');
+            
+            // Menu mobile
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            // Função para mostrar apenas uma página
+            function showPage(page) {
+                homePage.classList.add('hidden');
+                marketplacePage.classList.add('hidden');
+                lojasPage.classList.add('hidden');
+                configPage.classList.add('hidden');
+                shopeeCalculator.classList.add('hidden');
+                viaclosetCalculator.classList.add('hidden');
+                mercadolivreCalculator.classList.add('hidden');
+                sheinCalculator.classList.add('hidden');
+                magaluCalculator.classList.add('hidden');
+                amazonCalculator.classList.add('hidden');
+                tiktokCalculator.classList.add('hidden');
+                exposicaoCalculator.classList.add('hidden');
+                gipCalculator.classList.add('hidden');
+                
+                page.classList.remove('hidden');
+            }
+            
+            // Navegação principal
+            if (btnMarketplace) {
+                btnMarketplace.addEventListener('click', () => showPage(marketplacePage));
+            }
+            if (btnLojas) {
+                btnLojas.addEventListener('click', () => showPage(lojasPage));
+            }
+            
+            // Links da navbar
+            if (homeLink) {
+                homeLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showPage(homePage);
+                });
+            }
+            
+            if (marketplaceLink) {
+                marketplaceLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showPage(marketplacePage);
+                });
+            }
+            
+            if (lojasLink) {
+                lojasLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showPage(lojasPage);
+                });
+            }
+            
+            if (configLink) {
+                configLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showPage(configPage);
+                });
+            }
+            
+            // Links da navbar mobile
+            if (mobileHomeLink) {
+                mobileHomeLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showPage(homePage);
+                    if (mobileMenu) mobileMenu.classList.add('hidden');
+                });
+            }
+            
+            if (mobileMarketplaceLink) {
+                mobileMarketplaceLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showPage(marketplacePage);
+                    if (mobileMenu) mobileMenu.classList.add('hidden');
+                });
+            }
+            
+            if (mobileLojasLink) {
+                mobileLojasLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showPage(lojasPage);
+                    if (mobileMenu) mobileMenu.classList.add('hidden');
+                });
+            }
+            
+            if (mobileConfigLink) {
+                mobileConfigLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showPage(configPage);
+                    if (mobileMenu) mobileMenu.classList.add('hidden');
+                });
+            }
+            
+            // Botões de voltar
+            if (backToHomeFromMarketplace) {
+                backToHomeFromMarketplace.addEventListener('click', () => showPage(homePage));
+            }
+            if (backToHomeFromLojas) {
+                backToHomeFromLojas.addEventListener('click', () => showPage(homePage));
+            }
+            if (backToHomeFromConfig) {
+                backToHomeFromConfig.addEventListener('click', () => showPage(homePage));
+            }
+            if (backToMarketplace) {
+                backToMarketplace.addEventListener('click', () => showPage(marketplacePage));
+            }
+            if (backToLojas) {
+                backToLojas.addEventListener('click', () => showPage(lojasPage));
+            }
+            if (backToMarketplaceFromML) {
+                backToMarketplaceFromML.addEventListener('click', () => showPage(marketplacePage));
+            }
+            if (backToMarketplaceFromShein) {
+                backToMarketplaceFromShein.addEventListener('click', () => showPage(marketplacePage));
+            }
+            if (backToMarketplaceFromMagalu) {
+                backToMarketplaceFromMagalu.addEventListener('click', () => showPage(marketplacePage));
+            }
+            if (backToMarketplaceFromAmazon) {
+                backToMarketplaceFromAmazon.addEventListener('click', () => showPage(marketplacePage));
+            }
+            if (backToMarketplaceFromTiktok) {
+                backToMarketplaceFromTiktok.addEventListener('click', () => showPage(marketplacePage));
+            }
+            if (backToLojasFromExposicao) {
+                backToLojasFromExposicao.addEventListener('click', () => showPage(lojasPage));
+            }
+            if (backToLojasFromGip) {
+                backToLojasFromGip.addEventListener('click', () => showPage(lojasPage));
+            }
+            
+            // Botões de calculadoras específicas
+            if (btnShopee) {
+                btnShopee.addEventListener('click', () => showPage(shopeeCalculator));
+            }
+            if (btnViacloset) {
+                btnViacloset.addEventListener('click', () => showPage(viaclosetCalculator));
+            }
+            if (btnMercadolivre) {
+                btnMercadolivre.addEventListener('click', () => showPage(mercadolivreCalculator));
+            }
+            if (btnShein) {
+                btnShein.addEventListener('click', () => showPage(sheinCalculator));
+            }
+            if (btnMagalu) {
+                btnMagalu.addEventListener('click', () => showPage(magaluCalculator));
+            }
+            if (btnAmazon) {
+                btnAmazon.addEventListener('click', () => showPage(amazonCalculator));
+            }
+            if (btnTiktok) {
+                btnTiktok.addEventListener('click', () => showPage(tiktokCalculator));
+            }
+            if (btnExposicao) {
+                btnExposicao.addEventListener('click', () => showPage(exposicaoCalculator));
+            }
+            if (btnGip) {
+                btnGip.addEventListener('click', () => showPage(gipCalculator));
+            }
+            
+            // Menu mobile
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+            
+            // Calculadora Shopee
+            const calcularShopeeBtn = document.getElementById('calcular-shopee');
+            const shopeeResults = document.getElementById('shopee-results');
+            
+            if (calcularShopeeBtn) {
+                calcularShopeeBtn.addEventListener('click', function() {
+                    let custo = parseFloat(document.getElementById('shopee-custo').value);
+                    let imposto = parseFloat(document.getElementById('shopee-imposto').value);
+                    let margem = parseFloat(document.getElementById('shopee-margem').value);
+                    
+                    if (isNaN(custo) || custo <= 0) {
+                        alert("Por favor, insira um valor de custo válido.");
+                        return;
+                    }
+                    
+                    if (isNaN(imposto) || imposto < 0) {
+                        alert("Por favor, insira um valor de imposto válido.");
+                        return;
+                    }
+                    
+                    if (isNaN(margem) || margem < 0) {
+                        alert("Por favor, insira uma margem válida.");
+                        return;
+                    }
+                    
+                    let comissao = 20; // 20% de comissão da Shopee
+                    let taxaFixa = 4; // R$ 4 por pedido
+                    let embalagem = 1.5; // Custo de embalagem
+                    
+                    let precoVenda = (custo + embalagem + taxaFixa) / (1 - margem / 100 - imposto / 100 - comissao / 100);
+                    
+                    document.getElementById('shopee-resultado').innerText = 'R$ ' + precoVenda.toFixed(2);
+                    
+                    if (shopeeResults) {
+                        shopeeResults.classList.remove('hidden');
+                    }
+                });
+            }
+            
+            // Calculadora Via Closet
+            const calcularViaClosetBtn = document.getElementById('calcular-viacloset');
+            const viaclosetResults = document.getElementById('viacloset-results');
+            
+            if (calcularViaClosetBtn) {
+                calcularViaClosetBtn.addEventListener('click', function() {
+                let custo = parseFloat(document.getElementById('viacloset-custo').value);
+                
+                if (isNaN(custo) || custo <= 0) {
+                    alert("Por favor, insira um valor de custo válido.");
+                    return;
+                }
+                
+                let precoPrime = custo * 1.90; // Custo + 90%
+                let precoAVista = custo * 2.00; // Custo + 100%
+                let precoAPrazo = custo * 2.20; // Custo + 120%
+                
+                document.getElementById('viacloset-preco-prime').innerText = 'R$ ' + precoPrime.toFixed(2);
+                document.getElementById('viacloset-preco-aprazo').innerText = 'R$ ' + precoAPrazo.toFixed(2);
+                document.getElementById('viacloset-preco-avista').innerText = 'R$ ' + precoAVista.toFixed(2);
+                
+                if (viaclosetResults) {
+                    viaclosetResults.classList.remove('hidden');
+                }
+                });
+            }
+            
+            // Calculadora Mercado Livre
+            const calcularMLBtn = document.getElementById('calcular-ml');
+            const mlResults = document.getElementById('ml-results');
+            
+            if (calcularMLBtn) {
+                calcularMLBtn.addEventListener('click', function() {
+                let custo = parseFloat(document.getElementById('ml-custo').value);
+                let frete = parseFloat(document.getElementById('ml-frete').value) || 0;
+                let imposto = parseFloat(document.getElementById('ml-imposto').value);
+                let comissao = parseFloat(document.getElementById('ml-anuncio').value);
+                let margem = parseFloat(document.getElementById('ml-margem').value);
+                
+                if (isNaN(custo) || custo <= 0) {
+                    alert("Por favor, insira um valor de custo válido.");
+                    return;
+                }
+                
+                if (isNaN(imposto) || imposto < 0) {
+                    alert("Por favor, insira um valor de imposto válido.");
+                    return;
+                }
+                
+                if (isNaN(margem) || margem < 0) {
+                    alert("Por favor, insira uma margem válida.");
+                    return;
+                }
+                
+                let embalagem = 1.5; // Custo fixo de embalagem
+                let precoVenda;
+                
+                // Cálculo iterativo para determinar se precisa de taxa fixa
+                let precoEstimado = (custo + embalagem + frete) / (1 - imposto / 100 - margem / 100 - comissao / 100);
+                
+                // Determinar taxa fixa baseada no preço estimado
+                let taxaFixa = 0;
+                if (precoEstimado < 79) {
+                    if (precoEstimado < 28.99) {
+                        taxaFixa = 6.25;
+                    } else if (precoEstimado < 49.99) {
+                        taxaFixa = 6.50;
+                    } else {
+                        taxaFixa = 6.75;
+                    }
+                }
+                
+                // Calcular preço final com taxa fixa
+                precoVenda = (custo + embalagem + frete + taxaFixa) / (1 - imposto / 100 - margem / 100 - comissao / 100);
+                
+                // Verificar novamente se a taxa fixa está correta com o preço final
+                let taxaFixaFinal = 0;
+                if (precoVenda < 79) {
+                    if (precoVenda < 28.99) {
+                        taxaFixaFinal = 6.25;
+                    } else if (precoVenda < 49.99) {
+                        taxaFixaFinal = 6.50;
+                    } else {
+                        taxaFixaFinal = 6.75;
+                    }
+                }
+                
+                // Recalcular se a taxa mudou
+                if (taxaFixaFinal !== taxaFixa) {
+                    precoVenda = (custo + embalagem + frete + taxaFixaFinal) / (1 - imposto / 100 - margem / 100 - comissao / 100);
+                }
+                
+                document.getElementById('ml-resultado').innerText = 'R$ ' + precoVenda.toFixed(2);
+                
+                if (mlResults) {
+                    mlResults.classList.remove('hidden');
+                }
+                });
+            }
+            
+            // Calculadora Shein
+            const calcularSheinBtn = document.getElementById('calcular-shein');
+            const sheinResults = document.getElementById('shein-results');
+            
+            if (calcularSheinBtn) {
+                calcularSheinBtn.addEventListener('click', function() {
+                    let custo = parseFloat(document.getElementById('shein-custo').value);
+                    let peso = parseFloat(document.getElementById('shein-peso').value);
+                    let imposto = parseFloat(document.getElementById('shein-imposto').value);
+                    let margem = parseFloat(document.getElementById('shein-margem').value);
+                    
+                    if (isNaN(custo) || custo <= 0) {
+                        alert("Por favor, insira um valor de custo válido.");
+                        return;
+                    }
+                    
+                    if (isNaN(peso) || peso <= 0) {
+                        alert("Por favor, insira um valor de peso válido.");
+                        return;
+                    }
+                    
+                    if (isNaN(imposto) || imposto < 0) {
+                        alert("Por favor, insira um valor de imposto válido.");
+                        return;
+                    }
+                    
+                    if (isNaN(margem) || margem < 0) {
+                        alert("Por favor, insira uma margem válida.");
+                        return;
+                    }
+                    
+                    let comissao = 16; // 16% de comissão da Shein
+                    let taxaFixa = peso <= 300 ? 4 : peso <= 500 ? 5 : 22;
+                    let embalagem = 1.5;
+                    
+                    let precoVenda = (custo + embalagem + taxaFixa) / (1 - margem / 100 - imposto / 100 - comissao / 100);
+                    
+                    document.getElementById('shein-resultado').innerText = 'R$ ' + precoVenda.toFixed(2);
+                    
+                    if (sheinResults) {
+                        sheinResults.classList.remove('hidden');
+                    }
+                });
+            }
+            
+            // Calculadora Magalu
+            const calcularMagaluBtn = document.getElementById('calcular-magalu');
+            const magaluResults = document.getElementById('magalu-results');
+            
+            if (calcularMagaluBtn) {
+                calcularMagaluBtn.addEventListener('click', function() {
+                    let custo = parseFloat(document.getElementById('magalu-custo').value);
+                    let peso = parseFloat(document.getElementById('magalu-peso').value);
+                    let imposto = parseFloat(document.getElementById('magalu-imposto').value);
+                    let comissao = parseFloat(document.getElementById('magalu-comissao').value);
+                    let margem = parseFloat(document.getElementById('magalu-margem').value);
+                    
+                    if (isNaN(custo) || custo <= 0) {
+                        alert("Por favor, insira um valor de custo válido.");
+                        return;
+                    }
+                    
+                    if (isNaN(peso) || peso <= 0) {
+                        alert("Por favor, insira um valor de peso válido.");
+                        return;
+                    }
+                    
+                    if (isNaN(imposto) || imposto < 0) {
+                        alert("Por favor, insira um valor de imposto válido.");
+                        return;
+                    }
+                    
+                    if (isNaN(margem) || margem < 0) {
+                        alert("Por favor, insira uma margem válida.");
+                        return;
+                    }
+                    
+                    let taxaFixa = peso <= 300 ? 18 : peso <= 500 ? 20 : peso <= 1000 ? 25 : 30;
+                    let embalagem = 1.5;
+                    
+                    let precoVenda = (custo + embalagem + taxaFixa) / (1 - margem / 100 - imposto / 100 - comissao / 100);
+                    
+                    document.getElementById('magalu-resultado').innerText = 'R$ ' + precoVenda.toFixed(2);
+                    
+                    if (magaluResults) {
+                        magaluResults.classList.remove('hidden');
+                    }
+                });
+            }
+            
+            // Calculadora Amazon
+            const calcularAmazonBtn = document.getElementById('calcular-amazon');
+            const amazonResults = document.getElementById('amazon-results');
+            
+            if (calcularAmazonBtn) {
+                calcularAmazonBtn.addEventListener('click', function() {
+                    let custo = parseFloat(document.getElementById('amazon-custo').value);
+                    let peso = parseFloat(document.getElementById('amazon-peso').value);
+                    let imposto = parseFloat(document.getElementById('amazon-imposto').value);
+                    let comissao = parseFloat(document.getElementById('amazon-categoria').value);
+                    let margem = parseFloat(document.getElementById('amazon-margem').value);
+                    
+                    if (isNaN(custo) || custo <= 0) {
+                        alert("Por favor, insira um valor de custo válido.");
+                        return;
+                    }
+                    
+                    if (isNaN(peso) || peso <= 0) {
+                        alert("Por favor, insira um valor de peso válido.");
+                        return;
+                    }
+                    
+                    if (isNaN(imposto) || imposto < 0) {
+                        alert("Por favor, insira um valor de imposto válido.");
+                        return;
+                    }
+                    
+                    if (isNaN(margem) || margem < 0) {
+                        alert("Por favor, insira uma margem válida.");
+                        return;
+                    }
+                    
+                    let taxaFixa = peso <= 300 ? 20 : peso <= 500 ? 25 : peso <= 1000 ? 30 : 35;
+                    let embalagem = 1.5;
+                    
+                    let precoVenda = (custo + embalagem + taxaFixa) / (1 - margem / 100 - imposto / 100 - comissao / 100);
+                    
+                    document.getElementById('amazon-resultado').innerText = 'R$ ' + precoVenda.toFixed(2);
+                    
+                    if (amazonResults) {
+                        amazonResults.classList.remove('hidden');
+                    }
+                });
+            }
+            
+            // Calculadora Exposição Paulista
+            const calcularExposicaoBtn = document.getElementById('calcular-exposicao');
+            const exposicaoResults = document.getElementById('exposicao-results');
+            
+            if (calcularExposicaoBtn) {
+                calcularExposicaoBtn.addEventListener('click', function() {
+                    let custo = parseFloat(document.getElementById('exposicao-custo').value);
+                    
+                    if (isNaN(custo) || custo <= 0) {
+                        alert("Por favor, insira um valor de custo válido.");
+                        return;
+                    }
+                    
+                    let precoAtacado = custo * 1.80; // Custo + 80%
+                    let precoAVista = custo * 2.00; // Custo + 100%
+                    let precoAPrazo = custo * 2.20; // Custo + 120%
+                    
+                    document.getElementById('exposicao-preco-atacado').innerText = 'R$ ' + precoAtacado.toFixed(2);
+                    document.getElementById('exposicao-preco-avista').innerText = 'R$ ' + precoAVista.toFixed(2);
+                    document.getElementById('exposicao-preco-aprazo').innerText = 'R$ ' + precoAPrazo.toFixed(2);
+                    
+                    if (exposicaoResults) {
+                        exposicaoResults.classList.remove('hidden');
+                    }
+                });
+            }
+            
+            // Calculadora GIP Ecommerce
+            const calcularGipBtn = document.getElementById('calcular-gip');
+            const gipResults = document.getElementById('gip-results');
+            
+            if (calcularGipBtn) {
+                calcularGipBtn.addEventListener('click', function() {
+                    let custo = parseFloat(document.getElementById('gip-custo').value);
+                    
+                    if (isNaN(custo) || custo <= 0) {
+                        alert("Por favor, insira um valor de custo válido.");
+                        return;
+                    }
+                    
+                    let precoVenda = custo * 1.8; // Custo + 80%
+                    
+                    document.getElementById('gip-preco').innerText = 'R$ ' + precoVenda.toFixed(2);
+                    
+                    if (gipResults) {
+                        gipResults.classList.remove('hidden');
+                    }
+                });
+            }
+            
+            // Calculadora TikTok Shop
+            const calcularTiktokBtn = document.getElementById('calcular-tiktok');
+            const tiktokResults = document.getElementById('tiktok-results');
+            
+            if (calcularTiktokBtn) {
+                calcularTiktokBtn.addEventListener('click', function() {
+                    let custo = parseFloat(document.getElementById('tiktok-custo').value);
+                    let imposto = parseFloat(document.getElementById('tiktok-imposto').value);
+                    let margem = parseFloat(document.getElementById('tiktok-margem').value);
+                    
+                    if (isNaN(custo) || custo <= 0) {
+                        alert("Por favor, insira um valor de custo válido.");
+                        return;
+                    }
+                    
+                    if (isNaN(imposto) || imposto < 0) {
+                        alert("Por favor, insira um valor de imposto válido.");
+                        return;
+                    }
+                    
+                    if (isNaN(margem) || margem < 0) {
+                        alert("Por favor, insira uma margem válida.");
+                        return;
+                    }
+                    
+                    let comissao = 6; // 6% de comissão
+                    let embalagem = 1.5; // R$ 1,50 de embalagem
+                    let frete = 6; // 6% de frete
+                    let taxaFixa = 2; // R$ 2,00 taxa fixa para produtos abaixo de R$79
+                    
+                    // Cálculo como estava na versão 33: todos os custos e taxas incluídos no denominador
+                    let precoVenda = (custo + embalagem + taxaFixa) / (1 - margem / 100 - imposto / 100 - comissao / 100 - frete / 100);
+                    
+                    document.getElementById('tiktok-resultado').innerText = 'R$ ' + precoVenda.toFixed(2);
+                    
+                    if (tiktokResults) {
+                        tiktokResults.classList.remove('hidden');
+                    }
+                });
+            }
+            
+            // Sistema de Configurações
+            const salvarConfigBtn = document.getElementById('salvar-config');
+            const resetarConfigBtn = document.getElementById('resetar-config');
+            
+            // Valores padrão das configurações
+            const configPadrao = {
+                shopee: {
+                    comissao: 20,
+                    taxa: 4,
+                    embalagem: 1.5
+                },
+                ml: {
+                    embalagem: 1.5,
+                    taxa1: 6.25,
+                    taxa2: 6.50,
+                    taxa3: 6.75
+                },
+                shein: {
+                    comissao: 16,
+                    embalagem: 1.5,
+                    taxa1: 4,
+                    taxa2: 5,
+                    taxa3: 22
+                },
+                magalu: {
+                    embalagem: 1.5,
+                    taxa1: 18,
+                    taxa2: 20,
+                    taxa3: 25,
+                    taxa4: 30
+                },
+                amazon: {
+                    embalagem: 1.5,
+                    taxa1: 20,
+                    taxa2: 25,
+                    taxa3: 30,
+                    taxa4: 35
+                },
+                viacloset: {
+                    prime: 90,
+                    avista: 100,
+                    aprazo: 120
+                },
+                exposicao: {
+                    atacado: 80,
+                    avista: 100,
+                    aprazo: 120
+                },
+                gip: {
+                    margem: 80
+                },
+                tiktok: {
+                    comissao: 6,
+                    taxa: 2,
+                    frete: 6,
+                    embalagem: 1.5
+                }
+            };
+            
+            // Carregar configurações salvas
+            function carregarConfiguracoes() {
+                const configSalva = localStorage.getItem('gip-calculadora-config');
+                if (configSalva) {
+                    const config = JSON.parse(configSalva);
+                    
+                    // Aplicar configurações nos campos
+                    Object.keys(config).forEach(plataforma => {
+                        Object.keys(config[plataforma]).forEach(campo => {
+                            const elemento = document.getElementById(`${plataforma}-${campo}-config`);
+                            if (elemento) {
+                                elemento.value = config[plataforma][campo];
+                            }
+                        });
+                    });
+                }
+            }
+            
+            // Salvar configurações
+            if (salvarConfigBtn) {
+                salvarConfigBtn.addEventListener('click', function() {
+                    const config = {};
+                    
+                    // Coletar valores dos campos
+                    Object.keys(configPadrao).forEach(plataforma => {
+                        config[plataforma] = {};
+                        Object.keys(configPadrao[plataforma]).forEach(campo => {
+                            const elemento = document.getElementById(`${plataforma}-${campo}-config`);
+                            if (elemento) {
+                                config[plataforma][campo] = parseFloat(elemento.value) || configPadrao[plataforma][campo];
+                            }
+                        });
+                    });
+                    
+                    // Salvar no localStorage
+                    localStorage.setItem('gip-calculadora-config', JSON.stringify(config));
+                    
+                    // Mostrar mensagem de sucesso
+                    alert('Configurações salvas com sucesso!');
+                });
+            }
+            
+            // Resetar configurações
+            if (resetarConfigBtn) {
+                resetarConfigBtn.addEventListener('click', function() {
+                    if (confirm('Tem certeza que deseja restaurar as configurações padrão?')) {
+                        // Limpar localStorage
+                        localStorage.removeItem('gip-calculadora-config');
+                        
+                        // Restaurar valores padrão nos campos
+                        Object.keys(configPadrao).forEach(plataforma => {
+                            Object.keys(configPadrao[plataforma]).forEach(campo => {
+                                const elemento = document.getElementById(`${plataforma}-${campo}-config`);
+                                if (elemento) {
+                                    elemento.value = configPadrao[plataforma][campo];
+                                }
+                            });
+                        });
+                        
+                        alert('Configurações restauradas para o padrão!');
+                    }
+                });
+            }
+            
+            // Função para obter configuração atual
+            function obterConfig(plataforma, campo) {
+                const configSalva = localStorage.getItem('gip-calculadora-config');
+                if (configSalva) {
+                    const config = JSON.parse(configSalva);
+                    return config[plataforma] && config[plataforma][campo] !== undefined 
+                        ? config[plataforma][campo] 
+                        : configPadrao[plataforma][campo];
+                }
+                return configPadrao[plataforma][campo];
+            }
+            
+            // Carregar configurações ao inicializar
+            carregarConfiguracoes();
+            
+            // Atualizar calculadoras para usar configurações dinâmicas
+            // (As calculadoras já existentes serão atualizadas para usar obterConfig())
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9747d64fb737f18e',t:'MTc1NjA5MDgwNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
