@@ -1546,38 +1546,16 @@ document.getElementById("calcular-shein").addEventListener("click", function() {
         taxaPeso = 15; // limite máximo
     }
 
-    // Calcular custos base
+    // Calcular o preço final
     const custoTotal = custo + embalagem + taxaPeso;
     const valorComImposto = custoTotal * (1 + imposto / 100);
-
-    // Preço com margem 0%
-    const precoMargemZero = valorComImposto / (1 - categoria / 100);
-
-    // Preço com margem informada
     const valorComMargem = valorComImposto * (1 + margem / 100);
-    const precoComMargem = valorComMargem / (1 - categoria / 100);
+    const valorFinal = valorComMargem / (1 - categoria / 100);
 
-    // Exibir resultados
-    const resultados = document.getElementById("shein-results");
-    resultados.classList.remove("hidden");
-
-    resultados.innerHTML = `
-        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultados</h2>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div class="result-card bg-gradient-to-br from-gray-100 to-gray-200 p-6 rounded-lg border border-gray-300">
-                <h3 class="text-lg font-medium text-gray-800 mb-2">Preço com Margem Informada:</h3>
-                <p class="text-3xl font-bold text-gray-900">R$ ${precoComMargem.toFixed(2).replace('.', ',')}</p>
-            </div>
-
-            <div class="result-card bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-lg border border-gray-200">
-                <h3 class="text-lg font-medium text-gray-800 mb-2">Preço com Margem 0% (sem lucro):</h3>
-                <p class="text-3xl font-bold text-gray-900">R$ ${precoMargemZero.toFixed(2).replace('.', ',')}</p>
-            </div>
-        </div>
-    `;
+    // Exibir o resultado
+    document.getElementById("shein-results").classList.remove("hidden");
+    document.getElementById("shein-resultado").textContent = `R$ ${valorFinal.toFixed(2).replace('.', ',')}`;
 });
-
 
             
             // Calculadora Magalu
