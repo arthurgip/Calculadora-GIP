@@ -1518,90 +1518,66 @@
             }
             
            // --- Calculadora Shein ---
-document.getElementById("calcular-shein").addEventListener("click", function() {
-    const custo = parseFloat(document.getElementById("shein-custo").value) || 0;
+document.getElementById("calcular-shein").addEventListener("click", function () {
+    const custoProduto = parseFloat(document.getElementById("shein-custo").value) || 0;
     const peso = parseFloat(document.getElementById("shein-peso").value) || 0;
-    const imposto = parseFloat(document.getElementById("shein-imposto").value) || 0;
-    const margem = parseFloat(document.getElementById("shein-margem").value) || 0;
-    const categoria = parseFloat(document.getElementById("shein-categoria").value);
+    const markup = parseFloat(document.getElementById("shein-margem").value) || 0;
+    const impostoPercent = parseFloat(document.getElementById("shein-imposto").value) || 0;
+    const comissaoPercent = parseFloat(document.getElementById("shein-categoria").value) || 16;
     const embalagem = parseFloat(document.getElementById("shein-embalagem-config")?.value || 1.5);
 
-    // Determinar a taxa por peso conforme as novas faixas
-    let taxaPeso = 0;
-    if (peso <= 300) {
-        taxaPeso = parseFloat(document.getElementById("shein-taxa1-config")?.value || 4);
-    } else if (peso <= 600) {
-        taxaPeso = parseFloat(document.getElementById("shein-taxa2-config")?.value || 5);
-    } else if (peso <= 900) {
-        taxaPeso = parseFloat(document.getElementById("shein-taxa3-config")?.value || 6);
-    } else if (peso <= 1000) {
-        taxaPeso = parseFloat(document.getElementById("shein-taxa4-config")?.value || 8);
-    } else if (peso <= 1500) {
-        taxaPeso = parseFloat(document.getElementById("shein-taxa5-config")?.value || 10);
-    } else if (peso <= 2000) {
-        taxaPeso = parseFloat(document.getElementById("shein-taxa6-config")?.value || 12);
-    } else if (peso <= 5000) {
-        taxaPeso = parseFloat(document.getElementById("shein-taxa7-config")?.value || 15);
-    } else {
-        taxaPeso = 15; // limite máximo
-    }
+    // Determinar a taxa de frete por peso (nova tabela)
+    let frete = 0;
+    if (peso <= 300) frete = 4;
+    else if (peso <= 600) frete = 5;
+    else if (peso <= 900) frete = 6;
+    else if (peso <= 1000) frete = 8;
+    else if (peso <= 1500) frete = 10;
+    else if (peso <= 2000) frete = 12;
+    else if (peso <= 5000) frete = 15;
+    else frete = 15;
 
-    // Calcular o preço final
-    const custoTotal = custo + embalagem + taxaPeso;
-    const valorComImposto = custoTotal * (1 + imposto / 100);
-    const valorComMargem = valorComImposto * (1 + margem / 100);
-    const valorFinal = valorComMargem / (1 - categoria / 100);
+    // Custo total
+    const custoTotal = custoProduto + embalagem + frete;
 
-    // Exibir o resultado
-    document.getElementById("shein-results").classList.remove("hidden");
-    document.getElementById("shein-resultado").textContent = `R$ ${valorFinal.toFixed(2).replace('.', ',')}`;
+    // Preço alvo (markup aplicado)
+    const precoAlvo = custoTotal * markup;
+
+    // Imposto e comissão sobre o preço de venda
+    const imposto = precoAlvo * (impostoPercent / 100);
+    const comissao = precoAlvo * (comissaoPercent / 100);
+
+    // Total de deduções
+    const totalDeducoes = imposto + comissao + embalagem + frete;
+
+    // Lucro bruto e margem
+    const lucroBruto = precoAlvo - custoProduto - totalDeducoes;
+    const margemContribuicao = (lucroBruto / precoAlvo) * 100;
+
+    // Exibir resultados
+    const resultados = document.getElementById("shein-results");
+    resultados.classList.remove("hidden");
+    resultados.innerHTML = `
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Preço Calculado GIP</h2>
+
+        <div class="bg-gradient-to-br from-gray-100 to-gray-200 p-6 rounded-lg border border-gray-300 mb-4">
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Preço CALCULADO</h3>
+            <p class="text-3xl font-bold text-gray-900">R$ ${precoAlvo.toFixed(2).replace('.', ',')}</p>
+        </div>
+
+        <div class="text-sm text-gray-700">
+            <p><strong>Custo do Produto:</strong> R$ ${custoProduto.toFixed(2).replace('.', ',')}</p>
+            <p><strong>Embalagem:</strong> R$ ${embalagem.toFixed(2).replace('.', ',')}</p>
+            <p><strong>Frete:</strong> R$ ${frete.toFixed(2).replace('.', ',')}</p>
+            <p><strong>Impostos (${impostoPercent}%):</strong> R$ ${imposto.toFixed(2).replace('.', ',')}</p>
+            <p><strong>Comissão (${comissaoPercent}%):</strong> R$ ${comissao.toFixed(2).replace('.', ',')}</p>
+            <p><strong>Total de Deduções:</strong> R$ ${totalDeducoes.toFixed(2).replace('.', ',')}</p>
+            <p><strong>Lucro Bruto:</strong> R$ ${lucroBruto.toFixed(2).replace('.', ',')}</p>
+            <p><strong>Margem de Contribuição:</strong> ${margemContribuicao.toFixed(2).replace('.', ',')}%</p>
+        </div>
+    `;
 });
 
-            
-            // Calculadora Magalu
-            const calcularMagaluBtn = document.getElementById('calcular-magalu');
-            const magaluResults = document.getElementById('magalu-results');
-            
-            if (calcularMagaluBtn) {
-                calcularMagaluBtn.addEventListener('click', function() {
-                    let custo = parseFloat(document.getElementById('magalu-custo').value);
-                    let peso = parseFloat(document.getElementById('magalu-peso').value);
-                    let imposto = parseFloat(document.getElementById('magalu-imposto').value);
-                    let comissao = parseFloat(document.getElementById('magalu-comissao').value);
-                    let margem = parseFloat(document.getElementById('magalu-margem').value);
-                    
-                    if (isNaN(custo) || custo <= 0) {
-                        alert("Por favor, insira um valor de custo válido.");
-                        return;
-                    }
-                    
-                    if (isNaN(peso) || peso <= 0) {
-                        alert("Por favor, insira um valor de peso válido.");
-                        return;
-                    }
-                    
-                    if (isNaN(imposto) || imposto < 0) {
-                        alert("Por favor, insira um valor de imposto válido.");
-                        return;
-                    }
-                    
-                    if (isNaN(margem) || margem < 0) {
-                        alert("Por favor, insira uma margem válida.");
-                        return;
-                    }
-                    
-                    let taxaFixa = peso <= 300 ? 18 : peso <= 500 ? 20 : peso <= 1000 ? 25 : 30;
-                    let embalagem = 1.5;
-                    
-                    let precoVenda = (custo + embalagem + taxaFixa) / (1 - margem / 100 - imposto / 100 - comissao / 100);
-                    
-                    document.getElementById('magalu-resultado').innerText = 'R$ ' + precoVenda.toFixed(2);
-                    
-                    if (magaluResults) {
-                        magaluResults.classList.remove('hidden');
-                    }
-                });
-            }
             
             // Calculadora Amazon
             const calcularAmazonBtn = document.getElementById('calcular-amazon');
