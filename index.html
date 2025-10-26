@@ -1521,12 +1521,12 @@
 document.getElementById("calcular-shein").addEventListener("click", function () {
     const custoProduto = parseFloat(document.getElementById("shein-custo").value) || 0;
     const peso = parseFloat(document.getElementById("shein-peso").value) || 0;
-    const markup = parseFloat(document.getElementById("shein-margem").value) || 0;
+    const margemPercent = parseFloat(document.getElementById("shein-margem").value) || 0;
     const impostoPercent = parseFloat(document.getElementById("shein-imposto").value) || 0;
     const comissaoPercent = parseFloat(document.getElementById("shein-categoria").value) || 16;
     const embalagem = parseFloat(document.getElementById("shein-embalagem-config")?.value || 1.5);
 
-    // Determinar a taxa de frete por peso (nova tabela)
+    // Determinar o frete conforme peso
     let frete = 0;
     if (peso <= 300) frete = 4;
     else if (peso <= 600) frete = 5;
@@ -1537,24 +1537,27 @@ document.getElementById("calcular-shein").addEventListener("click", function () 
     else if (peso <= 5000) frete = 15;
     else frete = 15;
 
-    // Custo total
+    // Custo total (produto + embalagem + frete)
     const custoTotal = custoProduto + embalagem + frete;
 
-    // Preço alvo (markup aplicado)
-    const precoAlvo = custoTotal * markup;
+    // Converter percentuais em frações
+    const comissao = comissaoPercent / 100;
+    const imposto = impostoPercent / 100;
+    const margem = margemPercent / 100;
 
-    // Imposto e comissão sobre o preço de venda
-    const imposto = precoAlvo * (impostoPercent / 100);
-    const comissao = precoAlvo * (comissaoPercent / 100);
+    // Fórmula inversa: preço = custo / (1 - (imposto + comissao + margem))
+    const precoVenda = custoTotal / (1 - (comissao + imposto + margem));
 
-    // Total de deduções
-    const totalDeducoes = imposto + comissao + embalagem + frete;
+    // Deduções
+    const valorImposto = precoVenda * imposto;
+    const valorComissao = precoVenda * comissao;
+    const totalDeducoes = valorImposto + valorComissao + embalagem + frete;
 
-    // Lucro bruto e margem
-    const lucroBruto = precoAlvo - custoProduto - totalDeducoes;
-    const margemContribuicao = (lucroBruto / precoAlvo) * 100;
+    // Lucro bruto e margem real
+    const lucroBruto = precoVenda - custoProduto - totalDeducoes;
+    const margemContribuicao = (lucroBruto / precoVenda) * 100;
 
-    // Exibir resultados
+    // Exibir resultado
     const resultados = document.getElementById("shein-results");
     resultados.classList.remove("hidden");
     resultados.innerHTML = `
@@ -1562,22 +1565,21 @@ document.getElementById("calcular-shein").addEventListener("click", function () 
 
         <div class="bg-gradient-to-br from-gray-100 to-gray-200 p-6 rounded-lg border border-gray-300 mb-4">
             <h3 class="text-xl font-semibold text-gray-900 mb-2">Preço CALCULADO</h3>
-            <p class="text-3xl font-bold text-gray-900">R$ ${precoAlvo.toFixed(2).replace('.', ',')}</p>
+            <p class="text-3xl font-bold text-gray-900">R$ ${precoVenda.toFixed(2).replace('.', ',')}</p>
         </div>
 
         <div class="text-sm text-gray-700">
             <p><strong>Custo do Produto:</strong> R$ ${custoProduto.toFixed(2).replace('.', ',')}</p>
             <p><strong>Embalagem:</strong> R$ ${embalagem.toFixed(2).replace('.', ',')}</p>
             <p><strong>Frete:</strong> R$ ${frete.toFixed(2).replace('.', ',')}</p>
-            <p><strong>Impostos (${impostoPercent}%):</strong> R$ ${imposto.toFixed(2).replace('.', ',')}</p>
-            <p><strong>Comissão (${comissaoPercent}%):</strong> R$ ${comissao.toFixed(2).replace('.', ',')}</p>
+            <p><strong>Comissão (${comissaoPercent}%):</strong> R$ ${valorComissao.toFixed(2).replace('.', ',')}</p>
+            <p><strong>Impostos (${impostoPercent}%):</strong> R$ ${valorImposto.toFixed(2).replace('.', ',')}</p>
             <p><strong>Total de Deduções:</strong> R$ ${totalDeducoes.toFixed(2).replace('.', ',')}</p>
             <p><strong>Lucro Bruto:</strong> R$ ${lucroBruto.toFixed(2).replace('.', ',')}</p>
             <p><strong>Margem de Contribuição:</strong> ${margemContribuicao.toFixed(2).replace('.', ',')}%</p>
         </div>
     `;
 });
-
             
             // Calculadora Amazon
             const calcularAmazonBtn = document.getElementById('calcular-amazon');
