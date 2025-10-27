@@ -1580,6 +1580,51 @@ document.getElementById("calcular-shein").addEventListener("click", function () 
         </div>
     `;
 });
+
+            // Calculadora Magalu
+            const calcularMagaluBtn = document.getElementById('calcular-magalu');
+            const magaluResults = document.getElementById('magalu-results');
+            
+            if (calcularMagaluBtn) {
+                calcularMagaluBtn.addEventListener('click', function() {
+                    let custo = parseFloat(document.getElementById('magalu-custo').value);
+                    let peso = parseFloat(document.getElementById('magalu-peso').value);
+                    let imposto = parseFloat(document.getElementById('magalu-imposto').value);
+                    let comissao = parseFloat(document.getElementById('magalu-comissao').value);
+                    let margem = parseFloat(document.getElementById('magalu-margem').value);
+                    
+                    if (isNaN(custo) || custo <= 0) {
+                        alert("Por favor, insira um valor de custo válido.");
+                        return;
+                    }
+                    
+                    if (isNaN(peso) || peso <= 0) {
+                        alert("Por favor, insira um valor de peso válido.");
+                        return;
+                    }
+                    
+                    if (isNaN(imposto) || imposto < 0) {
+                        alert("Por favor, insira um valor de imposto válido.");
+                        return;
+                    }
+                    
+                    if (isNaN(margem) || margem < 0) {
+                        alert("Por favor, insira uma margem válida.");
+                        return;
+                    }
+                    
+                    let taxaFixa = peso <= 300 ? 18 : peso <= 500 ? 20 : peso <= 1000 ? 25 : 30;
+                    let embalagem = 1.5;
+                    
+                    let precoVenda = (custo + embalagem + taxaFixa) / (1 - margem / 100 - imposto / 100 - comissao / 100);
+                    
+                    document.getElementById('magalu-resultado').innerText = 'R$ ' + precoVenda.toFixed(2);
+                    
+                    if (magaluResults) {
+                        magaluResults.classList.remove('hidden');
+                    }
+                });
+            }
             
             // Calculadora Amazon
             const calcularAmazonBtn = document.getElementById('calcular-amazon');
