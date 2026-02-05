@@ -279,12 +279,13 @@
                         <h3 class="text-2xl font-bold text-white">TikTok Shop</h3>
                     </div>
                     <div class="p-5">
-                        <p class="text-gray-600 mb-4">Calcule os preços para o TikTok Shop com comissão de 6% e taxas específicas.</p>
+                        <p class="text-gray-600 mb-4">Calcule os preços para o TikTok Shop com comissão de 6% e uma taxa fixa de R$ 4 para todos os pedidos.</p>
                         <button id="btn-tiktok" class="w-full py-2 px-4 bg-gradient-to-r from-black to-gray-800 text-white font-medium rounded-lg hover:from-gray-900 hover:to-black transition-all">
                             Calcular
                         </button>
                     </div>
                 </div>
+
             </div>
         </div>
         
@@ -442,8 +443,8 @@
                                 <input type="number" id="tiktok-comissao-config" value="6" step="0.1" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-gray-500">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Taxa Fixa <R$79 (R$):</label>
-                                <input type="number" id="tiktok-taxa-config" value="2" step="0.01" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-gray-500">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Taxa Fixa (R$):</label>
+                                <input type="number" id="tiktok-taxa-config" value="4" step="0.01" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-gray-500">
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Frete (%):</label>
@@ -799,7 +800,7 @@
                 <label for="shein-categoria" class="block text-gray-700 font-medium mb-2">Categoria:</label>
                 <select id="shein-categoria" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
                     <option value="20">Vestuário Feminino (20%)</option>
-                    <option value="18">Outras Categorias (18%)</option> <!-- Adicionando a opção de 18% -->
+                    <option value="18">Outras Categorias (18%) 🆕</option> <!-- Adicionando a opção de 18% -->
                     <option value="16">Outras Categorias (16%)</option>
                 </select>
             </div>
@@ -823,7 +824,7 @@
                 <div>
                     <p class="text-gray-700 text-sm"><strong>Regras Shein:</strong></p>
                     <p class="text-gray-600 text-sm">
-                        • Comissão: 20% (Vestuário Feminino) | 18% (Outras) A PARTIR DE 01/03/26 | 16% (Outras) <br>
+                        • Comissão: 20% (Vestuário Feminino) | 18% (Outras) A PARTIR DE 01/03/26 🆕 | 16% (Outras) <br>
                         • Taxa por peso: ≤300g: R$4 | 300–600g: R$5 | 600–900g: R$6 |<br>
                         900g–1kg: R$8 | 1,2–1,5kg: R$10 | 1,5–2kg: R$12 | 2–5kg: R$15 <br>
                         • Embalagem: R$ 1,50
@@ -1125,7 +1126,7 @@
                         </svg>
                         <div>
                             <p class="text-gray-700 text-sm"><strong>Regras TikTok Shop:</strong></p>
-                            <p class="text-gray-600 text-sm">• Comissão: 6% • Taxa fixa: R$ 2,00 por pedido • Frete: 6% • Embalagem: R$ 1,50</p>
+                            <p class="text-gray-600 text-sm">• Comissão: 6% <br>• Taxa fixa: R$ 4,00 por pedido 🆕 <br>• Frete: 6% <br>• Embalagem: R$ 1,50</p>
                         </div>
                     </div>
                 </div>
@@ -1155,7 +1156,7 @@
                     <span class="text-xl font-semibold">GIP Calculadoras</span>
                 </div>
                 <div class="text-center md:text-right">
-                    <p>&copy; 2024 GIP Ecommerce. Todos os direitos reservados.</p>
+                    <p>&copy; 2026 GIP Ecommerce. Todos os direitos reservados.</p>
                 </div>
             </div>
         </div>
@@ -1761,7 +1762,7 @@
                     let comissao = 6; // 6% de comissão
                     let embalagem = 1.5; // R$ 1,50 de embalagem
                     let frete = 6; // 6% de frete
-                    let taxaFixa = 2; // R$ 2,00 taxa fixa para produtos abaixo de R$79
+                    let taxaFixa = 4; // R$ 4,00 taxa para todos produtos
                     
                     // Cálculo como estava na versão 33: todos os custos e taxas incluídos no denominador
                     let precoVenda = (custo + embalagem + taxaFixa) / (1 - margem / 100 - imposto / 100 - comissao / 100 - frete / 100);
@@ -1827,7 +1828,7 @@
                 },
                 tiktok: {
                     comissao: 6,
-                    taxa: 2,
+                    taxa: 4,
                     frete: 6,
                     embalagem: 1.5
                 }
