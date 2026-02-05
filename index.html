@@ -347,44 +347,51 @@
                         </div>
                     </div>
                     
-                  <!-- Shein -->
-<div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
-  <h3 class="text-lg font-medium text-gray-800 mb-3">Shein</h3>
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-    <div>
-      <label class="block text-sm font-medium text-gray-700 mb-1">Categoria:</label>
-      <select id="shein-categoria-config" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-gray-500">
-        <option value="20">Vestuário Feminino (20%)</option>
-        <option value="16">Outras Categorias (16%)</option>
-      </select>
-    </div>
-    <div>
-      <label class="block text-sm font-medium text-gray-700 mb-1">Embalagem (R$):</label>
-      <input type="number" id="shein-embalagem-config" value="1.5" step="0.01"
-        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-gray-500">
-    </div>
-  </div>
+                    <!-- Configurações Shein -->
+                    <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+                        <h3 class="text-lg font-medium text-gray-800 mb-3">Shein</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Categoria:</label>
+                                <select id="shein-categoria-config" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-gray-500">
+                                    <option value="20">Vestuário Feminino (20%)</option>
+                                    <option value="18">Outras Categorias (18%)</option> <!-- Adicionando a opção de 18% -->
+                                    <option value="16">Outras Categorias (16%)</option>
+                                </select>
 
-  <div class="mt-3">
-    <p class="text-sm text-gray-600"><strong>Taxas por Peso:</strong></p>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 text-sm">
-      <div>≤300g: R$ <input type="number" id="shein-taxa1-config" value="4" step="0.01"
-          class="w-16 px-2 py-1 border border-gray-300 rounded text-xs"></div>
-      <div>300g–600g: R$ <input type="number" id="shein-taxa2-config" value="5" step="0.01"
-          class="w-16 px-2 py-1 border border-gray-300 rounded text-xs"></div>
-      <div>600g–900g: R$ <input type="number" id="shein-taxa3-config" value="6" step="0.01"
-          class="w-16 px-2 py-1 border border-gray-300 rounded text-xs"></div>
-      <div>900g–1kg: R$ <input type="number" id="shein-taxa4-config" value="8" step="0.01"
-          class="w-16 px-2 py-1 border border-gray-300 rounded text-xs"></div>
-      <div>1,2kg–1,5kg: R$ <input type="number" id="shein-taxa5-config" value="10" step="0.01"
-          class="w-16 px-2 py-1 border border-gray-300 rounded text-xs"></div>
-      <div>1,5kg–2kg: R$ <input type="number" id="shein-taxa6-config" value="12" step="0.01"
-          class="w-16 px-2 py-1 border border-gray-300 rounded text-xs"></div>
-      <div>2kg–5kg: R$ <input type="number" id="shein-taxa7-config" value="15" step="0.01"
-          class="w-16 px-2 py-1 border border-gray-300 rounded text-xs"></div>
-    </div>
-  </div>
-</div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Embalagem (R$):</label>
+                                <input type="number" id="shein-embalagem-config" value="1.5" step="0.01"
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-gray-500">
+                            </div>
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="text-sm text-gray-600"><strong>Taxas por Peso:</strong></p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 text-sm">
+                                <div>≤300g: R$ <input type="number" id="shein-taxa1-config" value="4" step="0.01"
+                                    class="w-16 px-2 py-1 border border-gray-300 rounded text-xs"></div>
+                                <div>300g–600g: R$ <input type="number" id="shein-taxa2-config" value="5" step="0.01"
+                                    class="w-16 px-2 py-1 border border-gray-300 rounded text-xs"></div>
+                                <div>600g–900g: R$ <input type="number" id="shein-taxa3-config" value="6" step="0.01"
+                                    class="w-16 px-2 py-1 border border-gray-300 rounded text-xs"></div>
+                                <div>900g–1kg: R$ <input type="number" id="shein-taxa4-config" value="8" step="0.01"
+                                    class="w-16 px-2 py-1 border border-gray-300 rounded text-xs"></div>
+                                <div>1,2kg–1,5kg: R$ <input type="number" id="shein-taxa5-config" value="10" step="0.01"
+                                    class="w-16 px-2 py-1 border border-gray-300 rounded text-xs"></div>
+                                <div>1,5kg–2kg: R$ <input type="number" id="shein-taxa6-config" value="12" step="0.01"
+                                    class="w-16 px-2 py-1 border border-gray-300 rounded text-xs"></div>
+                                <div>2kg–5kg: R$ <input type="number" id="shein-taxa7-config" value="15" step="0.01"
+                                    class="w-16 px-2 py-1 border border-gray-300 rounded text-xs"></div>
+                            </div>
+                        </div>
+
+                        <!-- Mensagem sobre a mudança da comissão -->
+                        <p class="text-xs text-gray-500 mt-2">A comissão de 18% será válida a partir de 01/03/2026.</p>
+                    </div>
+
+
                     
                     <!-- Magalu -->
                     <div class="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
@@ -792,6 +799,7 @@
                 <label for="shein-categoria" class="block text-gray-700 font-medium mb-2">Categoria:</label>
                 <select id="shein-categoria" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
                     <option value="20">Vestuário Feminino (20%)</option>
+                    <option value="18">Outras Categorias (18%)</option> <!-- Adicionando a opção de 18% -->
                     <option value="16">Outras Categorias (16%)</option>
                 </select>
             </div>
@@ -815,8 +823,9 @@
                 <div>
                     <p class="text-gray-700 text-sm"><strong>Regras Shein:</strong></p>
                     <p class="text-gray-600 text-sm">
-                        • Comissão: 20% (Vestuário Feminino) / 16% (Outras) <br>
-                        • Taxa por peso: ≤300g: R$4 | 300–600g: R$5 | 600–900g: R$6 | 900g–1kg: R$8 | 1,2–1,5kg: R$10 | 1,5–2kg: R$12 | 2–5kg: R$15 <br>
+                        • Comissão: 20% (Vestuário Feminino) | 18% (Outras) A PARTIR DE 01/03/26 | 16% (Outras) <br>
+                        • Taxa por peso: ≤300g: R$4 | 300–600g: R$5 | 600–900g: R$6 |<br>
+                        900g–1kg: R$8 | 1,2–1,5kg: R$10 | 1,5–2kg: R$12 | 2–5kg: R$15 <br>
                         • Embalagem: R$ 1,50
                     </p>
                 </div>
@@ -1517,69 +1526,72 @@
                 });
             }
             
-           // --- Calculadora Shein ---
-document.getElementById("calcular-shein").addEventListener("click", function () {
-    const custoProduto = parseFloat(document.getElementById("shein-custo").value) || 0;
-    const peso = parseFloat(document.getElementById("shein-peso").value) || 0;
-    const margemPercent = parseFloat(document.getElementById("shein-margem").value) || 0;
-    const impostoPercent = parseFloat(document.getElementById("shein-imposto").value) || 0;
-    const comissaoPercent = parseFloat(document.getElementById("shein-categoria").value) || 16;
-    const embalagem = parseFloat(document.getElementById("shein-embalagem-config")?.value || 1.5);
+            document.getElementById("calcular-shein").addEventListener("click", function () {
+                // Obter valores dos campos
+                const custoProduto = parseFloat(document.getElementById("shein-custo").value) || 0;
+                const peso = parseFloat(document.getElementById("shein-peso").value) || 0;
+                const margemPercent = parseFloat(document.getElementById("shein-margem").value) || 0;
+                const impostoPercent = parseFloat(document.getElementById("shein-imposto").value) || 0;
 
-    // Determinar o frete conforme peso
-    let frete = 0;
-    if (peso <= 300) frete = 4;
-    else if (peso <= 600) frete = 5;
-    else if (peso <= 900) frete = 6;
-    else if (peso <= 1000) frete = 8;
-    else if (peso <= 1500) frete = 10;
-    else if (peso <= 2000) frete = 12;
-    else if (peso <= 5000) frete = 15;
-    else frete = 15;
+                // Obter a comissão selecionada
+                const comissaoPercent = parseFloat(document.getElementById("shein-categoria").value) || 16; // Valor da comissão, com 18% se a opção de 18% for selecionada
+                const embalagem = parseFloat(document.getElementById("shein-embalagem-config")?.value || 1.5); // Embalagem
 
-    // Custo total (produto + embalagem + frete)
-    const custoTotal = custoProduto + embalagem + frete;
+                // Determinar o frete conforme peso
+                let frete = 0;
+                if (peso <= 300) frete = 4;
+                else if (peso <= 600) frete = 5;
+                else if (peso <= 900) frete = 6;
+                else if (peso <= 1000) frete = 8;
+                else if (peso <= 1500) frete = 10;
+                else if (peso <= 2000) frete = 12;
+                else if (peso <= 5000) frete = 15;
+                else frete = 15;
 
-    // Converter percentuais em frações
-    const comissao = comissaoPercent / 100;
-    const imposto = impostoPercent / 100;
-    const margem = margemPercent / 100;
+                // Cálculo do custo total (produto + embalagem + frete)
+                const custoTotal = custoProduto + embalagem + frete;
 
-    // Fórmula inversa: preço = custo / (1 - (imposto + comissao + margem))
-    const precoVenda = custoTotal / (1 - (comissao + imposto + margem));
+                // Converter percentuais em frações
+                const comissao = comissaoPercent / 100;
+                const imposto = impostoPercent / 100;
+                const margem = margemPercent / 100;
 
-    // Deduções
-    const valorImposto = precoVenda * imposto;
-    const valorComissao = precoVenda * comissao;
-    const totalDeducoes = valorImposto + valorComissao + embalagem + frete;
+                // Fórmula inversa para calcular o preço de venda
+                const precoVenda = custoTotal / (1 - (comissao + imposto + margem));
 
-    // Lucro bruto e margem real
-    const lucroBruto = precoVenda - custoProduto - totalDeducoes;
-    const margemContribuicao = (lucroBruto / precoVenda) * 100;
+                // Deduções (imposto, comissão, embalagem e frete)
+                const valorImposto = precoVenda * imposto;
+                const valorComissao = precoVenda * comissao;
+                const totalDeducoes = valorImposto + valorComissao + embalagem + frete;
 
-    // Exibir resultado
-    const resultados = document.getElementById("shein-results");
-    resultados.classList.remove("hidden");
-    resultados.innerHTML = `
-        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Preço Calculado GIP</h2>
+                // Lucro bruto e margem de contribuição
+                const lucroBruto = precoVenda - custoProduto - totalDeducoes;
+                const margemContribuicao = (lucroBruto / precoVenda) * 100;
 
-        <div class="bg-gradient-to-br from-gray-100 to-gray-200 p-6 rounded-lg border border-gray-300 mb-4">
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">Preço CALCULADO</h3>
-            <p class="text-3xl font-bold text-gray-900">R$ ${precoVenda.toFixed(2).replace('.', ',')}</p>
-        </div>
+                // Exibir resultados
+                const resultados = document.getElementById("shein-results");
+                resultados.classList.remove("hidden");
+                resultados.innerHTML = `
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Preço Calculado GIP</h2>
 
-        <div class="text-sm text-gray-700">
-            <p><strong>Custo do Produto:</strong> R$ ${custoProduto.toFixed(2).replace('.', ',')}</p>
-            <p><strong>Embalagem:</strong> R$ ${embalagem.toFixed(2).replace('.', ',')}</p>
-            <p><strong>Frete:</strong> R$ ${frete.toFixed(2).replace('.', ',')}</p>
-            <p><strong>Comissão (${comissaoPercent}%):</strong> R$ ${valorComissao.toFixed(2).replace('.', ',')}</p>
-            <p><strong>Impostos (${impostoPercent}%):</strong> R$ ${valorImposto.toFixed(2).replace('.', ',')}</p>
-            <p><strong>Total de Deduções:</strong> R$ ${totalDeducoes.toFixed(2).replace('.', ',')}</p>
-            <p><strong>Lucro Bruto:</strong> R$ ${lucroBruto.toFixed(2).replace('.', ',')}</p>
-            <p><strong>Margem de Contribuição:</strong> ${margemContribuicao.toFixed(2).replace('.', ',')}%</p>
-        </div>
-    `;
-});
+                    <div class="bg-gradient-to-br from-gray-100 to-gray-200 p-6 rounded-lg border border-gray-300 mb-4">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Preço CALCULADO</h3>
+                        <p class="text-3xl font-bold text-gray-900">R$ ${precoVenda.toFixed(2).replace('.', ',')}</p>
+                    </div>
+
+                    <div class="text-sm text-gray-700">
+                        <p><strong>Custo do Produto:</strong> R$ ${custoProduto.toFixed(2).replace('.', ',')}</p>
+                        <p><strong>Embalagem:</strong> R$ ${embalagem.toFixed(2).replace('.', ',')}</p>
+                        <p><strong>Frete:</strong> R$ ${frete.toFixed(2).replace('.', ',')}</p>
+                        <p><strong>Comissão (${comissaoPercent}%):</strong> R$ ${valorComissao.toFixed(2).replace('.', ',')}</p>
+                        <p><strong>Impostos (${impostoPercent}%):</strong> R$ ${valorImposto.toFixed(2).replace('.', ',')}</p>
+                        <p><strong>Total de Deduções:</strong> R$ ${totalDeducoes.toFixed(2).replace('.', ',')}</p>
+                        <p><strong>Lucro Bruto:</strong> R$ ${lucroBruto.toFixed(2).replace('.', ',')}</p>
+                        <p><strong>Margem de Contribuição:</strong> ${margemContribuicao.toFixed(2).replace('.', ',')}%</p>
+                    </div>
+                `;
+            });
+
 
             // Calculadora Magalu
             const calcularMagaluBtn = document.getElementById('calcular-magalu');
