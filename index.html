@@ -439,20 +439,27 @@
                         <h3 class="text-lg font-medium text-gray-800 mb-3">TikTok Shop</h3>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Comissão (%):</label>
-                                <input type="number" id="tiktok-comissao-config" value="6" step="0.1" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-gray-500">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Taxa Fixa (R$):</label>
-                                <input type="number" id="tiktok-taxa-config" value="4" step="0.01" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-gray-500">
-                            </div>
-                            <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Frete (%):</label>
                                 <input type="number" id="tiktok-frete-config" value="6" step="0.1" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-gray-500">
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Embalagem (R$):</label>
                                 <input type="number" id="tiktok-embalagem-config" value="1.5" step="0.01" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-gray-500">
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <p class="text-sm text-gray-600"><strong>Comissão e Taxa Fixa por Faixa de Preço:</strong></p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2 text-sm">
+                                <div class="p-2 bg-white rounded border border-gray-200">
+                                    <p class="text-xs text-gray-500 mb-1">Até R$ 50,00</p>
+                                    <div class="flex items-center gap-1 mb-1">Comissão: <input type="number" id="tiktok-comissao1-config" value="10" step="0.1" class="w-16 px-1 py-1 border border-gray-300 rounded text-xs">%</div>
+                                    <div class="flex items-center gap-1">Taxa: R$ <input type="number" id="tiktok-taxa1-config" value="4" step="0.01" class="w-16 px-1 py-1 border border-gray-300 rounded text-xs"></div>
+                                </div>
+                                <div class="p-2 bg-white rounded border border-gray-200">
+                                    <p class="text-xs text-gray-500 mb-1">Acima de R$ 50,00</p>
+                                    <div class="flex items-center gap-1 mb-1">Comissão: <input type="number" id="tiktok-comissao2-config" value="6" step="0.1" class="w-16 px-1 py-1 border border-gray-300 rounded text-xs">%</div>
+                                    <div class="flex items-center gap-1">Taxa: R$ <input type="number" id="tiktok-taxa2-config" value="6" step="0.01" class="w-16 px-1 py-1 border border-gray-300 rounded text-xs"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1132,7 +1139,7 @@
                         </svg>
                         <div>
                             <p class="text-gray-700 text-sm"><strong>Regras TikTok Shop:</strong></p>
-                            <p class="text-gray-600 text-sm">• Comissão: 6% <br>• Taxa fixa: R$ 4,00 por pedido 🆕 <br>• Frete: 6% <br>• Embalagem: R$ 1,50</p>
+                            <p class="text-gray-600 text-sm">•🆕 Acima R$50 -> Comissão: 6% <br>• Taxa fixa: R$ 6,00 por pedido<br>• Frete: 6% <br>• Embalagem: R$ 1,50</p>
                         </div>
                     </div>
                 </div>
@@ -1770,13 +1777,25 @@
                         return;
                     }
                     
-                    let comissao = 6; // 6% de comissão
-                    let embalagem = 1.5; // R$ 1,50 de embalagem
-                    let frete = 6; // 6% de frete
-                    let taxaFixa = 4; // R$ 4,00 taxa para todos produtos
+                    let embalagem = obterConfig('tiktok', 'embalagem'); // R$ 1,50 de embalagem (fixo para as duas faixas)
+                    let frete = obterConfig('tiktok', 'frete'); // 6% de frete (fixo para as duas faixas)
                     
-                    // Cálculo como estava na versão 33: todos os custos e taxas incluídos no denominador
-                    let precoVenda = (custo + embalagem + taxaFixa) / (1 - margem / 100 - imposto / 100 - comissao / 100 - frete / 100);
+                    // Faixa 1: produtos até R$ 50,00 -> comissão maior, taxa fixa menor
+                    let comissaoFaixa1 = obterConfig('tiktok', 'comissao1');
+                    let taxaFaixa1 = obterConfig('tiktok', 'taxa1');
+                    
+                    // Faixa 2: produtos acima de R$ 50,00 -> comissão menor, taxa fixa maior
+                    let comissaoFaixa2 = obterConfig('tiktok', 'comissao2');
+                    let taxaFaixa2 = obterConfig('tiktok', 'taxa2');
+                    
+                    // Como a faixa depende do preço final (que ainda não conhecemos), calculamos
+                    // primeiro assumindo a faixa "até R$50". Se o resultado ultrapassar R$50,
+                    // refazemos o cálculo com as regras da faixa "acima de R$50".
+                    let precoVenda = (custo + embalagem + taxaFaixa1) / (1 - margem / 100 - imposto / 100 - comissaoFaixa1 / 100 - frete / 100);
+                    
+                    if (precoVenda > 50) {
+                        precoVenda = (custo + embalagem + taxaFaixa2) / (1 - margem / 100 - imposto / 100 - comissaoFaixa2 / 100 - frete / 100);
+                    }
                     
                     document.getElementById('tiktok-resultado').innerText = 'R$ ' + precoVenda.toFixed(2);
                     
@@ -1838,8 +1857,10 @@
                     margem: 80
                 },
                 tiktok: {
-                    comissao: 6,
-                    taxa: 4,
+                    comissao1: 10,
+                    taxa1: 4,
+                    comissao2: 6,
+                    taxa2: 6,
                     frete: 6,
                     embalagem: 1.5
                 }
