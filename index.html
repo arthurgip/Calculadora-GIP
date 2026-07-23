@@ -83,14 +83,6 @@
             background: linear-gradient(135deg, #000000 0%, #434343 100%);
         }
         
-        .magalu-theme {
-            background: linear-gradient(135deg, #003399 0%, #0055cc 100%);
-        }
-        
-        .amazon-theme {
-            background: linear-gradient(135deg, #ff9900 0%, #ffb84d 100%);
-        }
-        
         .viacloset-theme {
             background: linear-gradient(135deg, #000000 0%, #333333 100%);
         }
@@ -172,7 +164,7 @@
                     </div>
                     <div class="p-6">
                         <h2 class="text-2xl font-semibold text-gray-800 mb-3">Marketplaces</h2>
-                        <p class="text-gray-600 mb-6">Calcule os preços ideais para seus produtos em diferentes marketplaces como Shopee, Mercado Livre, Shein, Magalu e Amazon.</p>
+                        <p class="text-gray-600 mb-6">Calcule os preços ideais para seus produtos em diferentes marketplaces como Shopee, Mercado Livre, Shein e TikTok Shop.</p>
                         <button id="btn-marketplace" class="w-full py-3 px-6 text-white font-medium rounded-lg btn-marketplace">
                             Acessar Calculadoras
                         </button>
@@ -242,32 +234,6 @@
                     <div class="p-5">
                         <p class="text-gray-600 mb-4">Calcule os preços para a plataforma Shein com diferentes margens.</p>
                         <button id="btn-shein" class="w-full py-2 px-4 bg-gradient-to-r from-gray-900 to-gray-800 text-white font-medium rounded-lg hover:from-black hover:to-gray-900 transition-all">
-                            Calcular
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Magalu -->
-                <div class="card bg-white rounded-xl shadow-lg overflow-hidden">
-                    <div class="h-32 magalu-theme flex items-center justify-center">
-                        <h3 class="text-2xl font-bold text-white">Magalu</h3>
-                    </div>
-                    <div class="p-5">
-                        <p class="text-gray-600 mb-4">Calcule os preços para o Marketplace da Magalu com diferentes taxas.</p>
-                        <button id="btn-magalu" class="w-full py-2 px-4 bg-gradient-to-r from-blue-700 to-blue-600 text-white font-medium rounded-lg hover:from-blue-800 hover:to-blue-700 transition-all">
-                            Calcular
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Amazon -->
-                <div class="card bg-white rounded-xl shadow-lg overflow-hidden">
-                    <div class="h-32 amazon-theme flex items-center justify-center">
-                        <h3 class="text-2xl font-bold text-gray-900">Amazon</h3>
-                    </div>
-                    <div class="p-5">
-                        <p class="text-gray-600 mb-4">Calcule os preços para a Amazon considerando taxas e comissões específicas.</p>
-                        <button id="btn-amazon" class="w-full py-2 px-4 bg-gradient-to-r from-yellow-500 to-yellow-400 text-gray-900 font-medium rounded-lg hover:from-yellow-600 hover:to-yellow-500 transition-all">
                             Calcular
                         </button>
                     </div>
@@ -393,46 +359,6 @@
                     </div>
 
 
-                    
-                    <!-- Magalu -->
-                    <div class="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
-                        <h3 class="text-lg font-medium text-blue-800 mb-3">Magalu</h3>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Embalagem (R$):</label>
-                                <input type="number" id="magalu-embalagem-config" value="1.5" step="0.01" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                            </div>
-                        </div>
-                        <div class="mt-3">
-                            <p class="text-sm text-gray-600"><strong>Taxas por Peso:</strong></p>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 text-sm">
-                                <div>≤300g: R$ <input type="number" id="magalu-taxa1-config" value="18" step="0.01" class="w-12 px-1 py-1 border border-gray-300 rounded text-xs"></div>
-                                <div>≤500g: R$ <input type="number" id="magalu-taxa2-config" value="20" step="0.01" class="w-12 px-1 py-1 border border-gray-300 rounded text-xs"></div>
-                                <div>≤1kg: R$ <input type="number" id="magalu-taxa3-config" value="25" step="0.01" class="w-12 px-1 py-1 border border-gray-300 rounded text-xs"></div>
-                                <div>>1kg: R$ <input type="number" id="magalu-taxa4-config" value="30" step="0.01" class="w-12 px-1 py-1 border border-gray-300 rounded text-xs"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Amazon -->
-                    <div class="mb-6 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
-                        <h3 class="text-lg font-medium text-yellow-800 mb-3">Amazon</h3>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Embalagem (R$):</label>
-                                <input type="number" id="amazon-embalagem-config" value="1.5" step="0.01" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500">
-                            </div>
-                        </div>
-                        <div class="mt-3">
-                            <p class="text-sm text-gray-600"><strong>Taxas por Peso:</strong></p>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 text-sm">
-                                <div>≤300g: R$ <input type="number" id="amazon-taxa1-config" value="20" step="0.01" class="w-12 px-1 py-1 border border-gray-300 rounded text-xs"></div>
-                                <div>≤500g: R$ <input type="number" id="amazon-taxa2-config" value="25" step="0.01" class="w-12 px-1 py-1 border border-gray-300 rounded text-xs"></div>
-                                <div>≤1kg: R$ <input type="number" id="amazon-taxa3-config" value="30" step="0.01" class="w-12 px-1 py-1 border border-gray-300 rounded text-xs"></div>
-                                <div>>1kg: R$ <input type="number" id="amazon-taxa4-config" value="35" step="0.01" class="w-12 px-1 py-1 border border-gray-300 rounded text-xs"></div>
-                            </div>
-                        </div>
-                    </div>
                     
                     <!-- TikTok Shop -->
                     <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
@@ -605,51 +531,103 @@
                     <img src="https://i.postimg.cc/mD1CFGH5/Design-sem-nome-1.png" alt="Logo Shopee" class="h-16">
                 </div>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                    <div>
-                        <label for="shopee-custo" class="block text-gray-700 font-medium mb-2">Custo do Produto (R$):</label>
-                        <input type="number" id="shopee-custo" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors">
+                <!-- Abas: Cálculo Dinâmico / Cálculo Manual -->
+                <div class="flex mb-6 bg-gray-100 rounded-lg p-1">
+                    <button id="shopee-tab-dinamico" class="flex-1 py-2 px-4 rounded-md font-medium transition-all bg-orange-500 text-white">
+                        Cálculo Dinâmico
+                    </button>
+                    <button id="shopee-tab-manual" class="flex-1 py-2 px-4 rounded-md font-medium transition-all text-gray-600">
+                        Cálculo Manual
+                    </button>
+                </div>
+                
+                <!-- Modo Dinâmico: informa custo, imposto e margem -> retorna o preço -->
+                <div id="shopee-dinamico-fields">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <label for="shopee-custo" class="block text-gray-700 font-medium mb-2">Custo do Produto (R$):</label>
+                            <input type="number" id="shopee-custo" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors">
+                        </div>
+                        
+                        <div>
+                            <label for="shopee-imposto" class="block text-gray-700 font-medium mb-2">Imposto (%):</label>
+                            <input type="number" id="shopee-imposto" placeholder="Ex: 10" value="10" step="0.1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors">
+                        </div>
+                        
+                        <div>
+                            <label for="shopee-margem" class="block text-gray-700 font-medium mb-2">Margem de Lucro (%):</label>
+                            <input type="number" id="shopee-margem" placeholder="Ex: 10" step="1" value="10" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors">
+                        </div>
                     </div>
                     
-                    <div>
-                        <label for="shopee-imposto" class="block text-gray-700 font-medium mb-2">Imposto (%):</label>
-                        <input type="number" id="shopee-imposto" placeholder="Ex: 10" value="10" step="0.1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors">
-                    </div>
+                    <button id="calcular-shopee" class="w-full py-3 px-6 bg-gradient-to-r from-orange-500 to-orange-400 text-white font-medium rounded-lg hover:from-orange-600 hover:to-orange-500 transition-all mb-6">
+                        Calcular Preço
+                    </button>
                     
-                    <div>
-                        <label for="shopee-margem" class="block text-gray-700 font-medium mb-2">Margem de Lucro (%):</label>
-                        <input type="number" id="shopee-margem" placeholder="Ex: 10" step="1" value="10" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors">
+                    <div id="shopee-results" class="hidden">
+                        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultado</h2>
+                        
+                        <div class="result-card bg-gradient-to-br from-orange-100 to-orange-200 p-6 rounded-lg border border-orange-300">
+                            <h3 class="text-lg font-medium text-orange-800 mb-2">Preço com a margem informada:</h3>
+                            <p id="shopee-resultado" class="text-3xl font-bold text-orange-900">R$ 0,00</p>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="bg-orange-50 border border-orange-200 rounded-lg p-4 mb-6">
+                <!-- Modo Manual: informa custo, imposto, embalagem e preço de venda -> retorna a margem -->
+                <div id="shopee-manual-fields" class="hidden">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <label for="shopee-manual-custo" class="block text-gray-700 font-medium mb-2">Custo do Produto (R$):</label>
+                            <input type="number" id="shopee-manual-custo" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors">
+                        </div>
+                        
+                        <div>
+                            <label for="shopee-manual-imposto" class="block text-gray-700 font-medium mb-2">Imposto (%):</label>
+                            <input type="number" id="shopee-manual-imposto" placeholder="Ex: 10" value="10" step="0.1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors">
+                        </div>
+                        
+                        <div>
+                            <label for="shopee-manual-embalagem" class="block text-gray-700 font-medium mb-2">Embalagem (R$):</label>
+                            <input type="number" id="shopee-manual-embalagem" placeholder="Ex: 1.50" step="0.01" value="1.50" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors">
+                        </div>
+                        
+                        <div>
+                            <label for="shopee-manual-preco" class="block text-gray-700 font-medium mb-2">Preço de Venda (R$):</label>
+                            <input type="number" id="shopee-manual-preco" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors">
+                        </div>
+                    </div>
+                    
+                    <button id="calcular-shopee-manual" class="w-full py-3 px-6 bg-gradient-to-r from-orange-500 to-orange-400 text-white font-medium rounded-lg hover:from-orange-600 hover:to-orange-500 transition-all mb-6">
+                        Calcular Margem
+                    </button>
+                    
+                    <div id="shopee-results-manual" class="hidden">
+                        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultado</h2>
+                        
+                        <div class="result-card bg-gradient-to-br from-orange-100 to-orange-200 p-6 rounded-lg border border-orange-300">
+                            <h3 class="text-lg font-medium text-orange-800 mb-2">Margem de lucro obtida:</h3>
+                            <p id="shopee-margem-resultado" class="text-3xl font-bold text-orange-900">0,00%</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-orange-50 border border-orange-200 rounded-lg p-4 mt-6">
                     <div class="flex items-center">
                         <svg class="w-6 h-6 text-orange-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                         <div>
-                            <p class="text-orange-700 text-sm"><strong>Regras Shopee:</strong></p>
-                        <p class="text-orange-600 text-sm">
-                        • Até 79,99 → 20% + R$4  
-                        • 80 a 99,99 → 14% + R$16  
-                        • 100 a 199,99 → 14% + R$20  
-                        • 200 a 499,99 → 14% + R$26  
-                        • Acima de 500 → 14% + R$26  
-                        • Embalagem: R$ 1,50
-                        </p>                        </div>
-                    </div>
-                </div>
-                
-                <button id="calcular-shopee" class="w-full py-3 px-6 bg-gradient-to-r from-orange-500 to-orange-400 text-white font-medium rounded-lg hover:from-orange-600 hover:to-orange-500 transition-all mb-6">
-                    Calcular Preço
-                </button>
-                
-                <div id="shopee-results" class="hidden">
-                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultado</h2>
-                    
-                    <div class="result-card bg-gradient-to-br from-orange-100 to-orange-200 p-6 rounded-lg border border-orange-300">
-                        <h3 class="text-lg font-medium text-orange-800 mb-2">Preço com a margem informada:</h3>
-                        <p id="shopee-resultado" class="text-3xl font-bold text-orange-900">R$ 0,00</p>
+                            <p class="text-orange-700 text-sm mb-1"><strong>Regras Shopee (comissão + taxa fixa por faixa de preço):</strong></p>
+                            <ul class="text-orange-600 text-sm space-y-0.5 list-disc list-inside">
+                                <li>Até R$ 79,99 → 20% de comissão + R$ 4,00 de taxa fixa</li>
+                                <li>R$ 80,00 a R$ 99,99 → 14% de comissão + R$ 16,00 de taxa fixa</li>
+                                <li>R$ 100,00 a R$ 199,99 → 14% de comissão + R$ 20,00 de taxa fixa</li>
+                                <li>R$ 200,00 a R$ 499,99 → 14% de comissão + R$ 26,00 de taxa fixa</li>
+                                <li>Acima de R$ 500,00 → 14% de comissão + R$ 26,00 de taxa fixa</li>
+                            </ul>
+                            <p class="text-orange-600 text-sm mt-1">Embalagem: R$ 1,50 (fixo em todas as faixas)</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -721,60 +699,130 @@
                     </div>
                 </div>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                    <div>
-                        <label for="ml-custo" class="block text-gray-700 font-medium mb-2">Custo do Produto (R$):</label>
-                        <input type="number" id="ml-custo" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
+                <!-- Abas: Cálculo Dinâmico / Cálculo Manual -->
+                <div class="flex mb-6 bg-gray-100 rounded-lg p-1">
+                    <button id="ml-tab-dinamico" class="flex-1 py-2 px-4 rounded-md font-medium transition-all bg-yellow-500 text-gray-900">
+                        Cálculo Dinâmico
+                    </button>
+                    <button id="ml-tab-manual" class="flex-1 py-2 px-4 rounded-md font-medium transition-all text-gray-600">
+                        Cálculo Manual
+                    </button>
+                </div>
+                
+                <!-- Modo Dinâmico: informa custo, frete, imposto, anúncio e margem -> retorna o preço -->
+                <div id="ml-dinamico-fields">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <label for="ml-custo" class="block text-gray-700 font-medium mb-2">Custo do Produto (R$):</label>
+                            <input type="number" id="ml-custo" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
+                        </div>
+                        
+                        <div>
+                            <label for="ml-frete" class="block text-gray-700 font-medium mb-2">Custo do Frete (R$):</label>
+                            <input type="number" id="ml-frete" placeholder="Ex: 15.00" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
+                            <p class="text-xs text-gray-500 mt-1">Para produtos ≥ R$79 (frete grátis para cliente)</p>
+                        </div>
+                        
+                        <div>
+                            <label for="ml-imposto" class="block text-gray-700 font-medium mb-2">Imposto (%):</label>
+                            <input type="number" id="ml-imposto" placeholder="Ex: 10" value="10" step="0.1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
+                        </div>
+                        
+                        <div>
+                            <label for="ml-anuncio" class="block text-gray-700 font-medium mb-2">Tipo de Anúncio:</label>
+                            <select id="ml-anuncio" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
+                                <option value="14">Clássico (14%)</option>
+                                <option value="19">Premium (19%)</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="ml-margem" class="block text-gray-700 font-medium mb-2">Margem de Lucro (%):</label>
+                            <input type="number" id="ml-margem" placeholder="Ex: 10" step="1" value="10" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
+                        </div>
                     </div>
                     
-                    <div>
-                        <label for="ml-frete" class="block text-gray-700 font-medium mb-2">Custo do Frete (R$):</label>
-                        <input type="number" id="ml-frete" placeholder="Ex: 15.00" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
-                        <p class="text-xs text-gray-500 mt-1">Para produtos ≥ R$79 (frete grátis para cliente)</p>
-                    </div>
+                    <button id="calcular-ml" class="w-full py-3 px-6 bg-gradient-to-r from-yellow-500 to-yellow-400 text-gray-900 font-medium rounded-lg hover:from-yellow-600 hover:to-yellow-500 transition-all mb-6">
+                        Calcular Preço
+                    </button>
                     
-                    <div>
-                        <label for="ml-imposto" class="block text-gray-700 font-medium mb-2">Imposto (%):</label>
-                        <input type="number" id="ml-imposto" placeholder="Ex: 10" value="10" step="0.1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
-                    </div>
-                    
-                    <div>
-                        <label for="ml-anuncio" class="block text-gray-700 font-medium mb-2">Tipo de Anúncio:</label>
-                        <select id="ml-anuncio" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
-                            <option value="14">Clássico (14%)</option>
-                            <option value="19">Premium (19%)</option>
-                        </select>
-                    </div>
-                    
-                    <div>
-                        <label for="ml-margem" class="block text-gray-700 font-medium mb-2">Margem de Lucro (%):</label>
-                        <input type="number" id="ml-margem" placeholder="Ex: 10" step="1" value="10" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
+                    <div id="ml-results" class="hidden">
+                        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultado</h2>
+                        
+                        <div class="result-card bg-gradient-to-br from-yellow-100 to-yellow-200 p-6 rounded-lg border border-yellow-300">
+                            <h3 class="text-lg font-medium text-yellow-800 mb-2">Preço com a margem informada:</h3>
+                            <p id="ml-resultado" class="text-3xl font-bold text-yellow-900">R$ 0,00</p>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+                <!-- Modo Manual: informa custo, frete, imposto, anúncio, embalagem e preço de venda -> retorna a margem -->
+                <div id="ml-manual-fields" class="hidden">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <label for="ml-manual-custo" class="block text-gray-700 font-medium mb-2">Custo do Produto (R$):</label>
+                            <input type="number" id="ml-manual-custo" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
+                        </div>
+                        
+                        <div>
+                            <label for="ml-manual-frete" class="block text-gray-700 font-medium mb-2">Custo do Frete (R$):</label>
+                            <input type="number" id="ml-manual-frete" placeholder="Ex: 15.00" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
+                            <p class="text-xs text-gray-500 mt-1">Para produtos ≥ R$79 (frete grátis para cliente)</p>
+                        </div>
+                        
+                        <div>
+                            <label for="ml-manual-imposto" class="block text-gray-700 font-medium mb-2">Imposto (%):</label>
+                            <input type="number" id="ml-manual-imposto" placeholder="Ex: 10" value="10" step="0.1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
+                        </div>
+                        
+                        <div>
+                            <label for="ml-manual-anuncio" class="block text-gray-700 font-medium mb-2">Tipo de Anúncio:</label>
+                            <select id="ml-manual-anuncio" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
+                                <option value="14">Clássico (14%)</option>
+                                <option value="19">Premium (19%)</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="ml-manual-embalagem" class="block text-gray-700 font-medium mb-2">Embalagem (R$):</label>
+                            <input type="number" id="ml-manual-embalagem" placeholder="Ex: 1.50" step="0.01" value="1.50" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
+                        </div>
+                        
+                        <div>
+                            <label for="ml-manual-preco" class="block text-gray-700 font-medium mb-2">Preço de Venda (R$):</label>
+                            <input type="number" id="ml-manual-preco" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
+                        </div>
+                    </div>
+                    
+                    <button id="calcular-ml-manual" class="w-full py-3 px-6 bg-gradient-to-r from-yellow-500 to-yellow-400 text-gray-900 font-medium rounded-lg hover:from-yellow-600 hover:to-yellow-500 transition-all mb-6">
+                        Calcular Margem
+                    </button>
+                    
+                    <div id="ml-results-manual" class="hidden">
+                        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultado</h2>
+                        
+                        <div class="result-card bg-gradient-to-br from-yellow-100 to-yellow-200 p-6 rounded-lg border border-yellow-300">
+                            <h3 class="text-lg font-medium text-yellow-800 mb-2">Margem de lucro obtida:</h3>
+                            <p id="ml-margem-resultado" class="text-3xl font-bold text-yellow-900">0,00%</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mt-6">
                     <div class="flex items-center">
                         <svg class="w-6 h-6 text-yellow-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                         <div>
-                            <p class="text-yellow-700 text-sm"><strong>Regras Mercado Livre:</strong></p>
-                            <p class="text-yellow-600 text-sm">• Abaixo R$79: Clássico 14%/Premium 19% + Taxa fixa (R$6,25/6,50/6,75) + Embalagem R$1,50</p>
-                            <p class="text-yellow-600 text-sm">• Acima R$79: Clássico 14%/Premium 19% + Frete manual + Embalagem R$1,50</p>
+                            <p class="text-yellow-700 text-sm mb-1"><strong>Regras Mercado Livre:</strong></p>
+                            <ul class="text-yellow-600 text-sm space-y-0.5 list-disc list-inside">
+                                <li>Comissão de anúncio: Clássico 14% | Premium 19%</li>
+                                <li>De R$ 19,00 a R$ 78,99 → frete grátis padrão obrigatório</li>
+                                <li>A partir de R$ 79,00 → frete grátis rápido obrigatório</li>
+                                <li>Custo do frete grátis varia por faixa de preço e peso do produto (tabela oficial do Mercado Livre)</li>
+                            </ul>
+                            <p class="text-yellow-600 text-sm mt-1">Embalagem: R$ 1,50 (fixo em todas as faixas)</p>
                         </div>
-                    </div>
-                </div>
-                
-                <button id="calcular-ml" class="w-full py-3 px-6 bg-gradient-to-r from-yellow-500 to-yellow-400 text-gray-900 font-medium rounded-lg hover:from-yellow-600 hover:to-yellow-500 transition-all mb-6">
-                    Calcular Preço
-                </button>
-                
-                <div id="ml-results" class="hidden">
-                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultado</h2>
-                    
-                    <div class="result-card bg-gradient-to-br from-yellow-100 to-yellow-200 p-6 rounded-lg border border-yellow-300">
-                        <h3 class="text-lg font-medium text-yellow-800 mb-2">Preço com a margem informada:</h3>
-                        <p id="ml-resultado" class="text-3xl font-bold text-yellow-900">R$ 0,00</p>
                     </div>
                 </div>
             </div>
@@ -798,220 +846,131 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-            <div>
-                <label for="shein-custo" class="block text-gray-700 font-medium mb-2">Custo do Produto (R$):</label>
-                <input type="number" id="shein-custo" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+        <!-- Abas: Cálculo Dinâmico / Cálculo Manual -->
+        <div class="flex mb-6 bg-gray-100 rounded-lg p-1">
+            <button id="shein-tab-dinamico" class="flex-1 py-2 px-4 rounded-md font-medium transition-all bg-gray-900 text-white">
+                Cálculo Dinâmico
+            </button>
+            <button id="shein-tab-manual" class="flex-1 py-2 px-4 rounded-md font-medium transition-all text-gray-600">
+                Cálculo Manual
+            </button>
+        </div>
+
+        <!-- Modo Dinâmico: informa custo, peso, categoria, imposto e margem -> retorna o preço -->
+        <div id="shein-dinamico-fields">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                <div>
+                    <label for="shein-custo" class="block text-gray-700 font-medium mb-2">Custo do Produto (R$):</label>
+                    <input type="number" id="shein-custo" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                </div>
+
+                <div>
+                    <label for="shein-peso" class="block text-gray-700 font-medium mb-2">Peso (gramas):</label>
+                    <input type="number" id="shein-peso" placeholder="Ex: 300" step="1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                </div>
+
+                <div>
+                    <label for="shein-categoria" class="block text-gray-700 font-medium mb-2">Categoria:</label>
+                    <select id="shein-categoria" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                        <option value="20">Vestuário Feminino (20%)</option>
+                        <option value="18">Outras Categorias (18%) 🆕</option> <!-- Adicionando a opção de 18% -->
+                        <option value="16">Outras Categorias (16%)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="shein-imposto" class="block text-gray-700 font-medium mb-2">Imposto (%):</label>
+                    <input type="number" id="shein-imposto" placeholder="Ex: 10" value="10" step="0.1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                </div>
+
+                <div>
+                    <label for="shein-margem" class="block text-gray-700 font-medium mb-2">Margem de Lucro (%):</label>
+                    <input type="number" id="shein-margem" placeholder="Ex: 10" step="1" value="10" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                </div>
             </div>
 
-            <div>
-                <label for="shein-peso" class="block text-gray-700 font-medium mb-2">Peso (gramas):</label>
-                <input type="number" id="shein-peso" placeholder="Ex: 300" step="1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
-            </div>
+            <button id="calcular-shein" class="w-full py-3 px-6 bg-gradient-to-r from-gray-900 to-gray-800 text-white font-medium rounded-lg hover:from-black hover:to-gray-900 transition-all mb-6">
+                Calcular Preço
+            </button>
 
-            <div>
-                <label for="shein-categoria" class="block text-gray-700 font-medium mb-2">Categoria:</label>
-                <select id="shein-categoria" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
-                    <option value="20">Vestuário Feminino (20%)</option>
-                    <option value="18">Outras Categorias (18%) 🆕</option> <!-- Adicionando a opção de 18% -->
-                    <option value="16">Outras Categorias (16%)</option>
-                </select>
-            </div>
-
-            <div>
-                <label for="shein-imposto" class="block text-gray-700 font-medium mb-2">Imposto (%):</label>
-                <input type="number" id="shein-imposto" placeholder="Ex: 10" value="10" step="0.1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
-            </div>
-
-            <div>
-                <label for="shein-margem" class="block text-gray-700 font-medium mb-2">Margem de Lucro (%):</label>
-                <input type="number" id="shein-margem" placeholder="Ex: 10" step="1" value="10" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+            <div id="shein-results" class="hidden">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultados</h2>
+                <div class="result-card bg-gradient-to-br from-gray-100 to-gray-200 p-6 rounded-lg border border-gray-300">
+                    <h3 class="text-lg font-medium text-gray-800 mb-2">Preço com a margem informada:</h3>
+                    <p id="shein-resultado" class="text-3xl font-bold text-gray-900">R$ 0,00</p>
+                </div>
             </div>
         </div>
 
-        <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
+        <!-- Modo Manual: informa custo, peso, categoria, imposto, embalagem e preço de venda -> retorna a margem -->
+        <div id="shein-manual-fields" class="hidden">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                <div>
+                    <label for="shein-manual-custo" class="block text-gray-700 font-medium mb-2">Custo do Produto (R$):</label>
+                    <input type="number" id="shein-manual-custo" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                </div>
+
+                <div>
+                    <label for="shein-manual-peso" class="block text-gray-700 font-medium mb-2">Peso (gramas):</label>
+                    <input type="number" id="shein-manual-peso" placeholder="Ex: 300" step="1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                </div>
+
+                <div>
+                    <label for="shein-manual-categoria" class="block text-gray-700 font-medium mb-2">Categoria:</label>
+                    <select id="shein-manual-categoria" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                        <option value="20">Vestuário Feminino (20%)</option>
+                        <option value="18">Outras Categorias (18%) 🆕</option>
+                        <option value="16">Outras Categorias (16%)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="shein-manual-imposto" class="block text-gray-700 font-medium mb-2">Imposto (%):</label>
+                    <input type="number" id="shein-manual-imposto" placeholder="Ex: 10" value="10" step="0.1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                </div>
+
+                <div>
+                    <label for="shein-manual-embalagem" class="block text-gray-700 font-medium mb-2">Embalagem (R$):</label>
+                    <input type="number" id="shein-manual-embalagem" placeholder="Ex: 1.50" step="0.01" value="1.50" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                </div>
+
+                <div>
+                    <label for="shein-manual-preco" class="block text-gray-700 font-medium mb-2">Preço de Venda (R$):</label>
+                    <input type="number" id="shein-manual-preco" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                </div>
+            </div>
+
+            <button id="calcular-shein-manual" class="w-full py-3 px-6 bg-gradient-to-r from-gray-900 to-gray-800 text-white font-medium rounded-lg hover:from-black hover:to-gray-900 transition-all mb-6">
+                Calcular Margem
+            </button>
+
+            <div id="shein-results-manual" class="hidden">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultado</h2>
+                <div class="result-card bg-gradient-to-br from-gray-100 to-gray-200 p-6 rounded-lg border border-gray-300">
+                    <h3 class="text-lg font-medium text-gray-800 mb-2">Margem de lucro obtida:</h3>
+                    <p id="shein-margem-resultado" class="text-3xl font-bold text-gray-900">0,00%</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 mt-6">
             <div class="flex items-center">
                 <svg class="w-6 h-6 text-gray-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
                 <div>
-                    <p class="text-gray-700 text-sm"><strong>Regras Shein:</strong></p>
-                    <p class="text-gray-600 text-sm">
-                        • Comissão: 20% (Vestuário Feminino) | 18% (Outras) A PARTIR DE 01/03/26 🆕 | 16% (Outras) <br>
-                        • Taxa por peso: ≤300g: R$4 | 300–600g: R$5 | 600–900g: R$6 |<br>
-                        900g–1kg: R$8 | 1,2–1,5kg: R$10 | 1,5–2kg: R$12 | 2–5kg: R$15 <br>
-                        • Embalagem: R$ 1,50
-                    </p>
+                    <p class="text-gray-700 text-sm mb-1"><strong>Regras Shein:</strong></p>
+                    <ul class="text-gray-600 text-sm space-y-0.5 list-disc list-inside">
+                        <li>Comissão: 20% (Vestuário Feminino) | 18% (Outras, a partir de 01/03/26) | 16% (Outras)</li>
+                        <li>Taxa por peso: até 300g → R$ 4,00 | 300 a 600g → R$ 5,00 | 600 a 900g → R$ 6,00</li>
+                        <li>900g a 1kg → R$ 8,00 | 1,2 a 1,5kg → R$ 10,00 | 1,5 a 2kg → R$ 12,00 | 2 a 5kg → R$ 15,00</li>
+                    </ul>
+                    <p class="text-gray-600 text-sm mt-1">Embalagem: R$ 1,50 (fixo em todas as faixas)</p>
                 </div>
-            </div>
-        </div>
-
-        <button id="calcular-shein" class="w-full py-3 px-6 bg-gradient-to-r from-gray-900 to-gray-800 text-white font-medium rounded-lg hover:from-black hover:to-gray-900 transition-all mb-6">
-            Calcular Preço
-        </button>
-
-        <div id="shein-results" class="hidden">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultados</h2>
-            <div class="result-card bg-gradient-to-br from-gray-100 to-gray-200 p-6 rounded-lg border border-gray-300">
-                <h3 class="text-lg font-medium text-gray-800 mb-2">Preço com a margem informada:</h3>
-                <p id="shein-resultado" class="text-3xl font-bold text-gray-900">R$ 0,00</p>
             </div>
         </div>
     </div>
 </div>
-        
-        <!-- Calculadora Magalu -->
-        <div id="magalu-calculator" class="hidden animate-fade-in">
-            <div class="flex items-center mb-8">
-                <button id="back-to-marketplace-from-magalu" class="mr-4 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg p-2 transition-colors">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-                    </svg>
-                </button>
-                <h1 class="text-3xl font-bold text-gray-800">Calculadora Magalu</h1>
-            </div>
-            
-            <div class="bg-white rounded-xl shadow-lg p-6 max-w-2xl mx-auto">
-                <div class="flex justify-center mb-6">
-                    <div class="h-16 w-16 rounded-full bg-blue-700 flex items-center justify-center">
-                        <span class="text-2xl font-bold text-white">MG</span>
-                    </div>
-                </div>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                    <div>
-                        <label for="magalu-custo" class="block text-gray-700 font-medium mb-2">Custo do Produto (R$):</label>
-                        <input type="number" id="magalu-custo" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors">
-                    </div>
-                    
-                    <div>
-                        <label for="magalu-peso" class="block text-gray-700 font-medium mb-2">Peso (gramas):</label>
-                        <input type="number" id="magalu-peso" placeholder="Ex: 500" step="1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors">
-                    </div>
-                    
-                    <div>
-                        <label for="magalu-imposto" class="block text-gray-700 font-medium mb-2">Imposto (%):</label>
-                        <input type="number" id="magalu-imposto" placeholder="Ex: 10" value="10" step="0.1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors">
-                    </div>
-                    
-                    <div>
-                        <label for="magalu-comissao" class="block text-gray-700 font-medium mb-2">Comissão (%):</label>
-                        <select id="magalu-comissao" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors">
-                            <option value="12">12% - Padrão</option>
-                            <option value="16">16% - Premium</option>
-                            <option value="18">18% - Premium Plus</option>
-                        </select>
-                    </div>
-                    
-                    <div>
-                        <label for="magalu-margem" class="block text-gray-700 font-medium mb-2">Margem de Lucro (%):</label>
-                        <input type="number" id="magalu-margem" placeholder="Ex: 10" step="1" value="10" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors">
-                    </div>
-                </div>
-                
-                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-                    <div class="flex items-center">
-                        <svg class="w-6 h-6 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        <div>
-                            <p class="text-blue-700 text-sm"><strong>Regras Magalu:</strong></p>
-                            <p class="text-blue-600 text-sm">• Comissão variável • Taxa por peso: ≤300g: R$18 | ≤500g: R$20 | ≤1kg: R$25 | >1kg: R$30 • Embalagem: R$ 1,50</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <button id="calcular-magalu" class="w-full py-3 px-6 bg-gradient-to-r from-blue-700 to-blue-600 text-white font-medium rounded-lg hover:from-blue-800 hover:to-blue-700 transition-all mb-6">
-                    Calcular Preço
-                </button>
-                
-                <div id="magalu-results" class="hidden">
-                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultado</h2>
-                    
-                    <div class="result-card bg-gradient-to-br from-blue-100 to-blue-200 p-6 rounded-lg border border-blue-300">
-                        <h3 class="text-lg font-medium text-blue-800 mb-2">Preço com a margem informada:</h3>
-                        <p id="magalu-resultado" class="text-3xl font-bold text-blue-900">R$ 0,00</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Calculadora Amazon -->
-        <div id="amazon-calculator" class="hidden animate-fade-in">
-            <div class="flex items-center mb-8">
-                <button id="back-to-marketplace-from-amazon" class="mr-4 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg p-2 transition-colors">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-                    </svg>
-                </button>
-                <h1 class="text-3xl font-bold text-gray-800">Calculadora Amazon</h1>
-            </div>
-            
-            <div class="bg-white rounded-xl shadow-lg p-6 max-w-2xl mx-auto">
-                <div class="flex justify-center mb-6">
-                    <div class="h-16 w-16 rounded-full bg-yellow-500 flex items-center justify-center">
-                        <span class="text-2xl font-bold text-white">AZ</span>
-                    </div>
-                </div>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                    <div>
-                        <label for="amazon-custo" class="block text-gray-700 font-medium mb-2">Custo do Produto (R$):</label>
-                        <input type="number" id="amazon-custo" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
-                    </div>
-                    
-                    <div>
-                        <label for="amazon-peso" class="block text-gray-700 font-medium mb-2">Peso (gramas):</label>
-                        <input type="number" id="amazon-peso" placeholder="Ex: 500" step="1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
-                    </div>
-                    
-                    <div>
-                        <label for="amazon-imposto" class="block text-gray-700 font-medium mb-2">Imposto (%):</label>
-                        <input type="number" id="amazon-imposto" placeholder="Ex: 10" value="10" step="0.1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
-                    </div>
-                    
-                    <div>
-                        <label for="amazon-categoria" class="block text-gray-700 font-medium mb-2">Categoria:</label>
-                        <select id="amazon-categoria" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
-                            <option value="15">Vestuário (15%)</option>
-                            <option value="12">Eletrônicos (12%)</option>
-                            <option value="10">Livros (10%)</option>
-                            <option value="18">Beleza (18%)</option>
-                        </select>
-                    </div>
-                    
-                    <div>
-                        <label for="amazon-margem" class="block text-gray-700 font-medium mb-2">Margem de Lucro (%):</label>
-                        <input type="number" id="amazon-margem" placeholder="Ex: 10" step="1" value="10" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
-                    </div>
-                </div>
-                
-                <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
-                    <div class="flex items-center">
-                        <svg class="w-6 h-6 text-yellow-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        <div>
-                            <p class="text-yellow-700 text-sm"><strong>Regras Amazon:</strong></p>
-                            <p class="text-yellow-600 text-sm">• Comissão por categoria • Taxa por peso: ≤300g: R$20 | ≤500g: R$25 | ≤1kg: R$30 | >1kg: R$35 • Embalagem: R$ 1,50</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <button id="calcular-amazon" class="w-full py-3 px-6 bg-gradient-to-r from-yellow-500 to-yellow-400 text-gray-900 font-medium rounded-lg hover:from-yellow-600 hover:to-yellow-500 transition-all mb-6">
-                    Calcular Preço
-                </button>
-                
-                <div id="amazon-results" class="hidden">
-                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultado</h2>
-                    
-                    <div class="result-card bg-gradient-to-br from-yellow-100 to-yellow-200 p-6 rounded-lg border border-yellow-300">
-                        <h3 class="text-lg font-medium text-yellow-800 mb-2">Preço com a margem informada:</h3>
-                        <p id="amazon-resultado" class="text-3xl font-bold text-yellow-900">R$ 0,00</p>
-                    </div>
-                </div>
-            </div>
-        </div>
         
         <!-- Calculadora Exposição Paulista -->
         <div id="exposicao-calculator" class="hidden animate-fade-in">
@@ -1115,45 +1074,100 @@
                     </div>
                 </div>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                    <div>
-                        <label for="tiktok-custo" class="block text-gray-700 font-medium mb-2">Custo do Produto (R$):</label>
-                        <input type="number" id="tiktok-custo" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                <!-- Abas: Cálculo Dinâmico / Cálculo Manual -->
+                <div class="flex mb-6 bg-gray-100 rounded-lg p-1">
+                    <button id="tiktok-tab-dinamico" class="flex-1 py-2 px-4 rounded-md font-medium transition-all bg-black text-white">
+                        Cálculo Dinâmico
+                    </button>
+                    <button id="tiktok-tab-manual" class="flex-1 py-2 px-4 rounded-md font-medium transition-all text-gray-600">
+                        Cálculo Manual
+                    </button>
+                </div>
+                
+                <!-- Modo Dinâmico: informa custo, imposto e margem -> retorna o preço -->
+                <div id="tiktok-dinamico-fields">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <label for="tiktok-custo" class="block text-gray-700 font-medium mb-2">Custo do Produto (R$):</label>
+                            <input type="number" id="tiktok-custo" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                        </div>
+                        
+                        <div>
+                            <label for="tiktok-imposto" class="block text-gray-700 font-medium mb-2">Imposto (%):</label>
+                            <input type="number" id="tiktok-imposto" placeholder="Ex: 10" value="10" step="0.1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                        </div>
+                        
+                        <div>
+                            <label for="tiktok-margem" class="block text-gray-700 font-medium mb-2">Margem de Lucro (%):</label>
+                            <input type="number" id="tiktok-margem" placeholder="Ex: 10" step="1" value="10" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                        </div>
                     </div>
                     
-                    <div>
-                        <label for="tiktok-imposto" class="block text-gray-700 font-medium mb-2">Imposto (%):</label>
-                        <input type="number" id="tiktok-imposto" placeholder="Ex: 10" value="10" step="0.1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
-                    </div>
+                    <button id="calcular-tiktok" class="w-full py-3 px-6 bg-gradient-to-r from-black to-gray-800 text-white font-medium rounded-lg hover:from-gray-900 hover:to-black transition-all mb-6">
+                        Calcular Preço
+                    </button>
                     
-                    <div>
-                        <label for="tiktok-margem" class="block text-gray-700 font-medium mb-2">Margem de Lucro (%):</label>
-                        <input type="number" id="tiktok-margem" placeholder="Ex: 10" step="1" value="10" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                    <div id="tiktok-results" class="hidden">
+                        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultado</h2>
+                        
+                        <div class="result-card bg-gradient-to-br from-gray-100 to-gray-200 p-6 rounded-lg border border-gray-300">
+                            <h3 class="text-lg font-medium text-gray-800 mb-2">Preço com a margem informada:</h3>
+                            <p id="tiktok-resultado" class="text-3xl font-bold text-gray-900">R$ 0,00</p>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
+                <!-- Modo Manual: informa custo, imposto, embalagem e preço de venda -> retorna a margem -->
+                <div id="tiktok-manual-fields" class="hidden">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <label for="tiktok-manual-custo" class="block text-gray-700 font-medium mb-2">Custo do Produto (R$):</label>
+                            <input type="number" id="tiktok-manual-custo" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                        </div>
+                        
+                        <div>
+                            <label for="tiktok-manual-imposto" class="block text-gray-700 font-medium mb-2">Imposto (%):</label>
+                            <input type="number" id="tiktok-manual-imposto" placeholder="Ex: 10" value="10" step="0.1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                        </div>
+                        
+                        <div>
+                            <label for="tiktok-manual-embalagem" class="block text-gray-700 font-medium mb-2">Embalagem (R$):</label>
+                            <input type="number" id="tiktok-manual-embalagem" placeholder="Ex: 1.50" step="0.01" value="1.50" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                        </div>
+                        
+                        <div>
+                            <label for="tiktok-manual-preco" class="block text-gray-700 font-medium mb-2">Preço de Venda (R$):</label>
+                            <input type="number" id="tiktok-manual-preco" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
+                        </div>
+                    </div>
+                    
+                    <button id="calcular-tiktok-manual" class="w-full py-3 px-6 bg-gradient-to-r from-black to-gray-800 text-white font-medium rounded-lg hover:from-gray-900 hover:to-black transition-all mb-6">
+                        Calcular Margem
+                    </button>
+                    
+                    <div id="tiktok-results-manual" class="hidden">
+                        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultado</h2>
+                        
+                        <div class="result-card bg-gradient-to-br from-gray-100 to-gray-200 p-6 rounded-lg border border-gray-300">
+                            <h3 class="text-lg font-medium text-gray-800 mb-2">Margem de lucro obtida:</h3>
+                            <p id="tiktok-margem-resultado" class="text-3xl font-bold text-gray-900">0,00%</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 mt-6">
                     <div class="flex items-center">
                         <svg class="w-6 h-6 text-gray-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                         <div>
-                            <p class="text-gray-700 text-sm"><strong>Regras TikTok Shop:</strong></p>
-                            <p class="text-gray-600 text-sm">•🆕 Acima R$50 -> Comissão: 6% <br>• Taxa fixa: R$ 6,00 por pedido<br>• Frete: 6% <br>• Embalagem: R$ 1,50</p>
+                            <p class="text-gray-700 text-sm mb-1"><strong>🆕 Regras TikTok Shop (comissão + taxa fixa por faixa de preço):</strong></p>
+                            <ul class="text-gray-600 text-sm space-y-0.5 list-disc list-inside">
+                                <li>Até R$ 49,99 → 10% de comissão + R$ 4,00 de taxa fixa</li>
+                                <li>Igual ou acima de R$ 50,00 → 6% de comissão + R$ 6,00 de taxa fixa</li>
+                            </ul>
+                            <p class="text-gray-600 text-sm mt-1">Frete: 6% (fixo em todas as faixas) | Embalagem: R$ 1,50 (fixo em todas as faixas)</p>
                         </div>
-                    </div>
-                </div>
-                
-                <button id="calcular-tiktok" class="w-full py-3 px-6 bg-gradient-to-r from-black to-gray-800 text-white font-medium rounded-lg hover:from-gray-900 hover:to-black transition-all mb-6">
-                    Calcular Preço
-                </button>
-                
-                <div id="tiktok-results" class="hidden">
-                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultado</h2>
-                    
-                    <div class="result-card bg-gradient-to-br from-gray-100 to-gray-200 p-6 rounded-lg border border-gray-300">
-                        <h3 class="text-lg font-medium text-gray-800 mb-2">Preço com a margem informada:</h3>
-                        <p id="tiktok-resultado" class="text-3xl font-bold text-gray-900">R$ 0,00</p>
                     </div>
                 </div>
             </div>
@@ -1187,8 +1201,6 @@
             const viaclosetCalculator = document.getElementById('viacloset-calculator');
             const mercadolivreCalculator = document.getElementById('mercadolivre-calculator');
             const sheinCalculator = document.getElementById('shein-calculator');
-            const magaluCalculator = document.getElementById('magalu-calculator');
-            const amazonCalculator = document.getElementById('amazon-calculator');
             const tiktokCalculator = document.getElementById('tiktok-calculator');
             const exposicaoCalculator = document.getElementById('exposicao-calculator');
             const gipCalculator = document.getElementById('gip-calculator');
@@ -1217,8 +1229,6 @@
             const backToLojas = document.getElementById('back-to-lojas');
             const backToMarketplaceFromML = document.getElementById('back-to-marketplace-from-ml');
             const backToMarketplaceFromShein = document.getElementById('back-to-marketplace-from-shein');
-            const backToMarketplaceFromMagalu = document.getElementById('back-to-marketplace-from-magalu');
-            const backToMarketplaceFromAmazon = document.getElementById('back-to-marketplace-from-amazon');
             const backToMarketplaceFromTiktok = document.getElementById('back-to-marketplace-from-tiktok');
             const backToLojasFromExposicao = document.getElementById('back-to-lojas-from-exposicao');
             const backToLojasFromGip = document.getElementById('back-to-lojas-from-gip');
@@ -1228,8 +1238,6 @@
             const btnViacloset = document.getElementById('btn-viacloset');
             const btnMercadolivre = document.getElementById('btn-mercadolivre');
             const btnShein = document.getElementById('btn-shein');
-            const btnMagalu = document.getElementById('btn-magalu');
-            const btnAmazon = document.getElementById('btn-amazon');
             const btnTiktok = document.getElementById('btn-tiktok');
             const btnExposicao = document.getElementById('btn-exposicao');
             const btnGip = document.getElementById('btn-gip');
@@ -1248,8 +1256,6 @@
                 viaclosetCalculator.classList.add('hidden');
                 mercadolivreCalculator.classList.add('hidden');
                 sheinCalculator.classList.add('hidden');
-                magaluCalculator.classList.add('hidden');
-                amazonCalculator.classList.add('hidden');
                 tiktokCalculator.classList.add('hidden');
                 exposicaoCalculator.classList.add('hidden');
                 gipCalculator.classList.add('hidden');
@@ -1349,12 +1355,6 @@
             if (backToMarketplaceFromShein) {
                 backToMarketplaceFromShein.addEventListener('click', () => showPage(marketplacePage));
             }
-            if (backToMarketplaceFromMagalu) {
-                backToMarketplaceFromMagalu.addEventListener('click', () => showPage(marketplacePage));
-            }
-            if (backToMarketplaceFromAmazon) {
-                backToMarketplaceFromAmazon.addEventListener('click', () => showPage(marketplacePage));
-            }
             if (backToMarketplaceFromTiktok) {
                 backToMarketplaceFromTiktok.addEventListener('click', () => showPage(marketplacePage));
             }
@@ -1378,12 +1378,6 @@
             if (btnShein) {
                 btnShein.addEventListener('click', () => showPage(sheinCalculator));
             }
-            if (btnMagalu) {
-                btnMagalu.addEventListener('click', () => showPage(magaluCalculator));
-            }
-            if (btnAmazon) {
-                btnAmazon.addEventListener('click', () => showPage(amazonCalculator));
-            }
             if (btnTiktok) {
                 btnTiktok.addEventListener('click', () => showPage(tiktokCalculator));
             }
@@ -1401,7 +1395,42 @@
                 });
             }
             
-            // Calculadora Shopee
+            // Calculadora Shopee - faixas de comissão/taxa fixa por preço de venda
+            const shopeeFaixas = [
+                { min: 0, max: 79.99, comissao: 0.20, taxa: 4.00 },
+                { min: 80, max: 99.99, comissao: 0.14, taxa: 16.00 },
+                { min: 100, max: 199.99, comissao: 0.14, taxa: 20.00 },
+                { min: 200, max: 499.99, comissao: 0.14, taxa: 26.00 },
+                { min: 500, max: Infinity, comissao: 0.14, taxa: 26.00 }
+            ];
+            
+            // Alternância entre as abas Cálculo Dinâmico e Cálculo Manual
+            const shopeeTabDinamico = document.getElementById('shopee-tab-dinamico');
+            const shopeeTabManual = document.getElementById('shopee-tab-manual');
+            const shopeeDinamicoFields = document.getElementById('shopee-dinamico-fields');
+            const shopeeManualFields = document.getElementById('shopee-manual-fields');
+            
+            if (shopeeTabDinamico && shopeeTabManual) {
+                shopeeTabDinamico.addEventListener('click', () => {
+                    shopeeTabDinamico.classList.add('bg-orange-500', 'text-white');
+                    shopeeTabDinamico.classList.remove('text-gray-600');
+                    shopeeTabManual.classList.remove('bg-orange-500', 'text-white');
+                    shopeeTabManual.classList.add('text-gray-600');
+                    shopeeDinamicoFields.classList.remove('hidden');
+                    shopeeManualFields.classList.add('hidden');
+                });
+                
+                shopeeTabManual.addEventListener('click', () => {
+                    shopeeTabManual.classList.add('bg-orange-500', 'text-white');
+                    shopeeTabManual.classList.remove('text-gray-600');
+                    shopeeTabDinamico.classList.remove('bg-orange-500', 'text-white');
+                    shopeeTabDinamico.classList.add('text-gray-600');
+                    shopeeManualFields.classList.remove('hidden');
+                    shopeeDinamicoFields.classList.add('hidden');
+                });
+            }
+            
+            // Modo Dinâmico: custo + imposto + margem -> preço de venda
             document.getElementById("calcular-shopee").addEventListener("click", function() {
 
                 let custo = parseFloat(document.getElementById("shopee-custo").value) || 0;
@@ -1413,17 +1442,9 @@
                 imposto = imposto / 100;
                 margem = margem / 100;
 
-                const faixas = [
-                    { min: 0, max: 79.99, comissao: 0.20, taxa: 4.00 },
-                    { min: 80, max: 99.99, comissao: 0.14, taxa: 16.00 },
-                    { min: 100, max: 199.99, comissao: 0.14, taxa: 20.00 },
-                    { min: 200, max: 499.99, comissao: 0.14, taxa: 26.00 },
-                    { min: 500, max: Infinity, comissao: 0.14, taxa: 26.00 }
-                ];
-
                 let precoFinal = 0;
 
-                for (let faixa of faixas) {
+                for (let faixa of shopeeFaixas) {
 
                     let preco = (custo + faixa.taxa + embalagem) / 
                                 (1 - faixa.comissao - imposto - margem);
@@ -1444,6 +1465,42 @@
 
                 document.getElementById("shopee-results").classList.remove("hidden");
             });
+            
+            // Modo Manual: custo + imposto + embalagem + preço de venda -> margem de lucro
+            const calcularShopeeManualBtn = document.getElementById("calcular-shopee-manual");
+            if (calcularShopeeManualBtn) {
+                calcularShopeeManualBtn.addEventListener("click", function() {
+
+                    let custo = parseFloat(document.getElementById("shopee-manual-custo").value) || 0;
+                    let imposto = parseFloat(document.getElementById("shopee-manual-imposto").value) || 0;
+                    let embalagem = parseFloat(document.getElementById("shopee-manual-embalagem").value) || 0;
+                    let precoVenda = parseFloat(document.getElementById("shopee-manual-preco").value) || 0;
+
+                    if (precoVenda <= 0) {
+                        alert("Por favor, insira um preço de venda válido.");
+                        return;
+                    }
+
+                    imposto = imposto / 100;
+
+                    // Encontra a faixa de comissão/taxa fixa correspondente ao preço de venda informado
+                    let faixaEncontrada = shopeeFaixas.find(f => precoVenda >= f.min && precoVenda <= f.max);
+
+                    if (!faixaEncontrada) {
+                        alert("Não foi possível encontrar a faixa correspondente ao preço informado.");
+                        return;
+                    }
+
+                    // margem = 1 - comissão - imposto - (custo + taxa + embalagem) / preço de venda
+                    let margem = 1 - faixaEncontrada.comissao - imposto - ((custo + faixaEncontrada.taxa + embalagem) / precoVenda);
+                    let margemPercent = margem * 100;
+
+                    document.getElementById("shopee-margem-resultado").innerText =
+                        margemPercent.toFixed(2).replace(".", ",") + "%";
+
+                    document.getElementById("shopee-results-manual").classList.remove("hidden");
+                });
+            }
             
             // Calculadora Via Closet
             const calcularViaClosetBtn = document.getElementById('calcular-viacloset');
@@ -1545,6 +1602,69 @@
                 });
             }
             
+            // Alternância entre as abas Cálculo Dinâmico e Cálculo Manual (Mercado Livre)
+            const mlTabDinamico = document.getElementById('ml-tab-dinamico');
+            const mlTabManual = document.getElementById('ml-tab-manual');
+            const mlDinamicoFields = document.getElementById('ml-dinamico-fields');
+            const mlManualFields = document.getElementById('ml-manual-fields');
+            
+            if (mlTabDinamico && mlTabManual) {
+                mlTabDinamico.addEventListener('click', () => {
+                    mlTabDinamico.classList.add('bg-yellow-500', 'text-gray-900');
+                    mlTabDinamico.classList.remove('text-gray-600');
+                    mlTabManual.classList.remove('bg-yellow-500', 'text-gray-900');
+                    mlTabManual.classList.add('text-gray-600');
+                    mlDinamicoFields.classList.remove('hidden');
+                    mlManualFields.classList.add('hidden');
+                });
+                
+                mlTabManual.addEventListener('click', () => {
+                    mlTabManual.classList.add('bg-yellow-500', 'text-gray-900');
+                    mlTabManual.classList.remove('text-gray-600');
+                    mlTabDinamico.classList.remove('bg-yellow-500', 'text-gray-900');
+                    mlTabDinamico.classList.add('text-gray-600');
+                    mlManualFields.classList.remove('hidden');
+                    mlDinamicoFields.classList.add('hidden');
+                });
+            }
+            
+            // Modo Manual (Mercado Livre): custo + frete + imposto + anúncio + embalagem + preço de venda -> margem
+            const calcularMLManualBtn = document.getElementById('calcular-ml-manual');
+            if (calcularMLManualBtn) {
+                calcularMLManualBtn.addEventListener('click', function() {
+                    let custo = parseFloat(document.getElementById('ml-manual-custo').value) || 0;
+                    let frete = parseFloat(document.getElementById('ml-manual-frete').value) || 0;
+                    let imposto = parseFloat(document.getElementById('ml-manual-imposto').value) || 0;
+                    let comissao = parseFloat(document.getElementById('ml-manual-anuncio').value);
+                    let embalagem = parseFloat(document.getElementById('ml-manual-embalagem').value) || 0;
+                    let precoVenda = parseFloat(document.getElementById('ml-manual-preco').value) || 0;
+                    
+                    if (precoVenda <= 0) {
+                        alert("Por favor, insira um preço de venda válido.");
+                        return;
+                    }
+                    
+                    // Determina a taxa fixa a partir do preço de venda informado (já conhecido no modo manual)
+                    let taxaFixa = 0;
+                    if (precoVenda < 79) {
+                        if (precoVenda < 28.99) {
+                            taxaFixa = 6.25;
+                        } else if (precoVenda < 49.99) {
+                            taxaFixa = 6.50;
+                        } else {
+                            taxaFixa = 6.75;
+                        }
+                    }
+                    
+                    let margem = 1 - (comissao / 100) - (imposto / 100) - ((custo + embalagem + frete + taxaFixa) / precoVenda);
+                    let margemPercent = margem * 100;
+                    
+                    document.getElementById('ml-margem-resultado').innerText = margemPercent.toFixed(2).replace('.', ',') + '%';
+                    
+                    document.getElementById('ml-results-manual').classList.remove('hidden');
+                });
+            }
+            
             document.getElementById("calcular-shein").addEventListener("click", function () {
                 // Obter valores dos campos
                 const custoProduto = parseFloat(document.getElementById("shein-custo").value) || 0;
@@ -1610,98 +1730,73 @@
                     </div>
                 `;
             });
-
-
-            // Calculadora Magalu
-            const calcularMagaluBtn = document.getElementById('calcular-magalu');
-            const magaluResults = document.getElementById('magalu-results');
             
-            if (calcularMagaluBtn) {
-                calcularMagaluBtn.addEventListener('click', function() {
-                    let custo = parseFloat(document.getElementById('magalu-custo').value);
-                    let peso = parseFloat(document.getElementById('magalu-peso').value);
-                    let imposto = parseFloat(document.getElementById('magalu-imposto').value);
-                    let comissao = parseFloat(document.getElementById('magalu-comissao').value);
-                    let margem = parseFloat(document.getElementById('magalu-margem').value);
-                    
-                    if (isNaN(custo) || custo <= 0) {
-                        alert("Por favor, insira um valor de custo válido.");
-                        return;
-                    }
-                    
-                    if (isNaN(peso) || peso <= 0) {
-                        alert("Por favor, insira um valor de peso válido.");
-                        return;
-                    }
-                    
-                    if (isNaN(imposto) || imposto < 0) {
-                        alert("Por favor, insira um valor de imposto válido.");
-                        return;
-                    }
-                    
-                    if (isNaN(margem) || margem < 0) {
-                        alert("Por favor, insira uma margem válida.");
-                        return;
-                    }
-                    
-                    let taxaFixa = peso <= 300 ? 18 : peso <= 500 ? 20 : peso <= 1000 ? 25 : 30;
-                    let embalagem = 1.5;
-                    
-                    let precoVenda = (custo + embalagem + taxaFixa) / (1 - margem / 100 - imposto / 100 - comissao / 100);
-                    
-                    document.getElementById('magalu-resultado').innerText = 'R$ ' + precoVenda.toFixed(2);
-                    
-                    if (magaluResults) {
-                        magaluResults.classList.remove('hidden');
-                    }
+            // Alternância entre as abas Cálculo Dinâmico e Cálculo Manual (Shein)
+            const sheinTabDinamico = document.getElementById('shein-tab-dinamico');
+            const sheinTabManual = document.getElementById('shein-tab-manual');
+            const sheinDinamicoFields = document.getElementById('shein-dinamico-fields');
+            const sheinManualFields = document.getElementById('shein-manual-fields');
+            
+            if (sheinTabDinamico && sheinTabManual) {
+                sheinTabDinamico.addEventListener('click', () => {
+                    sheinTabDinamico.classList.add('bg-gray-900', 'text-white');
+                    sheinTabDinamico.classList.remove('text-gray-600');
+                    sheinTabManual.classList.remove('bg-gray-900', 'text-white');
+                    sheinTabManual.classList.add('text-gray-600');
+                    sheinDinamicoFields.classList.remove('hidden');
+                    sheinManualFields.classList.add('hidden');
+                });
+                
+                sheinTabManual.addEventListener('click', () => {
+                    sheinTabManual.classList.add('bg-gray-900', 'text-white');
+                    sheinTabManual.classList.remove('text-gray-600');
+                    sheinTabDinamico.classList.remove('bg-gray-900', 'text-white');
+                    sheinTabDinamico.classList.add('text-gray-600');
+                    sheinManualFields.classList.remove('hidden');
+                    sheinDinamicoFields.classList.add('hidden');
                 });
             }
             
-            // Calculadora Amazon
-            const calcularAmazonBtn = document.getElementById('calcular-amazon');
-            const amazonResults = document.getElementById('amazon-results');
-            
-            if (calcularAmazonBtn) {
-                calcularAmazonBtn.addEventListener('click', function() {
-                    let custo = parseFloat(document.getElementById('amazon-custo').value);
-                    let peso = parseFloat(document.getElementById('amazon-peso').value);
-                    let imposto = parseFloat(document.getElementById('amazon-imposto').value);
-                    let comissao = parseFloat(document.getElementById('amazon-categoria').value);
-                    let margem = parseFloat(document.getElementById('amazon-margem').value);
-                    
-                    if (isNaN(custo) || custo <= 0) {
-                        alert("Por favor, insira um valor de custo válido.");
-                        return;
-                    }
-                    
-                    if (isNaN(peso) || peso <= 0) {
-                        alert("Por favor, insira um valor de peso válido.");
-                        return;
-                    }
-                    
-                    if (isNaN(imposto) || imposto < 0) {
-                        alert("Por favor, insira um valor de imposto válido.");
-                        return;
-                    }
-                    
-                    if (isNaN(margem) || margem < 0) {
-                        alert("Por favor, insira uma margem válida.");
-                        return;
-                    }
-                    
-                    let taxaFixa = peso <= 300 ? 20 : peso <= 500 ? 25 : peso <= 1000 ? 30 : 35;
-                    let embalagem = 1.5;
-                    
-                    let precoVenda = (custo + embalagem + taxaFixa) / (1 - margem / 100 - imposto / 100 - comissao / 100);
-                    
-                    document.getElementById('amazon-resultado').innerText = 'R$ ' + precoVenda.toFixed(2);
-                    
-                    if (amazonResults) {
-                        amazonResults.classList.remove('hidden');
-                    }
-                });
+            // Função auxiliar: determina o frete Shein com base no peso (gramas)
+            function sheinFretePorPeso(peso) {
+                if (peso <= 300) return 4;
+                else if (peso <= 600) return 5;
+                else if (peso <= 900) return 6;
+                else if (peso <= 1000) return 8;
+                else if (peso <= 1500) return 10;
+                else if (peso <= 2000) return 12;
+                else return 15;
             }
             
+            // Modo Manual (Shein): custo + peso + categoria + imposto + embalagem + preço de venda -> margem
+            const calcularSheinManualBtn = document.getElementById('calcular-shein-manual');
+            if (calcularSheinManualBtn) {
+                calcularSheinManualBtn.addEventListener('click', function() {
+                    const custoProduto = parseFloat(document.getElementById('shein-manual-custo').value) || 0;
+                    const peso = parseFloat(document.getElementById('shein-manual-peso').value) || 0;
+                    const comissaoPercent = parseFloat(document.getElementById('shein-manual-categoria').value) || 16;
+                    const impostoPercent = parseFloat(document.getElementById('shein-manual-imposto').value) || 0;
+                    const embalagem = parseFloat(document.getElementById('shein-manual-embalagem').value) || 0;
+                    const precoVenda = parseFloat(document.getElementById('shein-manual-preco').value) || 0;
+                    
+                    if (precoVenda <= 0) {
+                        alert("Por favor, insira um preço de venda válido.");
+                        return;
+                    }
+                    
+                    const frete = sheinFretePorPeso(peso);
+                    const comissao = comissaoPercent / 100;
+                    const imposto = impostoPercent / 100;
+                    
+                    const margem = 1 - comissao - imposto - ((custoProduto + embalagem + frete) / precoVenda);
+                    const margemPercent = margem * 100;
+                    
+                    document.getElementById('shein-margem-resultado').innerText = margemPercent.toFixed(2).replace('.', ',') + '%';
+                    
+                    document.getElementById('shein-results-manual').classList.remove('hidden');
+                });
+            }
+
             // Calculadora Exposição Paulista
             const calcularExposicaoBtn = document.getElementById('calcular-exposicao');
             const exposicaoResults = document.getElementById('exposicao-results');
@@ -1805,6 +1900,67 @@
                 });
             }
             
+            // Alternância entre as abas Cálculo Dinâmico e Cálculo Manual (TikTok Shop)
+            const tiktokTabDinamico = document.getElementById('tiktok-tab-dinamico');
+            const tiktokTabManual = document.getElementById('tiktok-tab-manual');
+            const tiktokDinamicoFields = document.getElementById('tiktok-dinamico-fields');
+            const tiktokManualFields = document.getElementById('tiktok-manual-fields');
+            
+            if (tiktokTabDinamico && tiktokTabManual) {
+                tiktokTabDinamico.addEventListener('click', () => {
+                    tiktokTabDinamico.classList.add('bg-black', 'text-white');
+                    tiktokTabDinamico.classList.remove('text-gray-600');
+                    tiktokTabManual.classList.remove('bg-black', 'text-white');
+                    tiktokTabManual.classList.add('text-gray-600');
+                    tiktokDinamicoFields.classList.remove('hidden');
+                    tiktokManualFields.classList.add('hidden');
+                });
+                
+                tiktokTabManual.addEventListener('click', () => {
+                    tiktokTabManual.classList.add('bg-black', 'text-white');
+                    tiktokTabManual.classList.remove('text-gray-600');
+                    tiktokTabDinamico.classList.remove('bg-black', 'text-white');
+                    tiktokTabDinamico.classList.add('text-gray-600');
+                    tiktokManualFields.classList.remove('hidden');
+                    tiktokDinamicoFields.classList.add('hidden');
+                });
+            }
+            
+            // Modo Manual (TikTok Shop): custo + imposto + embalagem + preço de venda -> margem
+            const calcularTiktokManualBtn = document.getElementById('calcular-tiktok-manual');
+            if (calcularTiktokManualBtn) {
+                calcularTiktokManualBtn.addEventListener('click', function() {
+                    let custo = parseFloat(document.getElementById('tiktok-manual-custo').value) || 0;
+                    let imposto = parseFloat(document.getElementById('tiktok-manual-imposto').value) || 0;
+                    let embalagem = parseFloat(document.getElementById('tiktok-manual-embalagem').value) || 0;
+                    let precoVenda = parseFloat(document.getElementById('tiktok-manual-preco').value) || 0;
+                    
+                    if (precoVenda <= 0) {
+                        alert("Por favor, insira um preço de venda válido.");
+                        return;
+                    }
+                    
+                    let frete = obterConfig('tiktok', 'frete');
+                    
+                    // A faixa de comissão/taxa é determinada pelo preço de venda informado (já conhecido no modo manual)
+                    let comissao, taxaFixa;
+                    if (precoVenda <= 50) {
+                        comissao = obterConfig('tiktok', 'comissao1');
+                        taxaFixa = obterConfig('tiktok', 'taxa1');
+                    } else {
+                        comissao = obterConfig('tiktok', 'comissao2');
+                        taxaFixa = obterConfig('tiktok', 'taxa2');
+                    }
+                    
+                    let margem = 1 - (comissao / 100) - (imposto / 100) - (frete / 100) - ((custo + embalagem + taxaFixa) / precoVenda);
+                    let margemPercent = margem * 100;
+                    
+                    document.getElementById('tiktok-margem-resultado').innerText = margemPercent.toFixed(2).replace('.', ',') + '%';
+                    
+                    document.getElementById('tiktok-results-manual').classList.remove('hidden');
+                });
+            }
+            
             // Sistema de Configurações
             const salvarConfigBtn = document.getElementById('salvar-config');
             const resetarConfigBtn = document.getElementById('resetar-config');
@@ -1828,20 +1984,6 @@
                     taxa1: 4,
                     taxa2: 5,
                     taxa3: 22
-                },
-                magalu: {
-                    embalagem: 1.5,
-                    taxa1: 18,
-                    taxa2: 20,
-                    taxa3: 25,
-                    taxa4: 30
-                },
-                amazon: {
-                    embalagem: 1.5,
-                    taxa1: 20,
-                    taxa2: 25,
-                    taxa3: 30,
-                    taxa4: 35
                 },
                 viacloset: {
                     prime: 90,
