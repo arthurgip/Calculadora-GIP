@@ -304,14 +304,7 @@
                                 <input type="number" id="ml-embalagem-config" value="1.5" step="0.01" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500">
                             </div>
                         </div>
-                        <div class="mt-3">
-                            <p class="text-sm text-gray-600"><strong>Taxas Fixas por Faixa de Preço:</strong></p>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 text-sm">
-                                <div>R$ 12,50 - R$ 28,99: <input type="number" id="ml-taxa1-config" value="6.25" step="0.01" class="w-16 px-2 py-1 border border-gray-300 rounded text-xs"></div>
-                                <div>R$ 29 - R$ 49,99: <input type="number" id="ml-taxa2-config" value="6.50" step="0.01" class="w-16 px-2 py-1 border border-gray-300 rounded text-xs"></div>
-                                <div>R$ 50 - R$ 78,99: <input type="number" id="ml-taxa3-config" value="6.75" step="0.01" class="w-16 px-2 py-1 border border-gray-300 rounded text-xs"></div>
-                            </div>
-                        </div>
+                        <p class="text-xs text-gray-500 mt-2">O custo do frete grátis agora é calculado automaticamente pela tabela oficial do Mercado Livre (peso × faixa de preço), não é mais configurável aqui.</p>
                     </div>
                     
                     <!-- Configurações Shein -->
@@ -718,9 +711,9 @@
                         </div>
                         
                         <div>
-                            <label for="ml-frete" class="block text-gray-700 font-medium mb-2">Custo do Frete (R$):</label>
-                            <input type="number" id="ml-frete" placeholder="Ex: 15.00" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
-                            <p class="text-xs text-gray-500 mt-1">Para produtos ≥ R$79 (frete grátis para cliente)</p>
+                            <label for="ml-peso" class="block text-gray-700 font-medium mb-2">Peso (kg):</label>
+                            <input type="number" id="ml-peso" placeholder="Ex: 0.3" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
+                            <p class="text-xs text-gray-500 mt-1">O custo do frete grátis é calculado automaticamente pela tabela oficial do Mercado Livre</p>
                         </div>
                         
                         <div>
@@ -766,8 +759,8 @@
                         
                         <div>
                             <label for="ml-manual-frete" class="block text-gray-700 font-medium mb-2">Custo do Frete (R$):</label>
-                            <input type="number" id="ml-manual-frete" placeholder="Ex: 15.00" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
-                            <p class="text-xs text-gray-500 mt-1">Para produtos ≥ R$79 (frete grátis para cliente)</p>
+                            <input type="number" id="ml-manual-frete" placeholder="Ex: 7.95" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors">
+                            <p class="text-xs text-gray-500 mt-1">Valor exato da tabela oficial do Mercado Livre para o peso/faixa do seu produto</p>
                         </div>
                         
                         <div>
@@ -1161,10 +1154,10 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                         <div>
-                            <p class="text-gray-700 text-sm mb-1"><strong>🆕 Regras TikTok Shop (comissão + taxa fixa por faixa de preço):</strong></p>
+                            <p class="text-gray-700 text-sm mb-1"><strong>Regras TikTok Shop (comissão + taxa fixa por faixa de preço):</strong></p>
                             <ul class="text-gray-600 text-sm space-y-0.5 list-disc list-inside">
-                                <li>Até R$ 49,99 → 10% de comissão + R$ 4,00 de taxa fixa</li>
-                                <li>Igual ou acima de R$ 50,00 → 6% de comissão + R$ 6,00 de taxa fixa</li>
+                                <li>Até R$ 50,00 → 10% de comissão + R$ 4,00 de taxa fixa</li>
+                                <li>Acima de R$ 50,00 → 6% de comissão + R$ 6,00 de taxa fixa</li>
                             </ul>
                             <p class="text-gray-600 text-sm mt-1">Frete: 6% (fixo em todas as faixas) | Embalagem: R$ 1,50 (fixo em todas as faixas)</p>
                         </div>
@@ -1530,13 +1523,49 @@
             }
             
             // Calculadora Mercado Livre
+            
+            // Tabela oficial de custo do frete grátis: linhas = faixas de peso, colunas = faixas de preço do anúncio
+            const mlFaixasPreco = [
+                { min: 0, max: 18.99 },
+                { min: 19, max: 48.99 },
+                { min: 49, max: 78.99 },
+                { min: 79, max: 99.99 },
+                { min: 100, max: 119.99 },
+                { min: 120, max: 149.99 },
+                { min: 150, max: 199.99 },
+                { min: 200, max: Infinity }
+            ];
+            
+            const mlTabelaFrete = [
+                [5.65, 6.55, 7.75, 12.35, 14.35, 16.45, 18.45, 20.95], // até 0,3 kg
+                [5.95, 6.65, 7.85, 13.25, 15.45, 17.65, 19.85, 22.55], // de 0,3 a 0,5 kg
+                [6.05, 6.75, 7.95, 13.85, 16.15, 18.45, 20.75, 23.65], // de 0,5 a 1 kg
+                [6.15, 6.85, 8.05, 14.15, 16.45, 18.85, 21.15, 24.65], // de 1 a 1,5 kg
+                [6.25, 6.95, 8.15, 14.45, 16.85, 19.25, 21.65, 24.65], // de 1,5 a 2 kg
+                [6.35, 7.95, 8.55, 15.75, 18.35, 21.05, 23.65, 26.25], // de 2 a 3 kg
+                [6.45, 8.15, 8.95, 17.05, 19.85, 22.65, 25.55, 28.35], // de 3 a 4 kg
+                [6.55, 8.35, 9.75, 18.45, 21.55, 24.65, 27.75, 30.75]  // de 4 a 5 kg
+            ];
+            
+            // Retorna o índice da linha (faixa de peso) da tabela, com base no peso em kg
+            function mlLinhaPeso(pesoKg) {
+                if (pesoKg <= 0.3) return 0;
+                if (pesoKg <= 0.5) return 1;
+                if (pesoKg <= 1) return 2;
+                if (pesoKg <= 1.5) return 3;
+                if (pesoKg <= 2) return 4;
+                if (pesoKg <= 3) return 5;
+                if (pesoKg <= 4) return 6;
+                return 7; // cobre até 5 kg (tabela oficial não cobre acima disso; usamos a última faixa)
+            }
+            
             const calcularMLBtn = document.getElementById('calcular-ml');
             const mlResults = document.getElementById('ml-results');
             
             if (calcularMLBtn) {
                 calcularMLBtn.addEventListener('click', function() {
                 let custo = parseFloat(document.getElementById('ml-custo').value);
-                let frete = parseFloat(document.getElementById('ml-frete').value) || 0;
+                let peso = parseFloat(document.getElementById('ml-peso').value) || 0;
                 let imposto = parseFloat(document.getElementById('ml-imposto').value);
                 let comissao = parseFloat(document.getElementById('ml-anuncio').value);
                 let margem = parseFloat(document.getElementById('ml-margem').value);
@@ -1556,42 +1585,26 @@
                     return;
                 }
                 
-                let embalagem = 1.5; // Custo fixo de embalagem
-                let precoVenda;
+                let embalagem = obterConfig('ml', 'embalagem'); // Custo de embalagem configurável
+                let linhaPeso = mlLinhaPeso(peso);
                 
-                // Cálculo iterativo para determinar se precisa de taxa fixa
-                let precoEstimado = (custo + embalagem + frete) / (1 - imposto / 100 - margem / 100 - comissao / 100);
-                
-                // Determinar taxa fixa baseada no preço estimado
-                let taxaFixa = 0;
-                if (precoEstimado < 79) {
-                    if (precoEstimado < 28.99) {
-                        taxaFixa = 6.25;
-                    } else if (precoEstimado < 49.99) {
-                        taxaFixa = 6.50;
-                    } else {
-                        taxaFixa = 6.75;
+                // Como o custo do frete depende da faixa de preço final (que ainda não conhecemos),
+                // testamos cada faixa de preço e verificamos se o preço calculado realmente cai nela.
+                let precoVenda = 0;
+                for (let i = 0; i < mlFaixasPreco.length; i++) {
+                    let frete = mlTabelaFrete[linhaPeso][i];
+                    let preco = (custo + embalagem + frete) / (1 - imposto / 100 - margem / 100 - comissao / 100);
+                    
+                    if (preco >= mlFaixasPreco[i].min && preco <= mlFaixasPreco[i].max) {
+                        precoVenda = preco;
+                        break;
                     }
                 }
                 
-                // Calcular preço final com taxa fixa
-                precoVenda = (custo + embalagem + frete + taxaFixa) / (1 - imposto / 100 - margem / 100 - comissao / 100);
-                
-                // Verificar novamente se a taxa fixa está correta com o preço final
-                let taxaFixaFinal = 0;
-                if (precoVenda < 79) {
-                    if (precoVenda < 28.99) {
-                        taxaFixaFinal = 6.25;
-                    } else if (precoVenda < 49.99) {
-                        taxaFixaFinal = 6.50;
-                    } else {
-                        taxaFixaFinal = 6.75;
-                    }
-                }
-                
-                // Recalcular se a taxa mudou
-                if (taxaFixaFinal !== taxaFixa) {
-                    precoVenda = (custo + embalagem + frete + taxaFixaFinal) / (1 - imposto / 100 - margem / 100 - comissao / 100);
+                // Caso não tenha se encaixado em nenhuma faixa exatamente, usa a última faixa como aproximação
+                if (precoVenda === 0) {
+                    let frete = mlTabelaFrete[linhaPeso][mlTabelaFrete[linhaPeso].length - 1];
+                    precoVenda = (custo + embalagem + frete) / (1 - imposto / 100 - margem / 100 - comissao / 100);
                 }
                 
                 document.getElementById('ml-resultado').innerText = 'R$ ' + precoVenda.toFixed(2);
@@ -1644,19 +1657,7 @@
                         return;
                     }
                     
-                    // Determina a taxa fixa a partir do preço de venda informado (já conhecido no modo manual)
-                    let taxaFixa = 0;
-                    if (precoVenda < 79) {
-                        if (precoVenda < 28.99) {
-                            taxaFixa = 6.25;
-                        } else if (precoVenda < 49.99) {
-                            taxaFixa = 6.50;
-                        } else {
-                            taxaFixa = 6.75;
-                        }
-                    }
-                    
-                    let margem = 1 - (comissao / 100) - (imposto / 100) - ((custo + embalagem + frete + taxaFixa) / precoVenda);
+                    let margem = 1 - (comissao / 100) - (imposto / 100) - ((custo + embalagem + frete) / precoVenda);
                     let margemPercent = margem * 100;
                     
                     document.getElementById('ml-margem-resultado').innerText = margemPercent.toFixed(2).replace('.', ',') + '%';
@@ -1973,10 +1974,7 @@
                     embalagem: 1.5
                 },
                 ml: {
-                    embalagem: 1.5,
-                    taxa1: 6.25,
-                    taxa2: 6.50,
-                    taxa3: 6.75
+                    embalagem: 1.5
                 },
                 shein: {
                     comissao: 16,
