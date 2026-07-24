@@ -315,8 +315,7 @@
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Categoria:</label>
                                 <select id="shein-categoria-config" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-gray-500">
                                     <option value="20">Vestuário Feminino (20%)</option>
-                                    <option value="18">Outras Categorias (18%)</option> <!-- Adicionando a opção de 18% -->
-                                    <option value="16">Outras Categorias (16%)</option>
+                                    <option value="18">Outras Categorias (18%)</option>
                                 </select>
 
                             </div>
@@ -866,8 +865,7 @@
                     <label for="shein-categoria" class="block text-gray-700 font-medium mb-2">Categoria:</label>
                     <select id="shein-categoria" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
                         <option value="20">Vestuário Feminino (20%)</option>
-                        <option value="18">Outras Categorias (18%) 🆕</option> <!-- Adicionando a opção de 18% -->
-                        <option value="16">Outras Categorias (16%)</option>
+                        <option value="18">Outras Categorias (18%)</option>
                     </select>
                 </div>
 
@@ -912,8 +910,7 @@
                     <label for="shein-manual-categoria" class="block text-gray-700 font-medium mb-2">Categoria:</label>
                     <select id="shein-manual-categoria" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-colors">
                         <option value="20">Vestuário Feminino (20%)</option>
-                        <option value="18">Outras Categorias (18%) 🆕</option>
-                        <option value="16">Outras Categorias (16%)</option>
+                        <option value="18">Outras Categorias (18%)</option>
                     </select>
                 </div>
 
@@ -954,7 +951,7 @@
                 <div>
                     <p class="text-gray-700 text-sm mb-1"><strong>Regras Shein:</strong></p>
                     <ul class="text-gray-600 text-sm space-y-0.5 list-disc list-inside">
-                        <li>Comissão: 20% (Vestuário Feminino) | 18% (Outras, a partir de 01/03/26) | 16% (Outras)</li>
+                        <li>Comissão: 20% (Vestuário Feminino) | 18% (Outras Categorias)</li>
                         <li>Taxa por peso: até 300g → R$ 4,00 | 300 a 600g → R$ 5,00 | 600 a 900g → R$ 6,00</li>
                         <li>900g a 1kg → R$ 8,00 | 1,2 a 1,5kg → R$ 10,00 | 1,5 a 2kg → R$ 12,00 | 2 a 5kg → R$ 15,00</li>
                     </ul>
@@ -1674,7 +1671,7 @@
                 const impostoPercent = parseFloat(document.getElementById("shein-imposto").value) || 0;
 
                 // Obter a comissão selecionada
-                const comissaoPercent = parseFloat(document.getElementById("shein-categoria").value) || 16; // Valor da comissão, com 18% se a opção de 18% for selecionada
+                const comissaoPercent = parseFloat(document.getElementById("shein-categoria").value) || 18; // Valor da comissão, com 18% como padrão
                 const embalagem = parseFloat(document.getElementById("shein-embalagem-config")?.value || 1.5); // Embalagem
 
                 // Determinar o frete conforme peso
@@ -1775,7 +1772,7 @@
                 calcularSheinManualBtn.addEventListener('click', function() {
                     const custoProduto = parseFloat(document.getElementById('shein-manual-custo').value) || 0;
                     const peso = parseFloat(document.getElementById('shein-manual-peso').value) || 0;
-                    const comissaoPercent = parseFloat(document.getElementById('shein-manual-categoria').value) || 16;
+                    const comissaoPercent = parseFloat(document.getElementById('shein-manual-categoria').value) || 18;
                     const impostoPercent = parseFloat(document.getElementById('shein-manual-imposto').value) || 0;
                     const embalagem = parseFloat(document.getElementById('shein-manual-embalagem').value) || 0;
                     const precoVenda = parseFloat(document.getElementById('shein-manual-preco').value) || 0;
