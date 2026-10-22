@@ -562,6 +562,7 @@
                         <div class="result-card bg-gradient-to-br from-orange-100 to-orange-200 p-6 rounded-lg border border-orange-300">
                             <h3 class="text-lg font-medium text-orange-800 mb-2">Preço com a margem informada:</h3>
                             <p id="shopee-resultado" class="text-3xl font-bold text-orange-900">R$ 0,00</p>
+                            <p class="text-orange-800 mt-2">Lucro por venda: <strong id="shopee-lucro">R$ 0,00</strong></p>
                         </div>
                     </div>
                 </div>
@@ -600,6 +601,7 @@
                         <div class="result-card bg-gradient-to-br from-orange-100 to-orange-200 p-6 rounded-lg border border-orange-300">
                             <h3 class="text-lg font-medium text-orange-800 mb-2">Margem de lucro obtida:</h3>
                             <p id="shopee-margem-resultado" class="text-3xl font-bold text-orange-900">0,00%</p>
+                            <p class="text-orange-800 mt-2">Lucro por venda: <strong id="shopee-manual-lucro">R$ 0,00</strong></p>
                         </div>
                     </div>
                 </div>
@@ -1453,6 +1455,10 @@
                 document.getElementById("shopee-resultado").innerText =
                     "R$ " + precoFinal.toFixed(2).replace(".", ",");
 
+                // Lucro em R$: o que sobra do preço depois de custo, comissão, taxa fixa, embalagem e imposto
+                document.getElementById("shopee-lucro").innerText =
+                    "R$ " + (precoFinal * margem).toFixed(2).replace(".", ",");
+
                 document.getElementById("shopee-results").classList.remove("hidden");
             });
             
@@ -1487,6 +1493,9 @@
 
                     document.getElementById("shopee-margem-resultado").innerText =
                         margemPercent.toFixed(2).replace(".", ",") + "%";
+
+                    document.getElementById("shopee-manual-lucro").innerText =
+                        "R$ " + (precoVenda * margem).toFixed(2).replace(".", ",");
 
                     document.getElementById("shopee-results-manual").classList.remove("hidden");
                 });
