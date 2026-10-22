@@ -256,15 +256,15 @@
                     </div>
                 </div>
 
-                <!-- TEMU (em breve: ainda sem calculadora) -->
+                <!-- TEMU -->
                 <div class="card bg-white rounded-xl shadow-lg overflow-hidden">
                     <div class="h-32 temu-theme flex items-center justify-center">
                         <h3 class="text-2xl font-bold text-white">TEMU</h3>
                     </div>
                     <div class="p-5">
-                        <p class="text-gray-600 mb-4">Calculadora de preços para a TEMU em preparação.</p>
-                        <button id="btn-temu" disabled class="w-full py-2 px-4 bg-gray-200 text-gray-500 font-medium rounded-lg cursor-not-allowed">
-                            Em breve
+                        <p class="text-gray-600 mb-4">Calcule o preço base da TEMU: sem comissão e sem frete, você recebe o preço base inteiro.</p>
+                        <button id="btn-temu" class="w-full py-2 px-4 bg-gradient-to-r from-orange-600 to-orange-400 text-white font-medium rounded-lg hover:from-orange-700 hover:to-orange-500 transition-all">
+                            Calcular
                         </button>
                     </div>
                 </div>
@@ -533,6 +533,7 @@
                     </svg>
                 </button>
                 <h1 class="text-3xl font-bold text-gray-800">Calculadora Shopee</h1>
+                <button type="button" class="ajuda-canal ml-3 w-8 h-8 shrink-0 rounded-full border-2 border-gray-300 bg-white text-gray-600 font-bold hover:border-gray-500 hover:text-gray-800 transition-colors" data-canal="shopee" title="Como este canal cobra" aria-label="Como este canal cobra">?</button>
             </div>
             
             <div class="bg-white rounded-xl shadow-lg p-6 max-w-2xl mx-auto">
@@ -653,6 +654,7 @@
                     </svg>
                 </button>
                 <h1 class="text-3xl font-bold text-gray-800">Calculadora Via Closet</h1>
+                <button type="button" class="ajuda-canal ml-3 w-8 h-8 shrink-0 rounded-full border-2 border-gray-300 bg-white text-gray-600 font-bold hover:border-gray-500 hover:text-gray-800 transition-colors" data-canal="viacloset" title="Como este canal cobra" aria-label="Como este canal cobra">?</button>
             </div>
             
             <div class="bg-white rounded-xl shadow-lg p-6 max-w-2xl mx-auto">
@@ -704,6 +706,7 @@
                     </svg>
                 </button>
                 <h1 class="text-3xl font-bold text-gray-800">Calculadora Mercado Livre</h1>
+                <button type="button" class="ajuda-canal ml-3 w-8 h-8 shrink-0 rounded-full border-2 border-gray-300 bg-white text-gray-600 font-bold hover:border-gray-500 hover:text-gray-800 transition-colors" data-canal="ml" title="Como este canal cobra" aria-label="Como este canal cobra">?</button>
             </div>
             
             <div class="bg-white rounded-xl shadow-lg p-6 max-w-2xl mx-auto">
@@ -853,6 +856,7 @@
             </svg>
         </button>
         <h1 class="text-3xl font-bold text-gray-800">Calculadora Shein</h1>
+                <button type="button" class="ajuda-canal ml-3 w-8 h-8 shrink-0 rounded-full border-2 border-gray-300 bg-white text-gray-600 font-bold hover:border-gray-500 hover:text-gray-800 transition-colors" data-canal="shein" title="Como este canal cobra" aria-label="Como este canal cobra">?</button>
     </div>
 
     <div class="bg-white rounded-xl shadow-lg p-6 max-w-2xl mx-auto">
@@ -996,6 +1000,7 @@
                     </svg>
                 </button>
                 <h1 class="text-3xl font-bold text-gray-800">Calculadora Exposição Paulista</h1>
+                <button type="button" class="ajuda-canal ml-3 w-8 h-8 shrink-0 rounded-full border-2 border-gray-300 bg-white text-gray-600 font-bold hover:border-gray-500 hover:text-gray-800 transition-colors" data-canal="exposicao" title="Como este canal cobra" aria-label="Como este canal cobra">?</button>
             </div>
             
             <div class="bg-white rounded-xl shadow-lg p-6 max-w-2xl mx-auto">
@@ -1047,6 +1052,7 @@
                     </svg>
                 </button>
                 <h1 class="text-3xl font-bold text-gray-800">Calculadora GIP Ecommerce</h1>
+                <button type="button" class="ajuda-canal ml-3 w-8 h-8 shrink-0 rounded-full border-2 border-gray-300 bg-white text-gray-600 font-bold hover:border-gray-500 hover:text-gray-800 transition-colors" data-canal="gip" title="Como este canal cobra" aria-label="Como este canal cobra">?</button>
             </div>
             
             <div class="bg-white rounded-xl shadow-lg p-6 max-w-2xl mx-auto">
@@ -1084,6 +1090,7 @@
                     </svg>
                 </button>
                 <h1 class="text-3xl font-bold text-gray-800">Calculadora TikTok Shop</h1>
+                <button type="button" class="ajuda-canal ml-3 w-8 h-8 shrink-0 rounded-full border-2 border-gray-300 bg-white text-gray-600 font-bold hover:border-gray-500 hover:text-gray-800 transition-colors" data-canal="tiktok" title="Como este canal cobra" aria-label="Como este canal cobra">?</button>
             </div>
             
             <div class="bg-white rounded-xl shadow-lg p-6 max-w-2xl mx-auto">
@@ -1193,6 +1200,137 @@
                 </div>
             </div>
         </div>
+
+        <!-- Calculadora TEMU -->
+        <div id="temu-calculator" class="hidden animate-fade-in">
+            <div class="flex items-center mb-8">
+                <button id="back-to-marketplace-from-temu" class="mr-4 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg p-2 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                </button>
+                <h1 class="text-3xl font-bold text-gray-800">Calculadora TEMU</h1>
+                <button type="button" class="ajuda-canal ml-3 w-8 h-8 shrink-0 rounded-full border-2 border-gray-300 bg-white text-gray-600 font-bold hover:border-gray-500 hover:text-gray-800 transition-colors" data-canal="temu" title="Como este canal cobra" aria-label="Como este canal cobra">?</button>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-6 max-w-2xl mx-auto">
+                <div class="flex justify-center mb-6">
+                    <div class="h-16 w-16 rounded-full temu-theme flex items-center justify-center">
+                        <span class="text-xl font-bold text-white">TEMU</span>
+                    </div>
+                </div>
+
+                <!-- Abas: Cálculo Dinâmico / Cálculo Manual -->
+                <div class="flex mb-6 bg-gray-100 rounded-lg p-1">
+                    <button id="temu-tab-dinamico" class="flex-1 py-2 px-4 rounded-md font-medium transition-all bg-orange-600 text-white">
+                        Cálculo Dinâmico
+                    </button>
+                    <button id="temu-tab-manual" class="flex-1 py-2 px-4 rounded-md font-medium transition-all text-gray-600">
+                        Cálculo Manual
+                    </button>
+                </div>
+
+                <!-- Modo Dinâmico: informa custo, imposto, embalagem e margem -> retorna o preço base -->
+                <div id="temu-dinamico-fields">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <label for="temu-custo" class="block text-gray-700 font-medium mb-2">Custo do Produto (R$):</label>
+                            <input type="number" id="temu-custo" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors">
+                        </div>
+                        <div>
+                            <label for="temu-imposto" class="block text-gray-700 font-medium mb-2">Imposto (%):</label>
+                            <input type="number" id="temu-imposto" placeholder="Ex: 10" value="10" step="0.1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors">
+                        </div>
+                        <div>
+                            <label for="temu-embalagem" class="block text-gray-700 font-medium mb-2">Embalagem (R$):</label>
+                            <input type="number" id="temu-embalagem" placeholder="Ex: 1.50" value="1.50" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors">
+                        </div>
+                        <div>
+                            <label for="temu-margem" class="block text-gray-700 font-medium mb-2">Margem de Lucro (%):</label>
+                            <input type="number" id="temu-margem" placeholder="Ex: 10" value="10" step="1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors">
+                        </div>
+                    </div>
+
+                    <button id="calcular-temu" class="w-full py-3 px-6 bg-gradient-to-r from-orange-600 to-orange-400 text-white font-medium rounded-lg hover:from-orange-700 hover:to-orange-500 transition-all mb-6">
+                        Calcular Preço Base
+                    </button>
+
+                    <div id="temu-results" class="hidden">
+                        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultado</h2>
+
+                        <div class="result-card bg-gradient-to-br from-orange-100 to-orange-200 p-6 rounded-lg border border-orange-300">
+                            <h3 class="text-lg font-medium text-orange-800 mb-2">Preço base para cadastrar na TEMU:</h3>
+                            <p id="temu-resultado" class="text-3xl font-bold text-orange-900">R$ 0,00</p>
+                            <p class="text-orange-800 mt-2">Lucro por venda: <strong id="temu-lucro">R$ 0,00</strong></p>
+                            <p class="text-orange-800 mt-1 text-sm">Preço estimado ao cliente: <strong id="temu-varejo">R$ 0,00</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modo Manual: informa custo, imposto, embalagem e preço base -> retorna a margem -->
+                <div id="temu-manual-fields" class="hidden">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <label for="temu-manual-custo" class="block text-gray-700 font-medium mb-2">Custo do Produto (R$):</label>
+                            <input type="number" id="temu-manual-custo" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors">
+                        </div>
+                        <div>
+                            <label for="temu-manual-imposto" class="block text-gray-700 font-medium mb-2">Imposto (%):</label>
+                            <input type="number" id="temu-manual-imposto" placeholder="Ex: 10" value="10" step="0.1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors">
+                        </div>
+                        <div>
+                            <label for="temu-manual-embalagem" class="block text-gray-700 font-medium mb-2">Embalagem (R$):</label>
+                            <input type="number" id="temu-manual-embalagem" placeholder="Ex: 1.50" value="1.50" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors">
+                        </div>
+                        <div>
+                            <label for="temu-manual-preco" class="block text-gray-700 font-medium mb-2">Preço Base (R$):</label>
+                            <input type="number" id="temu-manual-preco" placeholder="Ex: 100" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors">
+                        </div>
+                    </div>
+
+                    <button id="calcular-temu-manual" class="w-full py-3 px-6 bg-gradient-to-r from-orange-600 to-orange-400 text-white font-medium rounded-lg hover:from-orange-700 hover:to-orange-500 transition-all mb-6">
+                        Calcular Margem
+                    </button>
+
+                    <div id="temu-results-manual" class="hidden">
+                        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultado</h2>
+
+                        <div class="result-card bg-gradient-to-br from-orange-100 to-orange-200 p-6 rounded-lg border border-orange-300">
+                            <h3 class="text-lg font-medium text-orange-800 mb-2">Margem de lucro obtida:</h3>
+                            <p id="temu-margem-resultado" class="text-3xl font-bold text-orange-900">0,00%</p>
+                            <p class="text-orange-800 mt-2">Lucro por venda: <strong id="temu-manual-lucro">R$ 0,00</strong></p>
+                            <p class="text-orange-800 mt-1 text-sm">Preço estimado ao cliente: <strong id="temu-manual-varejo">R$ 0,00</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-orange-50 border border-orange-200 rounded-lg p-4 mt-6">
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 text-orange-600 mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <div>
+                            <p class="text-orange-700 text-sm mb-1"><strong>Regras TEMU (preço base):</strong></p>
+                            <ul class="text-orange-600 text-sm space-y-0.5 list-disc list-inside">
+                                <li>Sem comissão, sem taxa fixa e sem frete: você recebe o preço base inteiro</li>
+                                <li>A TEMU soma a taxa de serviço dela por cima e define o preço que o cliente paga</li>
+                                <li>Preço ao cliente estimado em 1,38× a 1,45× o preço base (pedidos reais de out/2026)</li>
+                            </ul>
+                            <p class="text-orange-600 text-sm mt-1">Não embuta comissão nem frete no preço base: o anúncio fica caro e perde tráfego.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Janela "?": como cada canal cobra -->
+    <div id="ajuda-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50" role="dialog" aria-modal="true" aria-labelledby="ajuda-titulo">
+        <div class="bg-white rounded-xl shadow-xl max-w-lg w-full max-h-[85vh] overflow-y-auto p-6 relative">
+            <button type="button" id="ajuda-fechar" class="absolute top-3 right-3 w-8 h-8 rounded-full text-gray-500 hover:bg-gray-100 hover:text-gray-800 text-xl leading-none" aria-label="Fechar">&times;</button>
+            <h2 id="ajuda-titulo" class="text-2xl font-bold text-gray-800 mb-4 pr-8"></h2>
+            <div id="ajuda-conteudo" class="text-gray-700 text-sm space-y-3"></div>
+        </div>
     </div>
 
     <!-- Footer -->
@@ -1223,6 +1361,7 @@
             const mercadolivreCalculator = document.getElementById('mercadolivre-calculator');
             const sheinCalculator = document.getElementById('shein-calculator');
             const tiktokCalculator = document.getElementById('tiktok-calculator');
+            const temuCalculator = document.getElementById('temu-calculator');
             const exposicaoCalculator = document.getElementById('exposicao-calculator');
             const gipCalculator = document.getElementById('gip-calculator');
             
@@ -1251,6 +1390,7 @@
             const backToMarketplaceFromML = document.getElementById('back-to-marketplace-from-ml');
             const backToMarketplaceFromShein = document.getElementById('back-to-marketplace-from-shein');
             const backToMarketplaceFromTiktok = document.getElementById('back-to-marketplace-from-tiktok');
+            const backToMarketplaceFromTemu = document.getElementById('back-to-marketplace-from-temu');
             const backToLojasFromExposicao = document.getElementById('back-to-lojas-from-exposicao');
             const backToLojasFromGip = document.getElementById('back-to-lojas-from-gip');
             
@@ -1260,6 +1400,7 @@
             const btnMercadolivre = document.getElementById('btn-mercadolivre');
             const btnShein = document.getElementById('btn-shein');
             const btnTiktok = document.getElementById('btn-tiktok');
+            const btnTemu = document.getElementById('btn-temu');
             const btnExposicao = document.getElementById('btn-exposicao');
             const btnGip = document.getElementById('btn-gip');
             
@@ -1278,6 +1419,7 @@
                 mercadolivreCalculator.classList.add('hidden');
                 sheinCalculator.classList.add('hidden');
                 tiktokCalculator.classList.add('hidden');
+                temuCalculator.classList.add('hidden');
                 exposicaoCalculator.classList.add('hidden');
                 gipCalculator.classList.add('hidden');
                 
@@ -1379,6 +1521,9 @@
             if (backToMarketplaceFromTiktok) {
                 backToMarketplaceFromTiktok.addEventListener('click', () => showPage(marketplacePage));
             }
+            if (backToMarketplaceFromTemu) {
+                backToMarketplaceFromTemu.addEventListener('click', () => showPage(marketplacePage));
+            }
             if (backToLojasFromExposicao) {
                 backToLojasFromExposicao.addEventListener('click', () => showPage(lojasPage));
             }
@@ -1401,6 +1546,9 @@
             }
             if (btnTiktok) {
                 btnTiktok.addEventListener('click', () => showPage(tiktokCalculator));
+            }
+            if (btnTemu) {
+                btnTemu.addEventListener('click', () => showPage(temuCalculator));
             }
             if (btnExposicao) {
                 btnExposicao.addEventListener('click', () => showPage(exposicaoCalculator));
@@ -2012,6 +2160,187 @@
                 });
             }
             
+            // Calculadora TEMU
+            // Sem comissão, taxa fixa ou frete: o vendedor recebe o preço base inteiro.
+            // A TEMU soma a taxa de serviço por cima; nos pedidos de out/2026 o cliente pagou 1,38x a 1,45x o preço base.
+            const temuVarejoMin = 1.38;
+            const temuVarejoMax = 1.45;
+            const formatarReais = valor => 'R$ ' + valor.toFixed(2).replace('.', ',');
+            const temuVarejoTexto = precoBase => 'entre ' + formatarReais(precoBase * temuVarejoMin) + ' e ' + formatarReais(precoBase * temuVarejoMax);
+
+            const temuTabDinamico = document.getElementById('temu-tab-dinamico');
+            const temuTabManual = document.getElementById('temu-tab-manual');
+            const temuDinamicoFields = document.getElementById('temu-dinamico-fields');
+            const temuManualFields = document.getElementById('temu-manual-fields');
+
+            if (temuTabDinamico && temuTabManual) {
+                temuTabDinamico.addEventListener('click', () => {
+                    temuTabDinamico.classList.add('bg-orange-600', 'text-white');
+                    temuTabDinamico.classList.remove('text-gray-600');
+                    temuTabManual.classList.remove('bg-orange-600', 'text-white');
+                    temuTabManual.classList.add('text-gray-600');
+                    temuDinamicoFields.classList.remove('hidden');
+                    temuManualFields.classList.add('hidden');
+                });
+
+                temuTabManual.addEventListener('click', () => {
+                    temuTabManual.classList.add('bg-orange-600', 'text-white');
+                    temuTabManual.classList.remove('text-gray-600');
+                    temuTabDinamico.classList.remove('bg-orange-600', 'text-white');
+                    temuTabDinamico.classList.add('text-gray-600');
+                    temuManualFields.classList.remove('hidden');
+                    temuDinamicoFields.classList.add('hidden');
+                });
+            }
+
+            // Modo Dinâmico: preço base = (custo + embalagem) / (1 - imposto - margem)
+            const calcularTemuBtn = document.getElementById('calcular-temu');
+            if (calcularTemuBtn) {
+                calcularTemuBtn.addEventListener('click', function() {
+                    let custo = parseFloat(document.getElementById('temu-custo').value);
+                    let imposto = parseFloat(document.getElementById('temu-imposto').value) || 0;
+                    let embalagem = parseFloat(document.getElementById('temu-embalagem').value) || 0;
+                    let margem = parseFloat(document.getElementById('temu-margem').value) || 0;
+
+                    if (isNaN(custo) || custo <= 0) {
+                        alert("Por favor, insira um valor de custo válido.");
+                        return;
+                    }
+
+                    let divisor = 1 - imposto / 100 - margem / 100;
+                    if (divisor <= 0) {
+                        alert("Imposto + margem precisam somar menos de 100%.");
+                        return;
+                    }
+
+                    let precoBase = (custo + embalagem) / divisor;
+
+                    document.getElementById('temu-resultado').innerText = formatarReais(precoBase);
+                    document.getElementById('temu-lucro').innerText = formatarReais(precoBase * margem / 100);
+                    document.getElementById('temu-varejo').innerText = temuVarejoTexto(precoBase);
+                    document.getElementById('temu-results').classList.remove('hidden');
+                });
+            }
+
+            // Modo Manual: margem = 1 - imposto - (custo + embalagem) / preço base
+            const calcularTemuManualBtn = document.getElementById('calcular-temu-manual');
+            if (calcularTemuManualBtn) {
+                calcularTemuManualBtn.addEventListener('click', function() {
+                    let custo = parseFloat(document.getElementById('temu-manual-custo').value) || 0;
+                    let imposto = parseFloat(document.getElementById('temu-manual-imposto').value) || 0;
+                    let embalagem = parseFloat(document.getElementById('temu-manual-embalagem').value) || 0;
+                    let precoBase = parseFloat(document.getElementById('temu-manual-preco').value) || 0;
+
+                    if (precoBase <= 0) {
+                        alert("Por favor, insira um preço base válido.");
+                        return;
+                    }
+
+                    let margem = 1 - imposto / 100 - ((custo + embalagem) / precoBase);
+
+                    document.getElementById('temu-margem-resultado').innerText = (margem * 100).toFixed(2).replace('.', ',') + '%';
+                    document.getElementById('temu-manual-lucro').innerText = formatarReais(precoBase * margem);
+                    document.getElementById('temu-manual-varejo').innerText = temuVarejoTexto(precoBase);
+                    document.getElementById('temu-results-manual').classList.remove('hidden');
+                });
+            }
+
+            // Janela "?": explica como cada canal cobra
+            const ajudaCanais = {
+                shopee: {
+                    titulo: 'Como a Shopee cobra',
+                    html: `<p><strong>Você define o preço que o cliente paga.</strong> A Shopee desconta do seu repasse a comissão e uma taxa fixa, que mudam conforme a faixa de preço:</p>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Até R$ 79,99: 20% + R$ 4,50</li>
+                            <li>R$ 80 a R$ 99,99: 14% + R$ 16,00</li>
+                            <li>R$ 100 a R$ 199,99: 14% + R$ 20,00</li>
+                            <li>A partir de R$ 200: 14% + R$ 26,00</li>
+                        </ul>
+                        <p>Do que sobra, você ainda paga o custo do produto, a embalagem e o imposto.</p>
+                        <p class="bg-gray-50 rounded-lg p-3"><strong>Exemplo</strong> (custo R$ 20, imposto 10%, margem 10%): cliente paga R$ 43,33 → comissão R$ 8,67, taxa fixa R$ 4,50, embalagem R$ 1,50, imposto R$ 4,33 → <strong>lucro R$ 4,33</strong>.</p>`
+                },
+                ml: {
+                    titulo: 'Como o Mercado Livre cobra',
+                    html: `<p><strong>Você define o preço que o cliente paga.</strong> O Mercado Livre desconta do seu repasse:</p>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li><strong>Comissão do anúncio:</strong> Clássico 14% ou Premium 19%</li>
+                            <li><strong>Custo do frete grátis:</strong> valor da tabela oficial, que depende do peso do produto e da faixa de preço (a tabela foi atualizada em out/2026 e vai até 6 kg)</li>
+                        </ul>
+                        <p>Do que sobra, você ainda paga o custo do produto, a embalagem e o imposto.</p>
+                        <p class="bg-gray-50 rounded-lg p-3"><strong>Exemplo</strong> (custo R$ 20, 0,3 kg, Clássico, imposto 10%, margem 10%): cliente paga R$ 42,95 → comissão R$ 6,01, frete R$ 6,85, embalagem R$ 1,50, imposto R$ 4,30 → <strong>lucro R$ 4,30</strong>.</p>`
+                },
+                shein: {
+                    titulo: 'Como a Shein cobra',
+                    html: `<p><strong>Você define o preço que o cliente paga.</strong> A Shein desconta do seu repasse:</p>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li><strong>Comissão por categoria:</strong> 20% em Vestuário Feminino, 18% nas outras</li>
+                            <li><strong>Taxa por peso:</strong> de R$ 4,00 (até 300 g) a R$ 15,00 (2 a 5 kg)</li>
+                        </ul>
+                        <p>Do que sobra, você ainda paga o custo do produto, a embalagem e o imposto.</p>
+                        <p class="bg-gray-50 rounded-lg p-3"><strong>Exemplo</strong> (custo R$ 20, 200 g, Vestuário Feminino, imposto 10%, margem 10%): cliente paga R$ 42,50 → comissão R$ 8,50, taxa de peso R$ 4,00, embalagem R$ 1,50, imposto R$ 4,25 → <strong>lucro R$ 4,25</strong>.</p>`
+                },
+                tiktok: {
+                    titulo: 'Como o TikTok Shop cobra',
+                    html: `<p><strong>Você define o preço que o cliente paga.</strong> O TikTok Shop desconta do seu repasse:</p>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li><strong>Até R$ 50:</strong> 10% de comissão + R$ 4,00 de taxa fixa</li>
+                            <li><strong>Acima de R$ 50:</strong> 6% de comissão + R$ 6,00 de taxa fixa</li>
+                            <li><strong>Frete:</strong> 6% do preço, em qualquer faixa</li>
+                        </ul>
+                        <p>Do que sobra, você ainda paga o custo do produto, a embalagem e o imposto. Esses valores podem ser ajustados em Configurações.</p>
+                        <p class="bg-gray-50 rounded-lg p-3"><strong>Exemplo</strong> (custo R$ 20, imposto 10%, margem 10%): cliente paga R$ 39,84 → comissão R$ 3,98, taxa fixa R$ 4,00, frete R$ 2,39, embalagem R$ 1,50, imposto R$ 3,98 → <strong>lucro R$ 3,98</strong>.</p>`
+                },
+                temu: {
+                    titulo: 'Como a TEMU cobra',
+                    html: `<p><strong>A TEMU funciona ao contrário dos outros canais.</strong> Você define o <strong>preço base</strong>, que é o quanto quer receber, e recebe esse valor inteiro: não há comissão, taxa fixa nem frete descontados.</p>
+                        <p>A TEMU soma a taxa de serviço dela <strong>por cima</strong> do preço base e define sozinha o preço que o cliente paga. Nos pedidos reais de out/2026, o cliente pagou de 1,38× a 1,45× o preço base.</p>
+                        <p>Do preço base, você só paga o custo do produto, a embalagem e o imposto. O frete do Envio inteligente é por conta da TEMU.</p>
+                        <p class="bg-gray-50 rounded-lg p-3"><strong>Exemplo real</strong> (Kit 5 Cuecas, 21/10/2026): preço base R$ 47,66 → TEMU soma R$ 18,77 → cliente paga R$ 66,43. Na sua conta caem os R$ 47,66.</p>
+                        <p>Não embuta comissão nem frete no preço base: o anúncio fica caro e perde tráfego. A tela "Integridade de preços" da TEMU às vezes sugere baixar o preço base em troca de mais visitas.</p>`
+                },
+                viacloset: {
+                    titulo: 'Como funciona a Via Closet',
+                    html: `<p>Na loja física não há taxa de marketplace. O preço é o <strong>custo multiplicado por um markup</strong>:</p>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li><strong>Prime:</strong> custo + 90% (× 1,9)</li>
+                            <li><strong>À vista:</strong> custo + 100% (× 2,0)</li>
+                            <li><strong>A prazo:</strong> custo + 120% (× 2,2)</li>
+                        </ul>
+                        <p>O "lucro" mostrado é preço − custo, antes de imposto, aluguel, funcionários e outras despesas da loja.</p>`
+                },
+                exposicao: {
+                    titulo: 'Como funciona a Exposição Paulista',
+                    html: `<p>Na loja física não há taxa de marketplace. O preço é o <strong>custo multiplicado por um markup</strong>:</p>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li><strong>Atacado:</strong> custo + 80% (× 1,8)</li>
+                            <li><strong>À vista:</strong> custo + 100% (× 2,0)</li>
+                            <li><strong>A prazo:</strong> custo + 120% (× 2,2)</li>
+                        </ul>
+                        <p>O "lucro" mostrado é preço − custo, antes de imposto, aluguel, funcionários e outras despesas da loja.</p>`
+                },
+                gip: {
+                    titulo: 'Como funciona a GIP Ecommerce',
+                    html: `<p>O preço é o <strong>custo + 80%</strong> (custo × 1,8). É a regra usada no cadastro de produtos, depois arredondada para o ,90 mais próximo.</p>
+                        <p>O "lucro" mostrado é preço − custo, antes de imposto e taxas do canal onde o produto for vendido. Para o preço de um marketplace específico, use a calculadora desse canal.</p>`
+                }
+            };
+
+            const ajudaModal = document.getElementById('ajuda-modal');
+            const fecharAjuda = () => ajudaModal.classList.add('hidden');
+
+            document.querySelectorAll('.ajuda-canal').forEach(botao => {
+                botao.addEventListener('click', () => {
+                    const ajuda = ajudaCanais[botao.dataset.canal];
+                    if (!ajuda) return;
+                    document.getElementById('ajuda-titulo').innerText = ajuda.titulo;
+                    document.getElementById('ajuda-conteudo').innerHTML = ajuda.html;
+                    ajudaModal.classList.remove('hidden');
+                });
+            });
+            document.getElementById('ajuda-fechar').addEventListener('click', fecharAjuda);
+            ajudaModal.addEventListener('click', e => { if (e.target === ajudaModal) fecharAjuda(); });
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') fecharAjuda(); });
+
             // Sistema de Configurações
             const salvarConfigBtn = document.getElementById('salvar-config');
             const resetarConfigBtn = document.getElementById('resetar-config');
