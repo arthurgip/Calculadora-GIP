@@ -98,6 +98,10 @@
         .tiktok-theme {
             background: linear-gradient(135deg, #000000 0%, #ff0050 100%);
         }
+
+        .temu-theme {
+            background: linear-gradient(135deg, #fb7701 0%, #ffa94d 100%);
+        }
         
         /* Animações */
         @keyframes fadeIn {
@@ -248,6 +252,19 @@
                         <p class="text-gray-600 mb-4">Calcule os preços para o TikTok Shop com comissão de 6% e uma taxa fixa de R$ 4 para todos os pedidos.</p>
                         <button id="btn-tiktok" class="w-full py-2 px-4 bg-gradient-to-r from-black to-gray-800 text-white font-medium rounded-lg hover:from-gray-900 hover:to-black transition-all">
                             Calcular
+                        </button>
+                    </div>
+                </div>
+
+                <!-- TEMU (em breve: ainda sem calculadora) -->
+                <div class="card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-32 temu-theme flex items-center justify-center">
+                        <h3 class="text-2xl font-bold text-white">TEMU</h3>
+                    </div>
+                    <div class="p-5">
+                        <p class="text-gray-600 mb-4">Calculadora de preços para a TEMU em preparação.</p>
+                        <button id="btn-temu" disabled class="w-full py-2 px-4 bg-gray-200 text-gray-500 font-medium rounded-lg cursor-not-allowed">
+                            Em breve
                         </button>
                     </div>
                 </div>
